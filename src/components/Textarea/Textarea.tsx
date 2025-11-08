@@ -31,7 +31,7 @@ const textareaVariants = cva(
 );
 
 export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'>,
     VariantProps<typeof textareaVariants> {
   error?: string;
   helperText?: string;
@@ -63,7 +63,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             })
           )}
           ref={ref}
-          aria-invalid={hasError}
+          aria-invalid={hasError ? 'true' : 'false'}
           aria-describedby={
             error
               ? `${textareaId}-error`

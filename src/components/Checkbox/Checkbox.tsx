@@ -3,7 +3,7 @@ import { cn } from '../../utils/cn';
 import { Check } from 'lucide-react';
 
 export interface CheckboxProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'aria-invalid'> {
   label?: string;
   helperText?: string;
   error?: string;
@@ -33,7 +33,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 error && 'border-[#EF4444]',
                 className
               )}
-              aria-invalid={!!error}
+              aria-invalid={error ? 'true' : 'false'}
               aria-describedby={
                 error ? `${checkboxId}-error` : helperText ? `${checkboxId}-helper` : undefined
               }

@@ -3,29 +3,29 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 
 const cardVariants = cva(
-  'rounded-[0.5rem] transition-all duration-250',
+  'rounded-xl transition-all duration-300 overflow-hidden',
   {
     variants: {
       variant: {
         default: [
           'bg-white',
-          'border border-[#E5E7EB]',
-          'shadow-[0_1px_3px_0_rgb(0_0_0_/_0.1),_0_1px_2px_-1px_rgb(0_0_0_/_0.1)]',
+          'border border-gray-200',
+          'shadow-sm',
         ].join(' '),
         elevated: [
           'bg-white',
-          'shadow-[0_4px_6px_-1px_rgb(0_0_0_/_0.1),_0_2px_4px_-2px_rgb(0_0_0_/_0.1)]',
+          'shadow-md',
         ].join(' '),
         outline: [
           'bg-white',
-          'border-2 border-[#E5E7EB]',
+          'border-2 border-gray-200',
         ].join(' '),
         ghost: [
-          'bg-[#F9FAFB]',
+          'bg-gray-50',
         ].join(' '),
         sustainability: [
-          'bg-gradient-to-br from-[#0070E0]/5 to-[#4CAF50]/5',
-          'border border-[#4CAF50]/20',
+          'bg-gradient-to-br from-primary-500/5 to-secondary-500/5',
+          'border border-secondary-500/20',
         ].join(' '),
       },
       padding: {
@@ -35,7 +35,7 @@ const cardVariants = cva(
         lg: 'p-8',
       },
       hoverable: {
-        true: 'hover:shadow-[0_10px_15px_-3px_rgb(0_0_0_/_0.1),_0_4px_6px_-4px_rgb(0_0_0_/_0.1)] cursor-pointer',
+        true: 'hover:shadow-lg hover:scale-[1.02] cursor-pointer',
       },
     },
     defaultVariants: {
@@ -83,7 +83,7 @@ export const CardTitle = forwardRef<
   <h3
     ref={ref}
     className={cn(
-      'text-[1.5rem] font-semibold leading-none tracking-tight text-[#111827]',
+      'text-2xl font-semibold leading-tight tracking-tight text-gray-900',
       className
     )}
     {...props}
@@ -98,7 +98,7 @@ export const CardDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn('text-sm text-[#6B7280]', className)}
+    className={cn('text-sm text-gray-600 leading-relaxed', className)}
     {...props}
   />
 ));

@@ -9,19 +9,20 @@
  */
 
 export const colors = {
-  // Primary - Healthcare Trust Blue
-  // Conveys professionalism, reliability, and clinical trust
+  // Primary - Healthcare Teal
+  // Conveys trust, healing, and environmental stewardship
+  // Brand color from lighthousehlth.com
   primary: {
-    50: '#E6F2FF',
-    100: '#CCE5FF',
-    200: '#99CBFF',
-    300: '#66B0FF',
-    400: '#3396FF',
-    500: '#0070E0',  // Main primary
-    600: '#005DB8',
-    700: '#004A90',
-    800: '#003768',
-    900: '#002440',
+    50: '#E6F7F7',
+    100: '#CCEFEF',
+    200: '#99DFDF',
+    300: '#66CFCF',
+    400: '#33BFBF',
+    500: '#1A8B8B',  // Main primary - Brand teal
+    600: '#167777',
+    700: '#126363',
+    800: '#0E4F4F',
+    900: '#0A3B3B',
   },
 
   // Secondary - Sustainable Growth Green
@@ -39,19 +40,20 @@ export const colors = {
     900: '#1B5E20',
   },
 
-  // Accent - Energy & Innovation
+  // Accent - Coral/Orange for warmth and CTAs
   // Adds warmth and highlights important actions/data
+  // Seen in action plan UI elements
   accent: {
-    50: '#FFF3E0',
-    100: '#FFE0B2',
-    200: '#FFCC80',
-    300: '#FFB74D',
-    400: '#FFA726',
-    500: '#FF9800',  // Main accent
-    600: '#FB8C00',
-    700: '#F57C00',
-    800: '#EF6C00',
-    900: '#E65100',
+    50: '#FFF4ED',
+    100: '#FFE8DB',
+    200: '#FFD1B7',
+    300: '#FFBA93',
+    400: '#FFA36F',
+    500: '#FF8B4B',  // Main accent - warmer coral-orange
+    600: '#F77A3A',
+    700: '#E96929',
+    800: '#D15518',
+    900: '#B94107',
   },
 
   // Neutrals - Foundation
@@ -114,9 +116,9 @@ export const colors = {
       poor: '#DC2626',       // Red
     },
     chart: [
-      '#0070E0',  // Primary blue
+      '#1A8B8B',  // Primary teal
       '#4CAF50',  // Secondary green
-      '#FF9800',  // Accent orange
+      '#FF8B4B',  // Accent coral-orange
       '#3B82F6',  // Info blue
       '#10B981',  // Success green
       '#F59E0B',  // Warning amber
@@ -127,10 +129,10 @@ export const colors = {
 
   // Background gradients
   gradients: {
-    primary: 'linear-gradient(135deg, #0070E0 0%, #005DB8 100%)',
+    primary: 'linear-gradient(135deg, #1A8B8B 0%, #126363 100%)',
     secondary: 'linear-gradient(135deg, #4CAF50 0%, #388E3C 100%)',
-    accent: 'linear-gradient(135deg, #FF9800 0%, #F57C00 100%)',
-    sustainability: 'linear-gradient(135deg, #0070E0 0%, #4CAF50 100%)',
+    accent: 'linear-gradient(135deg, #FF8B4B 0%, #E96929 100%)',
+    sustainability: 'linear-gradient(135deg, #1A8B8B 0%, #4CAF50 100%)',
     subtle: 'linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%)',
   },
 } as const;

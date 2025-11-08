@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import '../src/styles.css';
 
 const preview: Preview = {
   parameters: {
@@ -6,7 +7,7 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/,
+        date: /Date$/i,
       },
     },
     backgrounds: {
@@ -25,6 +26,9 @@ const preview: Preview = {
           value: '#111827',
         },
       ],
+    },
+    docs: {
+      toc: true,
     },
   },
 };

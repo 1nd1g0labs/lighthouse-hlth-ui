@@ -1,500 +1,190 @@
-# 🏥 Lighthouse Health Design System
+# Lighthouse Health UI
 
-A comprehensive branded design language system and UI component library for healthcare sustainability applications. Built for React.js (Next.js) and Framer, embodying the ethos of environmental consciousness and operational excellence in healthcare.
+Healthcare sustainability design system. Brand-aligned components for carbon tracking, operations dashboards, and mission-driven health systems.
 
-## 🌱 Brand Philosophy
+## Quick Start
 
-### Core Values
-
-- **"Be green, feel green"** - Environmental consciousness through sustainable design
-- **"Less is more"** - Minimalist, purposeful, and accessible interfaces
-- **"Sustainable footprint, sustainable financial health"** - Dual sustainability focus
-
-### Design Principles
-
-Inspired by forward-thinking healthcare sustainability leaders like [Providence Health](https://www.providence.org/about/advocacy-and-social-responsibility/environmental-stewardship/leadership), our design system emphasizes:
-
-- **Trust & Safety** - Professional healthcare-grade UI with accessibility at its core
-- **Clarity & Efficiency** - Clean, data-focused interfaces for complex metrics
-- **Sustainability** - Green-first color palette reflecting environmental stewardship
-- **Innovation** - Modern, forward-thinking design for healthcare technology
-
-## 📦 Installation
-
+### Install
 ```bash
 npm install @lighthouse-hlth/ui
-# or
-yarn add @lighthouse-hlth/ui
-# or
-pnpm add @lighthouse-hlth/ui
 ```
 
-## 🚀 Quick Start
-
-### React / Next.js
-
+### Use
 ```tsx
-import { Button, Card, CardHeader, CardTitle, CardContent } from '@lighthouse-hlth/ui';
+// Import styles in your root file (_app.tsx, layout.tsx, etc.)
+import '@lighthouse-hlth/ui/styles.css';
+
+// Import and use components
+import { Button, Card, MetricCard, IconButton, ServiceCard } from '@lighthouse-hlth/ui';
 
 function App() {
   return (
-    <Card variant="sustainability">
-      <CardHeader>
-        <CardTitle>Carbon Emissions Dashboard</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Button variant="primary">View Metrics</Button>
-      </CardContent>
-    </Card>
+    <>
+      <Button variant="primary">Contact us</Button>
+      <MetricCard value="$4m+" label="Total saved" />
+      <IconButton ariaLabel="View more" />
+    </>
   );
 }
 ```
 
-### Framer
-
-```tsx
-import { Button, Card, framerAnimations } from '@lighthouse-hlth/ui/framer';
-import { motion } from 'framer-motion';
-
-export function Component() {
-  return (
-    <motion.div {...framerAnimations.fadeIn}>
-      <Card hoverable>
-        <Button variant="secondary">Get Started</Button>
-      </Card>
-    </motion.div>
-  );
-}
+### Develop
+```bash
+git clone <repo-url>
+cd lighthouse-hlth-ui
+npm install
+npm run storybook    # View components at localhost:6006
+npm run build        # Build library
 ```
 
-## 🎨 Design Tokens
+## Current Components
 
-### Color Palette
+### Production Ready (Tailwind + Brand Colors)
+| Component | Variants | Description |
+|-----------|----------|-------------|
+| **Button** | primary, secondary, accent, outline, ghost, destructive | Action buttons with icons, loading states |
+| **IconButton** | primary, secondary, accent, outline, ghost | Circular icon CTAs |
+| **Card** | default, elevated, outline, ghost, sustainability | Content containers with header/footer |
+| **MetricCard** | - | Large stat display with trends |
+| **ServiceCard** | - | Image-based showcase with overlay text |
 
-#### Primary - Healthcare Trust Blue
-Professional blue conveying reliability and clinical trust.
+### Available (Legacy Styling)
+Badge, Alert, Progress, Modal, Tooltip, Tabs, Input, Select, Checkbox, Radio, Textarea, Container, Stack, Grid
 
-```tsx
-import { colors } from '@lighthouse-hlth/ui/tokens';
+These work but use older styling and will be refactored.
 
-// colors.primary[500] = '#0070E0'
-// colors.primary[600] = '#005DB8'
-```
+## Key Info
 
-#### Secondary - Sustainable Growth Green
-Represents environmental stewardship and sustainable practices.
+### Brand Colors
+- **Primary (Teal)**: `#1A8B8B` - Trust, healing, environmental stewardship
+- **Secondary (Green)**: `#4CAF50` - Sustainability, growth
+- **Accent (Coral)**: `#FF8B4B` - Warmth, energy, action
 
-```tsx
-// colors.secondary[500] = '#4CAF50'
-// colors.secondary[600] = '#43A047'
-```
-
-#### Sustainability-Specific Colors
-
-```tsx
-// Emissions tracking
-colors.dataViz.emissions.high     // '#DC2626' - High emissions
-colors.dataViz.emissions.medium   // '#F59E0B' - Medium emissions
-colors.dataViz.emissions.low      // '#10B981' - Low emissions
-
-// Sustainability ratings
-colors.dataViz.sustainability.excellent  // '#047857'
-colors.dataViz.sustainability.good       // '#10B981'
-colors.dataViz.sustainability.fair       // '#F59E0B'
-colors.dataViz.sustainability.poor       // '#DC2626'
-```
+Use as Tailwind classes: `bg-primary-500`, `text-secondary-600`, `border-accent-500`
 
 ### Typography
-
-Clean, professional Inter font stack optimized for healthcare data display.
-
-```tsx
-import { typography } from '@lighthouse-hlth/ui/tokens';
-
-// Font families
-typography.fonts.sans     // Inter, system fonts
-typography.fonts.mono     // JetBrains Mono for code/data
-
-// Text styles
-typography.textStyles.heading.h1
-typography.textStyles.body.base
-typography.textStyles.label.base
-```
+- **Font**: Inter (loaded automatically)
+- **Scales**: 12px-72px
+- **Use**: `font-sans` for UI text, `font-mono` for data/code
 
 ### Spacing
-
-4px-based spacing system for consistent, harmonious layouts.
-
-```tsx
-import { spacing, semanticSpacing } from '@lighthouse-hlth/ui/tokens';
-
-spacing[4]                          // '1rem' (16px)
-semanticSpacing.componentPadding.md // '1rem' (16px)
-semanticSpacing.section.lg          // '6rem' (96px)
-```
-
-## 🧩 Components
-
-### Layout Components
-
-#### Container
-Responsive container with max-width constraints.
-
-```tsx
-<Container maxWidth="xl" padding="md">
-  {/* Content */}
-</Container>
-```
-
-#### Stack (VStack / HStack)
-Flexible layout component for spacing children.
-
-```tsx
-<VStack spacing={4} align="start">
-  <div>Item 1</div>
-  <div>Item 2</div>
-</VStack>
-
-<HStack spacing={6} justify="between">
-  <div>Left</div>
-  <div>Right</div>
-</HStack>
-```
-
-#### Grid
-CSS Grid layout with responsive columns.
-
-```tsx
-<Grid cols={3} gap={6}>
-  <Card>Card 1</Card>
-  <Card>Card 2</Card>
-  <Card>Card 3</Card>
-</Grid>
-```
-
-### Core Components
-
-#### Button
-
-```tsx
-<Button variant="primary" size="md">
-  Primary Action
-</Button>
-
-<Button variant="secondary" leftIcon={<Icon />}>
-  With Icon
-</Button>
-
-<Button variant="outline" loading>
-  Loading...
-</Button>
-```
-
-**Variants:** `primary`, `secondary`, `accent`, `outline`, `ghost`, `destructive`
-**Sizes:** `sm`, `md`, `lg`, `xl`, `icon`
-
-#### Card
-
-```tsx
-<Card variant="sustainability" hoverable>
-  <CardHeader>
-    <CardTitle>Emissions Report</CardTitle>
-    <CardDescription>Monthly carbon footprint analysis</CardDescription>
-  </CardHeader>
-  <CardContent>
-    {/* Content */}
-  </CardContent>
-  <CardFooter>
-    <Button>View Details</Button>
-  </CardFooter>
-</Card>
-```
-
-**Variants:** `default`, `elevated`, `outline`, `ghost`, `sustainability`
-
-#### Badge
-
-```tsx
-<Badge variant="emissionsLow" pill>
-  23% Reduction
-</Badge>
-
-<Badge variant="secondary" size="sm">
-  Active
-</Badge>
-```
-
-**Variants:** `default`, `primary`, `secondary`, `success`, `warning`, `error`, `emissionsLow`, `emissionsMedium`, `emissionsHigh`
-
-### Form Components
-
-#### Input
-
-```tsx
-<Input
-  label="Facility Name"
-  placeholder="Enter name"
-  helperText="Your healthcare facility name"
-  leftIcon={<SearchIcon />}
-/>
-
-<Input
-  label="Email"
-  type="email"
-  error="Invalid email address"
-/>
-```
-
-#### Select
-
-```tsx
-<Select
-  label="Facility Type"
-  options={[
-    { value: 'hospital', label: 'Hospital' },
-    { value: 'clinic', label: 'Clinic' },
-  ]}
-/>
-```
-
-#### Checkbox & Radio
-
-```tsx
-<Checkbox label="I agree to terms" />
-
-<RadioGroup label="Emission Level" orientation="vertical">
-  <Radio value="low" label="Low" />
-  <Radio value="medium" label="Medium" />
-  <Radio value="high" label="High" />
-</RadioGroup>
-```
-
-#### Textarea
-
-```tsx
-<Textarea
-  label="Notes"
-  rows={4}
-  placeholder="Enter your notes..."
-/>
-```
-
-### Feedback Components
-
-#### Alert
-
-```tsx
-<Alert variant="success" title="Great Progress!">
-  Your facility has reduced emissions by 23% this quarter.
-</Alert>
-
-<Alert variant="sustainability" onClose={() => {}}>
-  Sustainable practices detected. Keep up the great work!
-</Alert>
-```
-
-**Variants:** `info`, `success`, `warning`, `error`, `sustainability`
-
-#### Progress
-
-```tsx
-<Progress
-  value={77}
-  max={100}
-  variant="emissionsLow"
-  showLabel
-  label="Carbon Reduction Target"
-/>
-```
-
-#### Modal
-
-```tsx
-const [open, setOpen] = useState(false);
-
-<Modal open={open} onClose={() => setOpen(false)} size="md">
-  <ModalHeader>
-    <ModalTitle>Confirm Action</ModalTitle>
-    <ModalDescription>Are you sure you want to proceed?</ModalDescription>
-  </ModalHeader>
-  <ModalContent>
-    {/* Content */}
-  </ModalContent>
-  <ModalFooter>
-    <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
-    <Button variant="primary">Confirm</Button>
-  </ModalFooter>
-</Modal>
-```
-
-#### Tooltip
-
-```tsx
-<Tooltip content="Carbon emissions tracking" side="top">
-  <Button variant="ghost">Hover me</Button>
-</Tooltip>
-```
-
-### Navigation Components
-
-#### Tabs
-
-```tsx
-<Tabs defaultValue="overview">
-  <TabsList>
-    <TabsTrigger value="overview">Overview</TabsTrigger>
-    <TabsTrigger value="emissions">Emissions</TabsTrigger>
-    <TabsTrigger value="energy">Energy</TabsTrigger>
-  </TabsList>
-
-  <TabsContent value="overview">
-    Overview content
-  </TabsContent>
-  <TabsContent value="emissions">
-    Emissions content
-  </TabsContent>
-</Tabs>
-```
-
-## 🎭 Framer Integration
-
-The design system includes full Framer Motion support and Framer-specific utilities.
-
-### Framer Animations
-
-```tsx
-import { framerAnimations } from '@lighthouse-hlth/ui/framer';
-import { motion } from 'framer-motion';
-
-<motion.div {...framerAnimations.fadeIn}>
-  <Card>Animated Card</Card>
-</motion.div>
-
-<motion.div {...framerAnimations.slideInBottom}>
-  <Button>Animated Button</Button>
-</motion.div>
-```
-
-### Framer Code Components
-
-All components work as Framer Code Components. See `examples/framer-usage.tsx` for detailed examples.
-
-```tsx
-// In Framer, import as Code Component
-import { FramerCodeComponent } from './path/to/framer-usage';
-
-// Use with Framer property controls
-<FramerCodeComponent
-  title="Carbon Emissions"
-  value="85%"
-  trend="+12%"
-  variant="primary"
-/>
-```
-
-## 🎯 Use Cases
-
-### Healthcare Sustainability Dashboards
-
-Perfect for building comprehensive sustainability tracking interfaces:
-
-- Carbon footprint monitoring
-- Energy efficiency metrics
-- Waste reduction tracking
-- Compliance reporting
-- Financial sustainability analysis
-
-### Carbon Accounting Platforms
-
-Ideal for emissions tracking and reporting applications:
-
-- Facility-level emissions tracking
-- Supply chain carbon footprint
-- Scope 1, 2, 3 emissions reporting
-- Sustainability goal progress
-- Comparative benchmarking
-
-### Hospital Operations Software
-
-Built for healthcare operational efficiency:
-
-- Resource utilization tracking
-- Cost savings dashboards
-- Operational KPIs
-- Environmental compliance
-- Regulatory reporting
-
-## 📚 Examples
-
-Check the `/examples` directory for comprehensive usage examples:
-
-- `examples/basic-usage.tsx` - Common patterns and layouts
-- `examples/framer-usage.tsx` - Framer-specific implementations
-
-## 🛠️ Development
+- **System**: 4px base unit
+- **Tailwind**: `p-4`, `gap-6`, `space-y-8`
+
+### Tech Requirements
+- **React**: 18+
+- **Tailwind**: v3.4.0 (styles pre-compiled, no need to install in your app)
+- **TypeScript**: Full support included
+
+## Commands
 
 ```bash
-# Install dependencies
-npm install
-
-# Run development mode
-npm run dev
-
-# Build library
-npm run build
-
-# Run Storybook
-npm run storybook
-
-# Type check
-npm run type-check
-
-# Lint
-npm run lint
-
-# Format code
-npm run format
+npm run dev          # Build in watch mode
+npm run build        # Build for production
+npm run storybook    # Run Storybook at localhost:6006
+npm run type-check   # TypeScript validation
+npm run lint         # ESLint
+npm run format       # Prettier
 ```
 
-## 🏗️ Project Structure
+## Examples
 
-```
-lighthouse-hlth-ui/
-├── src/
-│   ├── tokens/           # Design tokens (colors, typography, etc.)
-│   ├── components/       # UI components
-│   ├── utils/           # Utility functions
-│   ├── framer/          # Framer-specific exports
-│   └── index.ts         # Main entry point
-├── examples/            # Usage examples
-├── .storybook/         # Storybook configuration
-└── dist/               # Built library (generated)
+### Metric Dashboard
+```tsx
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <MetricCard value="$4m+" label="Total saved" trend="up" trendValue="+23%" />
+  <MetricCard value="147t" label="CO2 reduced" trend="down" />
+  <MetricCard value="330+" label="Facilities" showArrow />
+</div>
 ```
 
-## 🌍 Sustainability Focus
+### Service Grid
+```tsx
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <ServiceCard
+    title="Carbon intelligence"
+    description="Track and reduce footprint"
+    image="/carbon.jpg"
+    onActionClick={() => {}}
+  />
+  <ServiceCard
+    title="Energy optimization"
+    description="Real-time monitoring"
+    image="/energy.jpg"
+    onActionClick={() => {}}
+  />
+</div>
+```
 
-This design system is specifically crafted for healthcare sustainability applications, with:
+### With Framer Motion
+```tsx
+import { motion } from 'framer-motion';
+import { Button } from '@lighthouse-hlth/ui';
 
-- **Emissions tracking components** - Specialized badges, progress bars, and data viz
-- **Sustainability-first color palette** - Greens and blues representing environmental health
-- **Data-focused design** - Clear presentation of complex sustainability metrics
-- **Accessibility** - WCAG 2.1 AA compliant for healthcare contexts
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+>
+  <Button variant="primary">Animated</Button>
+</motion.div>
+```
 
-## 🤝 Contributing
+## Troubleshooting
 
-This is a branded design system for Lighthouse Health applications. For feature requests or bug reports, please contact the maintainers.
+**Styles not showing?**
+Import in root: `import '@lighthouse-hlth/ui/styles.css'`
 
-## 📄 License
+**TypeScript errors?**
+Update package: `npm install @lighthouse-hlth/ui@latest`
+
+**Tailwind v4 conflicts?**
+Styles are pre-compiled, no conflicts. Just import the CSS.
+
+## Design Tokens
+
+```tsx
+import { colors, spacing, typography } from '@lighthouse-hlth/ui/tokens';
+
+// Access brand values programmatically
+colors.primary[500]      // #1A8B8B
+spacing[4]               // 1rem (16px)
+typography.fonts.sans    // 'Inter', system fonts
+```
+
+## Project Structure
+
+```
+src/
+├── components/          # UI components
+│   ├── Button/
+│   ├── Card/
+│   └── ...
+├── tokens/             # Design tokens (colors, spacing, typography)
+├── utils/              # Helper functions
+├── framer/             # Framer Motion exports
+├── styles.css          # Tailwind base + animations
+└── index.ts            # Main entry point
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for component template and PR process.
+
+## Mission Alignment
+
+Built for healthcare sustainability:
+- Carbon footprint tracking
+- Energy efficiency metrics
+- Waste reduction dashboards
+- Financial sustainability reporting
+- Compliance and regulatory tools
+
+**"Be green, feel green. Less is more. Sustainable footprint, sustainable financial health."**
+
+## License
 
 MIT
 
-## 🔗 Resources
-
-- [Providence Health Environmental Stewardship](https://www.providence.org/about/advocacy-and-social-responsibility/environmental-stewardship/leadership)
-- [Healthcare Sustainability Best Practices](https://lighthousehlth.com)
-
 ---
 
-**Built with care for sustainable healthcare operations** 🏥💚
-
-*"Be green, feel green. Less is more. Sustainable footprint, sustainable financial health."*
+**Built with care for sustainable healthcare operations**

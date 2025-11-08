@@ -14,4 +14,6 @@ export default defineConfig({
   treeshake: true,
   splitting: false,
   minify: false,
+  // Copy styles.css to dist folder
+  onSuccess: 'cp src/styles.css dist/styles.css',
 });

@@ -54,7 +54,7 @@ export interface AlertProps
 
 export const Alert = forwardRef<HTMLDivElement, AlertProps>(
   ({ className, variant = 'info', title, onClose, icon, children, ...props }, ref) => {
-    const Icon = iconMap[variant];
+    const Icon = iconMap[variant as keyof typeof iconMap] || iconMap.info;
 
     return (
       <div

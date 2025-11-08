@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { cn } from '../../utils/cn';
 
 export interface RadioProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'aria-invalid'> {
   label?: string;
   helperText?: string;
   error?: string;
@@ -32,7 +32,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
                 error && 'border-[#EF4444]',
                 className
               )}
-              aria-invalid={!!error}
+              aria-invalid={error ? 'true' : 'false'}
               aria-describedby={
                 error ? `${radioId}-error` : helperText ? `${radioId}-helper` : undefined
               }

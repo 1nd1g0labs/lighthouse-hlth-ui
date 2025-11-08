@@ -36,7 +36,7 @@ const selectVariants = cva(
 );
 
 export interface SelectProps
-  extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'>,
+  extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size' | 'aria-invalid'>,
     VariantProps<typeof selectVariants> {
   error?: string;
   helperText?: string;
@@ -85,7 +85,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               })
             )}
             ref={ref}
-            aria-invalid={hasError}
+            aria-invalid={hasError ? 'true' : 'false'}
             aria-describedby={
               error ? `${selectId}-error` : helperText ? `${selectId}-helper` : undefined
             }

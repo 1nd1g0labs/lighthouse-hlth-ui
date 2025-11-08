@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../../utils/cn';
 import { X } from 'lucide-react';
 
-export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onDrag' | 'onDragStart' | 'onDragEnd'> {
   open?: boolean;
   onClose?: () => void;
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
@@ -21,7 +22,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       closeOnOverlayClick = true,
       showCloseButton = true,
       children,
-      ...props
     },
     ref
   ) => {
@@ -90,7 +90,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     className
                   )}
                   onClick={(e) => e.stopPropagation()}
-                  {...props}
                 >
                   {showCloseButton && onClose && (
                     <button

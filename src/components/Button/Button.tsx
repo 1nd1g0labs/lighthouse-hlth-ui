@@ -7,7 +7,7 @@ const buttonVariants = cva(
   [
     'inline-flex items-center justify-center',
     'font-medium',
-    'transition-all duration-150',
+    'transition-all duration-200',
     'focus:outline-none focus:ring-2 focus:ring-offset-2',
     'disabled:opacity-50 disabled:pointer-events-none',
     'select-none',
@@ -15,60 +15,64 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary - Main actions, healthcare trust blue
+        // Primary - Main actions, brand teal
         primary: [
-          'bg-[#0070E0] text-white',
-          'hover:bg-[#005DB8]',
-          'active:bg-[#004A90]',
-          'focus:ring-[#0070E0]/20',
+          'bg-primary-500 text-white',
+          'hover:bg-primary-600',
+          'active:bg-primary-700',
+          'focus:ring-primary-500/20',
+          'shadow-sm hover:shadow-md',
         ].join(' '),
 
         // Secondary - Sustainable green actions
         secondary: [
-          'bg-[#4CAF50] text-white',
-          'hover:bg-[#43A047]',
-          'active:bg-[#388E3C]',
-          'focus:ring-[#4CAF50]/20',
+          'bg-secondary-500 text-white',
+          'hover:bg-secondary-600',
+          'active:bg-secondary-700',
+          'focus:ring-secondary-500/20',
+          'shadow-sm hover:shadow-md',
         ].join(' '),
 
-        // Accent - Energy & innovation
+        // Accent - Coral/orange for warmth
         accent: [
-          'bg-[#FF9800] text-white',
-          'hover:bg-[#FB8C00]',
-          'active:bg-[#F57C00]',
-          'focus:ring-[#FF9800]/20',
+          'bg-accent-500 text-white',
+          'hover:bg-accent-600',
+          'active:bg-accent-700',
+          'focus:ring-accent-500/20',
+          'shadow-sm hover:shadow-md',
         ].join(' '),
 
         // Outline - Subtle actions
         outline: [
-          'border-2 border-[#0070E0] text-[#0070E0]',
-          'hover:bg-[#0070E0]/5',
-          'active:bg-[#0070E0]/10',
-          'focus:ring-[#0070E0]/20',
+          'border-2 border-primary-500 text-primary-500',
+          'hover:bg-primary-50',
+          'active:bg-primary-100',
+          'focus:ring-primary-500/20',
         ].join(' '),
 
         // Ghost - Minimal visual weight
         ghost: [
-          'text-[#374151]',
-          'hover:bg-[#F3F4F6]',
-          'active:bg-[#E5E7EB]',
-          'focus:ring-[#6B7280]/20',
+          'text-gray-700',
+          'hover:bg-gray-100',
+          'active:bg-gray-200',
+          'focus:ring-gray-500/20',
         ].join(' '),
 
         // Destructive - Error states
         destructive: [
-          'bg-[#EF4444] text-white',
-          'hover:bg-[#DC2626]',
-          'active:bg-[#B91C1C]',
-          'focus:ring-[#EF4444]/20',
+          'bg-red-500 text-white',
+          'hover:bg-red-600',
+          'active:bg-red-700',
+          'focus:ring-red-500/20',
+          'shadow-sm hover:shadow-md',
         ].join(' '),
       },
       size: {
-        sm: 'h-8 px-3 text-sm rounded-[0.375rem]',
-        md: 'h-10 px-4 text-base rounded-[0.5rem]',
-        lg: 'h-12 px-6 text-lg rounded-[0.5rem]',
-        xl: 'h-14 px-8 text-xl rounded-[0.75rem]',
-        icon: 'h-10 w-10 rounded-[0.5rem]',
+        sm: 'h-8 px-3 text-sm rounded-md gap-1.5',
+        md: 'h-10 px-5 text-base rounded-lg gap-2',
+        lg: 'h-12 px-6 text-lg rounded-lg gap-2',
+        xl: 'h-14 px-8 text-xl rounded-xl gap-2.5',
+        icon: 'h-10 w-10 rounded-lg',
       },
       fullWidth: {
         true: 'w-full',
