@@ -5,17 +5,20 @@ Healthcare sustainability design system. Brand-aligned components for carbon tra
 ## Quick Start
 
 ### Install
+
+**Note:** This package is hosted on GitHub Package Registry. See [PUBLISHING.md](./PUBLISHING.md) for setup instructions.
+
 ```bash
-npm install @lighthouse-hlth/ui
+npm install @1nd1g0labs/lighthouse-hlth-ui
 ```
 
 ### Use
 ```tsx
 // Import styles in your root file (_app.tsx, layout.tsx, etc.)
-import '@lighthouse-hlth/ui/styles.css';
+import '@1nd1g0labs/lighthouse-hlth-ui/dist/styles.css';
 
 // Import and use components
-import { Button, Card, MetricCard, IconButton, ServiceCard } from '@lighthouse-hlth/ui';
+import { Button, Card, MetricCard, IconButton, ServiceCard } from '@1nd1g0labs/lighthouse-hlth-ui';
 
 function App() {
   return (
@@ -119,7 +122,7 @@ npm run format       # Prettier
 ### With Framer Motion
 ```tsx
 import { motion } from 'framer-motion';
-import { Button } from '@lighthouse-hlth/ui';
+import { Button } from '@1nd1g0labs/lighthouse-hlth-ui';
 
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -132,10 +135,10 @@ import { Button } from '@lighthouse-hlth/ui';
 ## Troubleshooting
 
 **Styles not showing?**
-Import in root: `import '@lighthouse-hlth/ui/styles.css'`
+Import in root: `import '@1nd1g0labs/lighthouse-hlth-ui/dist/styles.css'`
 
 **TypeScript errors?**
-Update package: `npm install @lighthouse-hlth/ui@latest`
+Update package: `npm install @1nd1g0labs/lighthouse-hlth-ui@latest`
 
 **Tailwind v4 conflicts?**
 Styles are pre-compiled, no conflicts. Just import the CSS.
@@ -143,7 +146,7 @@ Styles are pre-compiled, no conflicts. Just import the CSS.
 ## Design Tokens
 
 ```tsx
-import { colors, spacing, typography } from '@lighthouse-hlth/ui/tokens';
+import { colors, spacing, typography } from '@1nd1g0labs/lighthouse-hlth-ui/tokens';
 
 // Access brand values programmatically
 colors.primary[500]      // #1A8B8B
@@ -169,6 +172,22 @@ src/
 ## Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for component template and PR process.
+
+## Publishing (for Maintainers)
+
+This package is published to GitHub Package Registry. See [PUBLISHING.md](./PUBLISHING.md) for:
+- One-time authentication setup
+- Complete publishing workflow
+- Versioning guidelines (semantic versioning)
+- Troubleshooting guide
+
+**Quick publish workflow:**
+```bash
+npm run build:lib           # Build the library
+npm version patch          # Bump version (patch/minor/major)
+npm publish                # Publish to GitHub Packages
+git push --tags            # Push version tags
+```
 
 ## Mission Alignment
 

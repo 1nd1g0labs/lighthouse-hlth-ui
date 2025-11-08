@@ -1,0 +1,22 @@
+# NPM Registry Configuration for GitHub Packages
+#
+# SETUP INSTRUCTIONS:
+# 1. Copy this file to .npmrc (which is gitignored)
+# 2. Replace YOUR_GITHUB_PAT with your actual Personal Access Token
+# 3. Your PAT needs the following scopes:
+#    - read:packages (to install packages)
+#    - write:packages (to publish packages)
+#    - delete:packages (optional, to delete package versions)
+#
+# CREATE A GITHUB PAT:
+# 1. Go to https://github.com/settings/tokens (or org settings for org-level PAT)
+# 2. Click "Generate new token" → "Generate new token (classic)"
+# 3. Give it a descriptive name like "lighthouse-hlth-ui-publishing"
+# 4. Select the required scopes mentioned above
+# 5. Copy the token and paste it below
+#
+# SECURITY NOTE:
+# Never commit .npmrc to git! It contains your authentication token.
+
+@1nd1g0labs:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_PAT
