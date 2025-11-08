@@ -14,6 +14,6 @@ export default defineConfig({
   treeshake: true,
   splitting: false,
   minify: false,
-  // Copy styles.css to dist folder
-  onSuccess: 'cp src/styles.css dist/styles.css',
+  // Build Tailwind CSS properly
+  onSuccess: 'npx tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify',
 });
