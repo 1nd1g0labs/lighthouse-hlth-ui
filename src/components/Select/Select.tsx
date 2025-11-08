@@ -1,0 +1,128 @@
+import React, { forwardRef } from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../../utils/cn';
+import { ChevronDown } from 'lucide-react';
+
+const selectVariants = cva(
+  [
+    'flex w-full appearance-none rounded-[0.5rem]',
+    'border border-[#D1D5DB]',
+    'bg-white px-3 py-2 pr-10',
+    'text-base text-[#111827]',
+    'transition-colors duration-150',
+    'focus:outline-none focus:ring-2 focus:ring-[#0070E0]/20 focus:border-[#0070E0]',
+    'disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-[#F3F4F6]',
+  ].join(' '),
+  {
+    variants: {
+      variant: {
+        default: '',
+        error: [
+          'border-[#EF4444]',
+          'focus:ring-[#EF4444]/20 focus:border-[#EF4444]',
+        ].join(' '),
+      },
+      selectSize: {
+        sm: 'h-8 text-sm px-2 pr-8',
+        md: 'h-10 text-base px-3 pr-10',
+        lg: 'h-12 text-lg px-4 pr-12',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      selectSize: 'md',
+    },
+  }
+);
+
+export interface SelectProps
+  extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'>,
+    VariantProps<typeof selectVariants> {
+  error?: string;
+  helperText?: string;
+  label?: string;
+  options?: Array<{ value: string; label: string; disabled?: boolean }>;
+}
+
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
+  (
+    {
+      className,
+      variant,
+      selectSize,
+      error,
+      helperText,
+      label,
+      id,
+      options,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
+    const hasError = error || variant === 'error';
+
+    return (
+      <div className="w-full">
+        {label && (
+          <label
+            htmlFor={selectId}
+            className="block text-sm font-medium text-[#374151] mb-1.5"
+          >
+            {label}
+          </label>
+        )}
+
+        <div className="relative">
+          <select
+            id={selectId}
+            className={cn(
+              selectVariants({
+                variant: hasError ? 'error' : variant,
+                selectSize,
+                className,
+              })
+            )}
+            ref={ref}
+            aria-invalid={hasError}
+            aria-describedby={
+              error ? `${selectId}-error` : helperText ? `${selectId}-helper` : undefined
+            }
+            {...props}
+          >
+            {options
+              ? options.map((option) => (
+                  <option
+                    key={option.value}
+                    value={option.value}
+                    disabled={option.disabled}
+                  >
+                    {option.label}
+                  </option>
+                ))
+              : children}
+          </select>
+
+          <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6B7280]">
+            <ChevronDown className="h-4 w-4" />
+          </div>
+        </div>
+
+        {error && (
+          <p id={`${selectId}-error`} className="mt-1.5 text-sm text-[#EF4444]">
+            {error}
+          </p>
+        )}
+
+        {helperText && !error && (
+          <p id={`${selectId}-helper`} className="mt-1.5 text-sm text-[#6B7280]">
+            {helperText}
+          </p>
+        )}
+      </div>
+    );
+  }
+);
+
+Select.displayName = 'Select';
