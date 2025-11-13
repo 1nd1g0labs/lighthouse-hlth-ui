@@ -5,7 +5,8 @@ import { AlertCircle, CheckCircle2, Info, AlertTriangle, X } from 'lucide-react'
 
 const alertVariants = cva(
   [
-    'relative w-full rounded-[0.5rem] border p-4',
+    'relative w-full rounded-[0.5rem] border',
+    'p-3 md:p-4',
     'transition-all duration-250',
   ].join(' '),
   {
@@ -80,10 +81,10 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
           {onClose && (
             <button
               onClick={onClose}
-              className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity"
+              className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity p-1 -m-1 touch-manipulation"
               aria-label="Close alert"
             >
-              <X className="h-4 w-4" />
+              <X className="h-5 w-5 md:h-4 md:w-4" />
             </button>
           )}
         </div>

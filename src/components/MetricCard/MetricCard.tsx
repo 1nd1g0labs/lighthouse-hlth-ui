@@ -68,10 +68,10 @@ export const MetricCard = forwardRef<HTMLDivElement, MetricCardProps>(
     ref
   ) => {
     const valueSize = {
-      sm: 'text-3xl',
-      md: 'text-4xl',
-      lg: 'text-5xl',
-      xl: 'text-6xl',
+      sm: 'text-2xl md:text-3xl',
+      md: 'text-3xl md:text-4xl',
+      lg: 'text-4xl md:text-5xl',
+      xl: 'text-5xl md:text-6xl',
     }[size];
 
     const getTrendIcon = () => {

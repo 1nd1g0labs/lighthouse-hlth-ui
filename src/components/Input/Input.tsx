@@ -28,9 +28,9 @@ const inputVariants = cva(
         ].join(' '),
       },
       inputSize: {
-        sm: 'h-8 text-sm px-2',
-        md: 'h-10 text-base px-3',
-        lg: 'h-12 text-lg px-4',
+        sm: 'min-h-[44px] md:h-8 text-sm px-2',
+        md: 'min-h-[44px] md:h-10 text-base px-3',
+        lg: 'min-h-[48px] md:h-12 text-lg px-4',
       },
     },
     defaultVariants: {

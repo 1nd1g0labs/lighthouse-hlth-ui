@@ -21,14 +21,15 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
               type="radio"
               ref={ref}
               className={cn(
-                'peer h-5 w-5 shrink-0',
+                'peer h-6 w-6 md:h-5 md:w-5 shrink-0',
                 'appearance-none rounded-full',
                 'border-2 border-[#D1D5DB]',
                 'bg-white',
                 'transition-all duration-150',
-                'checked:border-[6px] checked:border-[#0070E0]',
+                'checked:border-[7px] md:checked:border-[6px] checked:border-[#0070E0]',
                 'focus:outline-none focus:ring-2 focus:ring-[#0070E0]/20',
                 'disabled:cursor-not-allowed disabled:opacity-50',
+                'cursor-pointer',
                 error && 'border-[#EF4444]',
                 className
               )}
@@ -96,7 +97,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
           role="radiogroup"
           className={cn(
             'flex',
-            orientation === 'horizontal' ? 'flex-row gap-6' : 'flex-col gap-3',
+            orientation === 'horizontal' ? 'flex-col md:flex-row gap-4 md:gap-6' : 'flex-col gap-3',
             className
           )}
         >

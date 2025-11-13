@@ -86,7 +86,7 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
         {...props}
       >
         {/* Background Image */}
-        <div className="relative h-64 md:h-80 overflow-hidden">
+        <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden">
           <img
             src={image}
             alt={title}
@@ -97,7 +97,7 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
           {/* Content Overlay */}
-          <div className="absolute inset-0 flex flex-col justify-between p-6">
+          <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-6">
             {/* Icon (if provided) */}
             {icon && (
               <div className="flex items-start">
@@ -110,7 +110,7 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
             {/* Title and Action Button */}
             <div className="flex items-end justify-between gap-4">
               <div className="flex-1">
-                <h3 className="text-2xl md:text-3xl font-semibold text-white leading-tight">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white leading-tight">
                   {title}
                 </h3>
                 {description && (

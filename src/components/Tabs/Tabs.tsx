@@ -48,6 +48,8 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         role="tablist"
         className={cn(
           'inline-flex h-10 items-center justify-start rounded-[0.5rem] bg-[#F3F4F6] p-1 gap-1',
+          'overflow-x-auto scrollbar-hide max-w-full',
+          'md:overflow-x-visible',
           className
         )}
         {...props}
@@ -79,10 +81,13 @@ export const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         aria-selected={isSelected}
         onClick={() => context.onChange(value)}
         className={cn(
-          'inline-flex items-center justify-center whitespace-nowrap rounded-[0.375rem] px-3 py-1.5',
+          'inline-flex items-center justify-center whitespace-nowrap rounded-[0.375rem]',
+          'px-3 py-2 min-h-[44px]',
+          'md:px-3 md:py-1.5 md:min-h-0',
           'text-sm font-medium transition-all duration-150',
           'focus:outline-none focus:ring-2 focus:ring-[#0070E0]/20',
           'disabled:pointer-events-none disabled:opacity-50',
+          'touch-manipulation',
           isSelected
             ? 'bg-white text-[#111827] shadow-sm'
             : 'text-[#6B7280] hover:text-[#374151]',

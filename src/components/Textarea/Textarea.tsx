@@ -6,9 +6,10 @@ const textareaVariants = cva(
   [
     'flex w-full rounded-[0.5rem]',
     'border border-[#D1D5DB]',
-    'bg-white px-3 py-2',
+    'bg-white px-3 py-3',
     'text-base text-[#111827]',
     'placeholder:text-[#9CA3AF]',
+    'min-h-[120px]',
     'transition-colors duration-150',
     'focus:outline-none focus:ring-2 focus:ring-[#0070E0]/20 focus:border-[#0070E0]',
     'disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-[#F3F4F6]',

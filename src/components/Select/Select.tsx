@@ -23,9 +23,9 @@ const selectVariants = cva(
         ].join(' '),
       },
       selectSize: {
-        sm: 'h-8 text-sm px-2 pr-8',
-        md: 'h-10 text-base px-3 pr-10',
-        lg: 'h-12 text-lg px-4 pr-12',
+        sm: 'min-h-[44px] md:h-8 text-sm px-2 pr-8',
+        md: 'min-h-[44px] md:h-10 text-base px-3 pr-10',
+        lg: 'min-h-[48px] md:h-12 text-lg px-4 pr-12',
       },
     },
     defaultVariants: {
