@@ -12,19 +12,19 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-[#E5E7EB] text-[#374151]',
-        primary: 'bg-[#0070E0] text-white',
-        secondary: 'bg-[#4CAF50] text-white',
-        accent: 'bg-[#FF9800] text-white',
-        success: 'bg-[#10B981] text-white',
-        warning: 'bg-[#F59E0B] text-[#111827]',
-        error: 'bg-[#EF4444] text-white',
-        info: 'bg-[#3B82F6] text-white',
-        outline: 'border-2 border-[#E5E7EB] text-[#374151] bg-transparent',
+        default: 'bg-gray-200 text-gray-700',
+        primary: 'bg-primary-500 text-white',
+        secondary: 'bg-secondary-500 text-white',
+        accent: 'bg-accent-500 text-white',
+        success: 'bg-green-500 text-white',
+        warning: 'bg-amber-500 text-gray-900',
+        error: 'bg-red-500 text-white',
+        info: 'bg-blue-500 text-white',
+        outline: 'border-2 border-gray-200 text-gray-700 bg-transparent',
         // Sustainability badges
-        emissionsHigh: 'bg-[#DC2626] text-white',
-        emissionsMedium: 'bg-[#F59E0B] text-white',
-        emissionsLow: 'bg-[#10B981] text-white',
+        emissionsHigh: 'bg-red-600 text-white',
+        emissionsMedium: 'bg-amber-500 text-white',
+        emissionsLow: 'bg-green-500 text-white',
       },
       size: {
         sm: 'text-xs px-2 py-0.5 rounded-[0.25rem]',

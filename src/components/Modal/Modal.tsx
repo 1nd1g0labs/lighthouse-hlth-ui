@@ -75,7 +75,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
 
             {/* Modal */}
             <div className="fixed inset-0 z-[1400] overflow-y-auto">
-              <div className="flex min-h-full items-center justify-center p-4">
+              <div className="flex min-h-full items-center justify-center p-2 md:p-4">
                 <motion.div
                   ref={ref}
                   initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -85,7 +85,9 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                   role="dialog"
                   aria-modal="true"
                   className={cn(
-                    'relative w-full rounded-[0.75rem] bg-white shadow-[0_25px_50px_-12px_rgb(0_0_0_/_0.25)] p-6',
+                    'relative w-full rounded-[0.75rem] bg-white shadow-[0_25px_50px_-12px_rgb(0_0_0_/_0.25)]',
+                    'p-4 md:p-6',
+                    'max-h-[calc(100vh-1rem)] md:max-h-[calc(100vh-2rem)] overflow-y-auto',
                     sizeClasses[size],
                     className
                   )}
@@ -94,7 +96,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                   {showCloseButton && onClose && (
                     <button
                       onClick={onClose}
-                      className="absolute right-4 top-4 rounded-[0.375rem] p-1 text-[#6B7280] hover:text-[#374151] hover:bg-[#F3F4F6] transition-colors"
+                      className="absolute right-3 top-3 md:right-4 md:top-4 rounded-[0.375rem] p-1.5 md:p-1 text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors touch-manipulation z-10"
                       aria-label="Close modal"
                     >
                       <X className="h-5 w-5" />
@@ -134,7 +136,7 @@ export const ModalTitle = forwardRef<
   <h2
     ref={ref}
     className={cn(
-      'text-[1.5rem] font-semibold leading-none tracking-tight text-[#111827]',
+      'text-[1.25rem] md:text-[1.5rem] font-semibold leading-none tracking-tight text-gray-900 pr-8',
       className
     )}
     {...props}
@@ -147,7 +149,7 @@ export const ModalDescription = forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn('text-sm text-[#6B7280]', className)} {...props} />
+  <p ref={ref} className={cn('text-sm text-gray-500', className)} {...props} />
 ));
 
 ModalDescription.displayName = 'ModalDescription';

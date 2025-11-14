@@ -21,15 +21,16 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
               type="radio"
               ref={ref}
               className={cn(
-                'peer h-5 w-5 shrink-0',
+                'peer h-6 w-6 md:h-5 md:w-5 shrink-0',
                 'appearance-none rounded-full',
-                'border-2 border-[#D1D5DB]',
+                'border-2 border-gray-300',
                 'bg-white',
                 'transition-all duration-150',
-                'checked:border-[6px] checked:border-[#0070E0]',
-                'focus:outline-none focus:ring-2 focus:ring-[#0070E0]/20',
+                'checked:border-[7px] md:checked:border-[6px] checked:border-primary-500',
+                'focus:outline-none focus:ring-2 focus:ring-primary-500/20',
                 'disabled:cursor-not-allowed disabled:opacity-50',
-                error && 'border-[#EF4444]',
+                'cursor-pointer',
+                error && 'border-red-500',
                 className
               )}
               aria-invalid={error ? 'true' : 'false'}
@@ -46,20 +47,20 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
             {label && (
               <label
                 htmlFor={radioId}
-                className="font-medium text-[#374151] cursor-pointer select-none"
+                className="font-medium text-gray-700 cursor-pointer select-none"
               >
                 {label}
               </label>
             )}
 
             {helperText && !error && (
-              <p id={`${radioId}-helper`} className="text-[#6B7280]">
+              <p id={`${radioId}-helper`} className="text-gray-500">
                 {helperText}
               </p>
             )}
 
             {error && (
-              <p id={`${radioId}-error`} className="text-[#EF4444]">
+              <p id={`${radioId}-error`} className="text-red-500">
                 {error}
               </p>
             )}
@@ -87,7 +88,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
     return (
       <div ref={ref} className="w-full" {...props}>
         {label && (
-          <label className="block text-sm font-medium text-[#374151] mb-2">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             {label}
           </label>
         )}
@@ -96,7 +97,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
           role="radiogroup"
           className={cn(
             'flex',
-            orientation === 'horizontal' ? 'flex-row gap-6' : 'flex-col gap-3',
+            orientation === 'horizontal' ? 'flex-col md:flex-row gap-4 md:gap-6' : 'flex-col gap-3',
             className
           )}
         >
@@ -104,13 +105,13 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
         </div>
 
         {error && (
-          <p id={`${groupId}-error`} className="mt-1.5 text-sm text-[#EF4444]">
+          <p id={`${groupId}-error`} className="mt-1.5 text-sm text-red-500">
             {error}
           </p>
         )}
 
         {helperText && !error && (
-          <p id={`${groupId}-helper`} className="mt-1.5 text-sm text-[#6B7280]">
+          <p id={`${groupId}-helper`} className="mt-1.5 text-sm text-gray-500">
             {helperText}
           </p>
         )}

@@ -30,9 +30,9 @@ const cardVariants = cva(
       },
       padding: {
         none: 'p-0',
-        sm: 'p-4',
-        md: 'p-6',
-        lg: 'p-8',
+        sm: 'p-3 md:p-4',
+        md: 'p-4 md:p-6',
+        lg: 'p-6 md:p-8',
       },
       hoverable: {
         true: 'hover:shadow-lg hover:scale-[1.02] cursor-pointer',
@@ -83,7 +83,7 @@ export const CardTitle = forwardRef<
   <h3
     ref={ref}
     className={cn(
-      'text-2xl font-semibold leading-tight tracking-tight text-gray-900',
+      'text-xl md:text-2xl font-semibold leading-tight tracking-tight text-gray-900',
       className
     )}
     {...props}

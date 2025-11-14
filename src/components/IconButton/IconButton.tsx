@@ -11,6 +11,7 @@ const iconButtonVariants = cva(
     'focus:outline-none focus:ring-2 focus:ring-offset-2',
     'disabled:opacity-50 disabled:pointer-events-none',
     'select-none',
+    'touch-manipulation',
   ].join(' '),
   {
     variants: {
@@ -59,8 +60,8 @@ const iconButtonVariants = cva(
         ].join(' '),
       },
       size: {
-        sm: 'h-8 w-8',
-        md: 'h-10 w-10',
+        sm: 'h-10 w-10 md:h-8 md:w-8',
+        md: 'h-11 w-11 md:h-10 md:w-10',
         lg: 'h-12 w-12',
         xl: 'h-14 w-14',
       },

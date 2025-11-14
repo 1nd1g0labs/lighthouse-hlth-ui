@@ -60,7 +60,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
               transition={{ duration: 0.15 }}
               role="tooltip"
               className={cn(
-                'absolute z-[1600] rounded-[0.375rem] bg-[#1F2937] px-3 py-1.5 text-sm text-white shadow-md pointer-events-none whitespace-nowrap',
+                'absolute z-[1600] rounded-[0.375rem] bg-[#1F2937] px-3 py-1.5 text-sm text-white shadow-md pointer-events-none',
+                'whitespace-nowrap md:whitespace-nowrap max-w-[200px] md:max-w-none',
                 positionClasses[side],
                 className
               )}

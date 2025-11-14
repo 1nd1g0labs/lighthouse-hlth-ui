@@ -5,13 +5,14 @@ import { cn } from '../../utils/cn';
 const textareaVariants = cva(
   [
     'flex w-full rounded-[0.5rem]',
-    'border border-[#D1D5DB]',
-    'bg-white px-3 py-2',
-    'text-base text-[#111827]',
-    'placeholder:text-[#9CA3AF]',
+    'border border-gray-300',
+    'bg-white px-3 py-3',
+    'text-base text-gray-900',
+    'placeholder:text-gray-400',
+    'min-h-[120px]',
     'transition-colors duration-150',
-    'focus:outline-none focus:ring-2 focus:ring-[#0070E0]/20 focus:border-[#0070E0]',
-    'disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-[#F3F4F6]',
+    'focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500',
+    'disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-100',
     'resize-y',
   ].join(' '),
   {
@@ -19,8 +20,8 @@ const textareaVariants = cva(
       variant: {
         default: '',
         error: [
-          'border-[#EF4444]',
-          'focus:ring-[#EF4444]/20 focus:border-[#EF4444]',
+          'border-red-500',
+          'focus:ring-red-500/20 focus:border-red-500',
         ].join(' '),
       },
     },
@@ -48,7 +49,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={textareaId}
-            className="block text-sm font-medium text-[#374151] mb-1.5"
+            className="block text-sm font-medium text-gray-700 mb-1.5"
           >
             {label}
           </label>
@@ -75,13 +76,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         />
 
         {error && (
-          <p id={`${textareaId}-error`} className="mt-1.5 text-sm text-[#EF4444]">
+          <p id={`${textareaId}-error`} className="mt-1.5 text-sm text-red-500">
             {error}
           </p>
         )}
 
         {helperText && !error && (
-          <p id={`${textareaId}-helper`} className="mt-1.5 text-sm text-[#6B7280]">
+          <p id={`${textareaId}-helper`} className="mt-1.5 text-sm text-gray-500">
             {helperText}
           </p>
         )}

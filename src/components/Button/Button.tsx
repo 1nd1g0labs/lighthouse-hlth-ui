@@ -11,6 +11,7 @@ const buttonVariants = cva(
     'focus:outline-none focus:ring-2 focus:ring-offset-2',
     'disabled:opacity-50 disabled:pointer-events-none',
     'select-none',
+    'touch-manipulation',
   ].join(' '),
   {
     variants: {
@@ -68,11 +69,11 @@ const buttonVariants = cva(
         ].join(' '),
       },
       size: {
-        sm: 'h-8 px-3 text-sm rounded-md gap-1.5',
-        md: 'h-10 px-5 text-base rounded-lg gap-2',
-        lg: 'h-12 px-6 text-lg rounded-lg gap-2',
+        sm: 'min-h-[44px] md:h-8 px-3 text-sm rounded-md gap-1.5',
+        md: 'min-h-[44px] md:h-10 px-5 text-base rounded-lg gap-2',
+        lg: 'min-h-[48px] md:h-12 px-6 text-lg rounded-lg gap-2',
         xl: 'h-14 px-8 text-xl rounded-xl gap-2.5',
-        icon: 'h-10 w-10 rounded-lg',
+        icon: 'h-10 w-10 md:h-10 md:w-10 min-h-[44px] min-w-[44px] rounded-lg',
       },
       fullWidth: {
         true: 'w-full',

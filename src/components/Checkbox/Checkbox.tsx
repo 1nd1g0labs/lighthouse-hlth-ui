@@ -22,15 +22,16 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               type="checkbox"
               ref={ref}
               className={cn(
-                'peer h-5 w-5 shrink-0',
+                'peer h-6 w-6 md:h-5 md:w-5 shrink-0',
                 'appearance-none rounded-[0.375rem]',
-                'border-2 border-[#D1D5DB]',
+                'border-2 border-gray-300',
                 'bg-white',
                 'transition-all duration-150',
-                'checked:bg-[#0070E0] checked:border-[#0070E0]',
-                'focus:outline-none focus:ring-2 focus:ring-[#0070E0]/20',
+                'checked:bg-primary-500 checked:border-primary-500',
+                'focus:outline-none focus:ring-2 focus:ring-primary-500/20',
                 'disabled:cursor-not-allowed disabled:opacity-50',
-                error && 'border-[#EF4444]',
+                'cursor-pointer',
+                error && 'border-red-500',
                 className
               )}
               aria-invalid={error ? 'true' : 'false'}
@@ -40,7 +41,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               {...props}
             />
             <Check
-              className="absolute top-0 left-0 h-5 w-5 text-white opacity-0 peer-checked:opacity-100 pointer-events-none p-0.5"
+              className="absolute top-0 left-0 h-6 w-6 md:h-5 md:w-5 text-white opacity-0 peer-checked:opacity-100 pointer-events-none p-0.5"
               strokeWidth={3}
             />
           </div>
@@ -51,20 +52,20 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             {label && (
               <label
                 htmlFor={checkboxId}
-                className="font-medium text-[#374151] cursor-pointer select-none"
+                className="font-medium text-gray-700 cursor-pointer select-none"
               >
                 {label}
               </label>
             )}
 
             {helperText && !error && (
-              <p id={`${checkboxId}-helper`} className="text-[#6B7280]">
+              <p id={`${checkboxId}-helper`} className="text-gray-500">
                 {helperText}
               </p>
             )}
 
             {error && (
-              <p id={`${checkboxId}-error`} className="text-[#EF4444]">
+              <p id={`${checkboxId}-error`} className="text-red-500">
                 {error}
               </p>
             )}

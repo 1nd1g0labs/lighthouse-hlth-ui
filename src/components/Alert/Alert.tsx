@@ -5,28 +5,29 @@ import { AlertCircle, CheckCircle2, Info, AlertTriangle, X } from 'lucide-react'
 
 const alertVariants = cva(
   [
-    'relative w-full rounded-[0.5rem] border p-4',
+    'relative w-full rounded-[0.5rem] border',
+    'p-3 md:p-4',
     'transition-all duration-250',
   ].join(' '),
   {
     variants: {
       variant: {
         info: [
-          'bg-[#DBEAFE] border-[#3B82F6] text-[#1E3A8A]',
+          'bg-blue-100 border-blue-500 text-blue-900',
         ].join(' '),
         success: [
-          'bg-[#D1FAE5] border-[#10B981] text-[#065F46]',
+          'bg-green-100 border-green-500 text-green-900',
         ].join(' '),
         warning: [
-          'bg-[#FEF3C7] border-[#F59E0B] text-[#78350F]',
+          'bg-amber-100 border-amber-500 text-amber-900',
         ].join(' '),
         error: [
-          'bg-[#FEE2E2] border-[#EF4444] text-[#7F1D1D]',
+          'bg-red-100 border-red-500 text-red-900',
         ].join(' '),
         sustainability: [
-          'bg-gradient-to-r from-[#0070E0]/10 to-[#4CAF50]/10',
-          'border-[#4CAF50]',
-          'text-[#1B5E20]',
+          'bg-gradient-to-r from-primary-500/10 to-secondary-500/10',
+          'border-secondary-500',
+          'text-green-900',
         ].join(' '),
       },
     },
@@ -80,10 +81,10 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
           {onClose && (
             <button
               onClick={onClose}
-              className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity"
+              className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity p-1 -m-1 touch-manipulation"
               aria-label="Close alert"
             >
-              <X className="h-4 w-4" />
+              <X className="h-5 w-5 md:h-4 md:w-4" />
             </button>
           )}
         </div>
