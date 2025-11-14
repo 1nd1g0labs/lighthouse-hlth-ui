@@ -5,13 +5,13 @@ import { cn } from '../../utils/cn';
 const inputVariants = cva(
   [
     'flex w-full rounded-[0.5rem]',
-    'border border-[#D1D5DB]',
+    'border border-gray-300',
     'bg-white px-3 py-2',
-    'text-base text-[#111827]',
-    'placeholder:text-[#9CA3AF]',
+    'text-base text-gray-900',
+    'placeholder:text-gray-400',
     'transition-colors duration-150',
-    'focus:outline-none focus:ring-2 focus:ring-[#0070E0]/20 focus:border-[#0070E0]',
-    'disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-[#F3F4F6]',
+    'focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500',
+    'disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-100',
     'file:border-0 file:bg-transparent file:text-sm file:font-medium',
   ].join(' '),
   {
@@ -19,12 +19,12 @@ const inputVariants = cva(
       variant: {
         default: '',
         error: [
-          'border-[#EF4444]',
-          'focus:ring-[#EF4444]/20 focus:border-[#EF4444]',
+          'border-red-500',
+          'focus:ring-red-500/20 focus:border-red-500',
         ].join(' '),
         success: [
-          'border-[#10B981]',
-          'focus:ring-[#10B981]/20 focus:border-[#10B981]',
+          'border-green-500',
+          'focus:ring-green-500/20 focus:border-green-500',
         ].join(' '),
       },
       inputSize: {
@@ -75,7 +75,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-[#374151] mb-1.5"
+            className="block text-sm font-medium text-gray-700 mb-1.5"
           >
             {label}
           </label>
@@ -83,7 +83,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6B7280]">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
               {leftIcon}
             </div>
           )}
@@ -109,20 +109,20 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
 
           {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6B7280]">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
               {rightIcon}
             </div>
           )}
         </div>
 
         {error && (
-          <p id={`${inputId}-error`} className="mt-1.5 text-sm text-[#EF4444]">
+          <p id={`${inputId}-error`} className="mt-1.5 text-sm text-red-500">
             {error}
           </p>
         )}
 
         {helperText && !error && (
-          <p id={`${inputId}-helper`} className="mt-1.5 text-sm text-[#6B7280]">
+          <p id={`${inputId}-helper`} className="mt-1.5 text-sm text-gray-500">
             {helperText}
           </p>
         )}

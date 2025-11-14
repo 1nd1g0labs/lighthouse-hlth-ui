@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 
 const progressVariants = cva(
-  'relative h-2 w-full overflow-hidden rounded-full bg-[#E5E7EB]',
+  'relative h-2 w-full overflow-hidden rounded-full bg-gray-200',
   {
     variants: {
       size: {
@@ -24,17 +24,17 @@ const progressBarVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-[#0070E0]',
-        secondary: 'bg-[#4CAF50]',
-        accent: 'bg-[#FF9800]',
-        success: 'bg-[#10B981]',
-        warning: 'bg-[#F59E0B]',
-        error: 'bg-[#EF4444]',
+        primary: 'bg-primary-500',
+        secondary: 'bg-secondary-500',
+        accent: 'bg-accent-500',
+        success: 'bg-green-500',
+        warning: 'bg-amber-500',
+        error: 'bg-red-500',
         // Sustainability variants based on emission levels
-        emissionsLow: 'bg-[#10B981]',
-        emissionsMedium: 'bg-[#F59E0B]',
-        emissionsHigh: 'bg-[#DC2626]',
-        sustainability: 'bg-gradient-to-r from-[#0070E0] to-[#4CAF50]',
+        emissionsLow: 'bg-green-500',
+        emissionsMedium: 'bg-amber-500',
+        emissionsHigh: 'bg-red-600',
+        sustainability: 'bg-gradient-to-r from-primary-500 to-secondary-500',
       },
     },
     defaultVariants: {
@@ -73,10 +73,10 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(
       <div className="w-full">
         {(showLabel || label) && (
           <div className="flex justify-between mb-1.5">
-            <span className="text-sm font-medium text-[#374151]">
+            <span className="text-sm font-medium text-gray-700">
               {label || 'Progress'}
             </span>
-            <span className="text-sm font-medium text-[#6B7280]">
+            <span className="text-sm font-medium text-gray-500">
               {Math.round(percentage)}%
             </span>
           </div>

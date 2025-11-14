@@ -96,7 +96,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                   {showCloseButton && onClose && (
                     <button
                       onClick={onClose}
-                      className="absolute right-3 top-3 md:right-4 md:top-4 rounded-[0.375rem] p-1.5 md:p-1 text-[#6B7280] hover:text-[#374151] hover:bg-[#F3F4F6] transition-colors touch-manipulation z-10"
+                      className="absolute right-3 top-3 md:right-4 md:top-4 rounded-[0.375rem] p-1.5 md:p-1 text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors touch-manipulation z-10"
                       aria-label="Close modal"
                     >
                       <X className="h-5 w-5" />
@@ -136,7 +136,7 @@ export const ModalTitle = forwardRef<
   <h2
     ref={ref}
     className={cn(
-      'text-[1.25rem] md:text-[1.5rem] font-semibold leading-none tracking-tight text-[#111827] pr-8',
+      'text-[1.25rem] md:text-[1.5rem] font-semibold leading-none tracking-tight text-gray-900 pr-8',
       className
     )}
     {...props}
@@ -149,7 +149,7 @@ export const ModalDescription = forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn('text-sm text-[#6B7280]', className)} {...props} />
+  <p ref={ref} className={cn('text-sm text-gray-500', className)} {...props} />
 ));
 
 ModalDescription.displayName = 'ModalDescription';
