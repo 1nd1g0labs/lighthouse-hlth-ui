@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Design System Documentation
+    url: https://github.com/1nd1g0labs/lighthouse-hlth-ui/blob/main/README.md
+    about: Review component documentation and usage examples
+  - name: Strategy Discussion
+    url: https://github.com/1nd1g0labs/lighthouse-hlth-northstar-strategy/discussions
+    about: For strategic questions about design system direction
+  - name: Storybook
+    url: https://lighthouse-hlth-ui-storybook.vercel.app
+    about: View live component examples and interactive documentation

@@ -1,0 +1,173 @@
+name: Component Request
+description: Propose a new UI component for Lighthouse HLTH Design System
+title: "[Component]: "
+labels: ["component"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Component Proposal
+        Thank you for contributing to the Lighthouse HLTH Design System!
+
+  - type: dropdown
+    id: strategic_phase
+    attributes:
+      label: Strategic Phase
+      description: Which roadmap phase needs this component?
+      options:
+        - "Q4 2024: Foundation"
+        - "Q1 2025: Design Partner"
+        - "Q2 2025: Early Adopter"
+        - "Q3-Q4 2025: Market Leadership"
+        - "2026+: Future Horizon"
+        - "Not Aligned"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: epic
+    attributes:
+      label: Epic
+      description: Which feature uses this component?
+      options:
+        - "Design System"
+        - "OPEX Dashboard"
+        - "Action Plans Marketplace"
+        - "Compliance Reporting"
+        - "Authentication & RBAC"
+        - "Multi-Facility Management"
+        - "Self-Service Onboarding"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stakeholder_impact
+    attributes:
+      label: Primary Stakeholder
+      description: Which user persona benefits from this component?
+      options:
+        - "CFO"
+        - "Sustainability Officer"
+        - "Facilities Director"
+        - "IT Admin"
+        - "Mission Leader"
+        - "Internal"
+        - "Multi-Stakeholder"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How urgent is this component?
+      options:
+        - "P0: Critical"
+        - "P1: High"
+        - "P2: Medium"
+        - "P3: Low"
+        - "P4: Backlog"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Effort Estimate
+      description: Rough estimate of implementation complexity
+      options:
+        - "XS (< 1 day)"
+        - "S (1-2 days)"
+        - "M (3-5 days)"
+        - "L (1-2 weeks)"
+        - "XL (2+ weeks)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: component_description
+    attributes:
+      label: Component Description
+      description: What is this component and what does it do?
+      placeholder: "A [component name] that allows users to [action]..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_cases
+    attributes:
+      label: Use Cases
+      description: Where will this component be used?
+      placeholder: |
+        - OPEX Dashboard: Display energy consumption metrics
+        - Action Plans: Show savings recommendations
+        - Compliance Reports: Present audit status
+    validations:
+      required: true
+
+  - type: textarea
+    id: props_api
+    attributes:
+      label: Props/API Design
+      description: What props should this component accept?
+      placeholder: |
+        ```typescript
+        interface ComponentProps {
+          title: string;
+          value: number;
+          status?: 'success' | 'warning' | 'error';
+          onClick?: () => void;
+        }
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: variants
+    attributes:
+      label: Variants
+      description: What visual/behavioral variants are needed?
+      placeholder: |
+        - Default (no status)
+        - Success (green)
+        - Warning (yellow)
+        - Error (red)
+        - Loading state
+    validations:
+      required: false
+
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility Requirements
+      description: WCAG 2.1 AA compliance considerations
+      placeholder: |
+        - Keyboard navigable
+        - Screen reader announces: "[component state]"
+        - Color contrast ratio >= 4.5:1
+        - Focus visible
+    validations:
+      required: true
+
+  - type: textarea
+    id: design_reference
+    attributes:
+      label: Design Reference
+      description: Link to Figma, mockups, or similar components
+      placeholder: "Figma: [link], Similar to Tailwind UI Stats component"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What must be complete for this component to ship?
+      options:
+        - label: "TypeScript implementation with full type coverage"
+        - label: "Storybook stories for all variants"
+        - label: "Unit tests with >80% coverage"
+        - label: "Accessibility audit passed (axe-core, 0 violations)"
+        - label: "Mobile responsive (320px - 1920px)"
+        - label: "Dark mode support"
+        - label: "Documentation in component README"
