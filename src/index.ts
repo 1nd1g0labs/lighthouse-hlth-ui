@@ -61,3 +61,14 @@ export * from './components/Tooltip';
 
 // Navigation Components
 export * from './components/Tabs';
+export * from './components/Navlink';
+export * from './components/FooterLink';
+export * from './components/ContactLink';
+
+// Interactive Components
+export * from './components/FAQButton';
+export * from './components/SocialIcon';
+export * from './components/Rating';
+
+// Utility Components
+export * from './components/SectionTag';

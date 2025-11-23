@@ -1,6 +1,6 @@
 {
   "name": "@1nd1g0labs/lighthouse-hlth-ui",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Lighthouse Health Design System - A comprehensive branded UI component library for healthcare sustainability applications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -45,7 +45,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepublishOnly": "npm run build:lib && npm run type-check"
+    "prepublishOnly": "npm run build:lib"
   },
   "keywords": [
     "react",

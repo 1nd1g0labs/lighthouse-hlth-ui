@@ -34,8 +34,14 @@ export const colors = {
   },
 
   /**
-   * @deprecated Use primary.500 (#057C8B) instead
-   * Old primary color kept for migration path only
+   * @deprecated Use primary.500 (#057C8B) instead. This will be removed in v1.0.0.
+   * Old primary color kept for migration path only.
+   *
+   * Migration:
+   * - TypeScript: colors.primaryOld → colors.primary[500]
+   * - Tailwind: bg-primary-old → bg-primary-500
+   *
+   * See MIGRATION.md for complete guide.
    */
   primaryOld: '#1A8B8B',
 
@@ -58,8 +64,14 @@ export const colors = {
   },
 
   /**
-   * @deprecated Use accent.500 (#FF833B) instead
-   * Old accent color kept for migration path only
+   * @deprecated Use accent.500 (#FF833B) instead. This will be removed in v1.0.0.
+   * Old accent color kept for migration path only.
+   *
+   * Migration:
+   * - TypeScript: colors.accentOld → colors.accent[500]
+   * - Tailwind: bg-accent-old → bg-accent-500
+   *
+   * See MIGRATION.md for complete guide.
    */
   accentOld: '#FF8B4B',
 

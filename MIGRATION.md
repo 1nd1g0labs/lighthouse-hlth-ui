@@ -1,4 +1,261 @@
-# Migration Guide: v0.2.x → v0.3.0
+# Migration Guide
+
+## v0.6.0 → v1.0.0 (BREAKING CHANGES)
+
+**Release Date:** TBD (Q1 2026)
+**Migration Timeline:** 2-3 months recommended
+**Status:** Deprecation warnings active in v0.6.0
+
+### Overview
+
+Version 1.0.0 represents the completion of Framer design system alignment. All deprecated components and design tokens will be removed. This is a **breaking change** release.
+
+**Critical:** Start planning migration now. v1.0.0 will break code using deprecated components/tokens.
+
+---
+
+### Breaking Changes
+
+#### 1. Button Component Removal
+
+**Status:** Deprecated in v0.6.0, removed in v1.0.0
+
+**Old (v0.6.0 and earlier):**
+```typescript
+import { Button } from '@1nd1g0labs/lighthouse-hlth-ui';
+
+<Button variant="primary">Click me</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+```
+
+**New (v1.0.0+):**
+```typescript
+import { Button2 } from '@1nd1g0labs/lighthouse-hlth-ui';
+
+<Button2 variant="green-right">Click me</Button>
+<Button2 variant="white-right">Secondary</Button>
+<Button2 variant="white-right">Outline</Button>
+```
+
+**Why:** Button2 matches Framer marketing site design exactly with animated arrow hover effects and precise color matching.
+
+**Variant Mapping:**
+| Old Button | New Button2 | Notes |
+|------------|-------------|-------|
+| `variant="primary"` | `variant="green-right"` | Default with animated arrow |
+| `variant="secondary"` | `variant="white-right"` | White background with border |
+| `variant="outline"` | `variant="white-right"` | Same as secondary |
+| `variant="accent"` | `variant="green-right"` | Use primary green |
+| `variant="ghost"` | Use `LinkButton` | Text link with arrow animation |
+| `variant="destructive"` | Use `FormButton` | With error state |
+
+**Size Mapping:**
+| Old Button | New Button2 | Height |
+|------------|-------------|--------|
+| `size="sm"` | `size="default"` | 46px |
+| `size="md"` | `size="default"` | 46px |
+| `size="lg"` | `size="large"` | 56px |
+| `size="xl"` | `size="large"` | 56px |
+
+**Example Migration:**
+```typescript
+// BEFORE (v0.6.0)
+<Button variant="primary" size="md">
+  Learn More
+</Button>
+
+// AFTER (v1.0.0)
+<Button2 variant="green-right" size="default">
+  Learn More
+</Button2>
+```
+
+#### 2. Design Token Removal
+
+**Status:** Deprecated in v0.6.0, removed in v1.0.0
+
+**Removed Tokens:**
+- `colors.primaryOld` (#1A8B8B)
+- `colors.accentOld` (#FF8B4B)
+
+**TypeScript Migration:**
+```typescript
+// BEFORE (v0.6.0)
+import { colors } from '@1nd1g0labs/lighthouse-hlth-ui/tokens';
+const color = colors.primaryOld; // #1A8B8B (old, darker)
+
+// AFTER (v1.0.0)
+import { colors } from '@1nd1g0labs/lighthouse-hlth-ui/tokens';
+const color = colors.primary[500]; // #057C8B (Framer exact)
+```
+
+**Tailwind CSS Migration:**
+```tsx
+// BEFORE (v0.6.0)
+<div className="bg-primary-old text-accent-old">
+  Content
+</div>
+
+// AFTER (v1.0.0)
+<div className="bg-primary-500 text-accent-500">
+  Content
+</div>
+```
+
+**Color Differences:**
+- Old primary: `#1A8B8B` (darker, less vibrant)
+- New primary: `#057C8B` (lighter, more vibrant - Framer exact)
+- Old accent: `#FF8B4B` (softer orange)
+- New accent: `#FF833B` (brighter orange - Framer exact)
+
+---
+
+### Migration Checklist
+
+**Phase 1: Audit (Week 1)**
+- [ ] Search codebase for `<Button` usage: `grep -r "<Button" src/`
+- [ ] Identify all Button variant usage
+- [ ] Search for `primaryOld`: `grep -r "primaryOld" src/`
+- [ ] Search for `accentOld`: `grep -r "accentOld" src/`
+- [ ] Search for Tailwind classes: `grep -r "bg-primary-old\|text-primary-old\|bg-accent-old\|text-accent-old" src/`
+- [ ] Count affected files and estimate effort
+
+**Phase 2: Update Components (Weeks 2-4)**
+- [ ] Replace `Button` imports with `Button2`
+- [ ] Update variant props per mapping table
+- [ ] Update size props per mapping table
+- [ ] Remove `leftIcon` and `rightIcon` props (Button2 has built-in arrow)
+- [ ] Test visual appearance matches expectations
+- [ ] Update component tests to use Button2
+- [ ] Update Storybook stories
+
+**Phase 3: Update Styles (Weeks 5-6)**
+- [ ] Replace `colors.primaryOld` with `colors.primary[500]`
+- [ ] Replace `colors.accentOld` with `colors.accent[500]`
+- [ ] Update Tailwind classes (`bg-primary-old` → `bg-primary-500`)
+- [ ] Update custom CSS using old color values
+- [ ] Verify color contrast still meets WCAG 2.1 AA
+- [ ] Update data visualization charts using old colors
+
+**Phase 4: Testing (Week 7)**
+- [ ] Unit tests passing with new components
+- [ ] Visual regression testing complete
+- [ ] Accessibility audit (WCAG 2.1 AA compliance)
+- [ ] Cross-browser testing (Chrome, Firefox, Safari, Edge)
+- [ ] Mobile responsive testing (iOS Safari, Android Chrome)
+- [ ] Integration tests updated and passing
+
+**Phase 5: Deploy (Week 8)**
+- [ ] Deploy to staging environment
+- [ ] Stakeholder review and approval
+- [ ] Monitor error tracking (Sentry) for issues
+- [ ] Deploy to production with feature flag
+- [ ] Gradual rollout to users
+- [ ] Monitor analytics and user feedback
+
+---
+
+### Automated Migration
+
+We provide a codemod to automate most of the migration:
+
+```bash
+# Install and run codemod
+npx @1nd1g0labs/lighthouse-hlth-ui-codemod v0-to-v1 ./src
+
+# Review changes
+git diff
+
+# Test thoroughly before committing
+npm test
+npm run storybook
+```
+
+**What the codemod does:**
+- Replaces `Button` imports with `Button2`
+- Updates variant prop values (primary → green-right, etc.)
+- Replaces `colors.primaryOld` with `colors.primary[500]`
+- Replaces `colors.accentOld` with `colors.accent[500]`
+- Updates Tailwind classes (bg-primary-old → bg-primary-500)
+- Generates migration report with statistics
+
+**What requires manual review:**
+- Complex variant logic (conditional variants)
+- Custom styled buttons extending base Button
+- Icon props (leftIcon/rightIcon removed in Button2)
+- Size prop edge cases
+- Color usage in custom CSS files
+- Data visualization color arrays
+
+---
+
+### Support & Resources
+
+**Documentation:**
+- [DEPRECATION_TIMELINE.md](./DEPRECATION_TIMELINE.md) - Detailed timeline
+- [CHANGELOG.md](./CHANGELOG.md) - Version history
+- Storybook: `npm run storybook` - Visual component examples
+
+**Getting Help:**
+- GitHub Issues: https://github.com/1nd1g0labs/lighthouse-hlth-ui/issues
+- Email: support@lighthousehlth.com
+- Migration Support: 2-3 months from v0.6.0 release
+
+**Timeline:**
+- **Nov 2025:** v0.6.0 released (deprecation warnings)
+- **Dec 2025 - Jan 2026:** Migration period
+- **Q1 2026:** v1.0.0 released (breaking changes)
+
+---
+
+### Rollback Plan
+
+If issues arise after v1.0.0 upgrade:
+
+**Option 1: Temporary Rollback**
+```json
+{
+  "dependencies": {
+    "@1nd1g0labs/lighthouse-hlth-ui": "0.6.0"
+  }
+}
+```
+
+**Option 2: Gradual Migration**
+- Keep v0.6.0 in production
+- Complete migration in development/staging
+- Test thoroughly before production upgrade
+
+**Important:** No rollback support after 6 months from v1.0.0 release. Security patches will only be applied to v1.x+.
+
+---
+
+### FAQ
+
+**Q: Can I use both Button and Button2 during migration?**
+A: Yes! v0.6.0 supports both. Migrate incrementally, file by file.
+
+**Q: Will v0.6.0 break my existing code?**
+A: No. v0.6.0 is fully backward compatible. You'll see console warnings only.
+
+**Q: How long do I have to migrate?**
+A: Recommended 2-3 months. v1.0.0 will be released in Q1 2026.
+
+**Q: What if I can't migrate in time?**
+A: Pin to v0.6.0 until migration is complete. No rush, but v1.x will have new features.
+
+**Q: Will the codemod handle everything?**
+A: It handles 80-90% of cases. Manual review required for complex scenarios.
+
+**Q: Do I need to update my Tailwind config?**
+A: No. v0.6.0+ includes all necessary Tailwind token updates.
+
+---
+
+## v0.2.x → v0.3.0 (Design Token Alignment)
+
+**Status:** Completed - No breaking changes
 
 ## Overview
 

@@ -44,7 +44,7 @@ npm run build        # Build library
 
 ## Current Components
 
-### Tier 1: Framer-Aligned Components (v0.3.0-0.4.0)
+### Tier 1: Framer-Aligned Core (v0.4.0)
 
 Perfect pixel-match to Framer marketing site. Production-ready with full WCAG 2.1 AA compliance.
 
@@ -55,17 +55,31 @@ Perfect pixel-match to Framer marketing site. Production-ready with full WCAG 2.
 | **LinkButton** | forward-black, forward-white, backward-black, backward-white | Text link with animated arrow | `Y9sUo0Uzx` |
 | **Button2** | green-left, green-right, white-left, white-right, white-static | Primary button with arrow animation | `Jobckk162` |
 
-### Tier 2: Production Ready (Tailwind + Brand Colors)
+### Tier 2: Framer-Aligned Navigation & Feedback (v0.5.0 - NEW!)
+
+Complete navigation, ratings, and footer components matching Framer marketing site.
+
+| Component | Variants | Description | Framer nodeId |
+|-----------|----------|-------------|---------------|
+| **FAQButton** | isActive (true/false) | Accordion button with chevron animation | `uYy4zA47k` |
+| **SocialIcon** | default, filled | Social media icons (6 platforms, 40px circular) | `nxyfQcMau` |
+| **Rating** | sm, md, lg | 1-5 star rating display with optional numeric value | `WidH99kQU` |
+| **Navlink** | isActive (true/false) | Navigation link with active state indicator | `o7u8VYGZ_` |
+| **FooterLink** | default, light | Footer links with subtle hover effects | `A3i_k4Ana` |
+| **ContactLink** | default, primary | Contact links with icons (email, phone, location) | `hLwN6bqq3` |
+| **SectionTag** | primary, accent, neutral | Section labels/tags for categorization | `Y70PDA6Rc` |
+
+### Tier 3: Production Ready (Tailwind + Brand Colors)
 
 | Component | Variants | Description |
 |-----------|----------|-------------|
-| **Button** | primary, secondary, accent, outline, ghost, destructive | Action buttons with icons, loading states |
+| **Button** | primary, secondary, accent, outline, ghost, destructive | General-purpose action buttons |
 | **IconButton** | primary, secondary, accent, outline, ghost | Circular icon CTAs |
 | **Card** | default, elevated, outline, ghost, sustainability | Content containers with header/footer |
 | **MetricCard** | - | Large stat display with trends |
 | **ServiceCard** | - | Image-based showcase with overlay text |
 
-### Tier 3: Available (Legacy Styling)
+### Tier 4: Available (Legacy Styling)
 
 Badge, Alert, Progress, Modal, Tooltip, Tabs, Input, Select, Checkbox, Radio, Textarea, Container, Stack, Grid
 

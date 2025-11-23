@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 
@@ -86,6 +86,22 @@ const buttonVariants = cva(
   }
 );
 
+/**
+ * @deprecated Use Button2 instead. This component will be removed in v1.0.0.
+ * See MIGRATION.md for migration guide.
+ *
+ * Button2 provides Framer-aligned design with:
+ * - Animated arrow hover effects
+ * - Exact color matching to marketing site
+ * - Better accessibility and mobile tap targets
+ *
+ * Migration:
+ * - variant="primary" → Button2 variant="green-right"
+ * - variant="secondary" → Button2 variant="white-right"
+ * - variant="outline" → Button2 variant="white-right"
+ * - variant="ghost" → Use LinkButton instead
+ * - variant="destructive" → Use FormButton with error state
+ */
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
@@ -111,6 +127,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
+    // Deprecation warning
+    useEffect(() => {
+      console.warn(
+        '[@1nd1g0labs/lighthouse-hlth-ui] DEPRECATION WARNING: ' +
+        'The "Button" component is deprecated and will be removed in v1.0.0. ' +
+        'Please migrate to "Button2" for Framer-aligned design. ' +
+        'See MIGRATION.md for details: https://github.com/1nd1g0labs/lighthouse-hlth-ui/blob/main/MIGRATION.md'
+      );
+    }, []);
+
     return (
       <button
         ref={ref}
