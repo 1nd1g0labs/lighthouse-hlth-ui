@@ -1,10 +1,59 @@
-# Contributing
+# Contributing to Lighthouse HLTH UI
 
-Quick guide to adding components and submitting changes.
+## Important Notice
 
-## Adding a New Component
+**This is proprietary software owned by Indigo Labs LLC.**
 
-### Component File Template
+While this repository is publicly viewable for transparency and educational purposes,
+**contributions are restricted to explicitly authorized individuals and organizations**.
+
+This is NOT a traditional open-source project. Unsolicited contributions cannot be accepted.
+
+## Who Can Contribute?
+
+Contributions are accepted ONLY from:
+
+✅ **Authorized Parties:**
+- Indigo Labs LLC employees
+- Lighthouse HLTH contractors under NDA
+- Explicitly approved partners with written agreements
+- Organizations with executed Contributor License Agreements (CLA)
+
+❌ **NOT Accepted:**
+- Unsolicited pull requests from the general public
+- Contributions without prior written authorization
+- Fork-based contributions (forking for derivative works violates the LICENSE)
+
+## Before Contributing
+
+If you believe you should have contribution access:
+
+1. **Contact us:** nick@onehealthcto.com
+2. **Include:**
+   - Your name and organization
+   - Reason for contribution request
+   - Proposed changes or involvement
+3. **Await approval:** Do not submit code until you receive explicit written permission
+4. **Sign CLA:** If approved, you'll be asked to sign a Contributor License Agreement
+
+## For Authorized Contributors
+
+If you have received explicit written permission to contribute:
+
+### Getting Started
+
+```bash
+git clone https://github.com/1nd1g0labs/lighthouse-hlth-ui.git
+cd lighthouse-hlth-ui
+npm install
+npm run storybook  # View components at localhost:6006
+```
+
+### Component Development Template
+
+When adding a new component, follow this structure:
+
+#### Component File
 
 `src/components/MyComponent/MyComponent.tsx`:
 
@@ -49,7 +98,7 @@ export const MyComponent = React.forwardRef<HTMLDivElement, MyComponentProps>(
 MyComponent.displayName = 'MyComponent';
 ```
 
-### Exports & Story
+#### Exports
 
 `src/components/MyComponent/index.ts`:
 ```tsx
@@ -61,6 +110,8 @@ export { MyComponent, type MyComponentProps } from './MyComponent';
 export { MyComponent, type MyComponentProps } from './components/MyComponent';
 ```
 
+#### Storybook Story
+
 `src/components/MyComponent/MyComponent.stories.tsx`:
 ```tsx
 import type { Meta, StoryObj } from '@storybook/react';
@@ -70,6 +121,13 @@ const meta = {
   title: 'Components/MyComponent',
   component: MyComponent,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Brief description of MyComponent and its use cases.',
+      },
+    },
+  },
 } satisfies Meta<typeof MyComponent>;
 
 export default meta;
@@ -78,36 +136,141 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: { variant: 'primary', children: 'My Component' },
 };
+
+export const Secondary: Story = {
+  args: { variant: 'secondary', children: 'My Component' },
+};
 ```
 
-## Code Standards
+### Code Standards
 
-- Use Tailwind classes: `bg-primary-500`, `text-secondary-600`, `hover:bg-primary-600`
-- Add TypeScript types and export them
-- Use `React.forwardRef` for ref support
-- Include ARIA labels and keyboard navigation
-- Ensure 4.5:1 color contrast minimum
+**Required:**
+- ✅ TypeScript with full type coverage
+- ✅ Framer alignment (match marketing site design tokens)
+- ✅ WCAG 2.1 AA accessibility compliance
+- ✅ Tailwind CSS classes (e.g., `bg-primary-500`, `text-h1`)
+- ✅ `React.forwardRef` for ref support
+- ✅ Comprehensive ARIA labels
+- ✅ Keyboard navigation support
+- ✅ 4.5:1 minimum color contrast
+- ✅ Responsive design (mobile, tablet, desktop)
+- ✅ Storybook documentation with usage examples
 
-## PR Process
+**Prohibited:**
+- ❌ Inline styles (use Tailwind)
+- ❌ Non-Framer-aligned design tokens
+- ❌ Accessibility violations
+- ❌ Hard-coded colors (use design tokens)
+- ❌ Missing TypeScript types
+- ❌ Console.log statements in production code
 
-1. Create branch: `feature/component-name` or `fix/description`
-2. Make changes following template above
-3. Test:
+### Development Workflow
+
+1. **Create Branch**
    ```bash
-   npm run storybook  # View at localhost:6006
-   npm run build      # Ensure builds
-   npm run type-check # No TS errors
-   npm run lint       # No lint errors
+   git checkout -b feature/component-name
+   # or
+   git checkout -b fix/bug-description
    ```
-4. Commit with clear messages
-5. Open PR with description, screenshots, breaking changes noted
 
-## Test Locally in Another App
+2. **Develop & Test**
+   ```bash
+   npm run storybook    # Interactive development
+   npm run build        # Ensure builds successfully
+   npm run type-check   # No TypeScript errors
+   npm run lint         # No ESLint errors
+   npm run format       # Format with Prettier
+   ```
 
-```bash
-# In lighthouse-hlth-ui
-npm run build && npm link
+3. **Test in Consuming App**
+   ```bash
+   # In lighthouse-hlth-ui
+   npm run build && npm link
 
-# In your app
-npm link @lighthouse-hlth/ui
-```
+   # In consuming app (e.g., lighthouse-hlth-app)
+   npm link @1nd1g0labs/lighthouse-hlth-ui
+   ```
+
+4. **Commit**
+   ```bash
+   git add .
+   git commit -m "feat: add MyComponent with primary/secondary variants"
+   # or
+   git commit -m "fix: resolve accessibility issue in Button"
+   ```
+
+   Use conventional commits:
+   - `feat:` - New features
+   - `fix:` - Bug fixes
+   - `docs:` - Documentation changes
+   - `style:` - Code style changes (formatting)
+   - `refactor:` - Code refactoring
+   - `test:` - Test additions or changes
+   - `chore:` - Build process or tooling changes
+
+5. **Push & Create PR**
+   ```bash
+   git push origin feature/component-name
+   ```
+
+   Open PR on GitHub with:
+   - Clear description of changes
+   - Screenshots/GIFs of UI changes
+   - Breaking changes noted
+   - Framer alignment confirmation
+   - Accessibility compliance confirmation
+
+6. **Code Review**
+   - Indigo Labs LLC team will review
+   - Address feedback
+   - Await approval and merge
+
+### Contributor License Agreement (CLA)
+
+All authorized contributors must sign a CLA stating:
+- Contributions become property of Indigo Labs LLC
+- You have the right to contribute the code
+- Contributions don't violate third-party rights
+- You grant Indigo Labs LLC perpetual license to use contributions
+
+The CLA will be provided upon authorization to contribute.
+
+## Reporting Issues
+
+Even if you're not an authorized contributor, you can report issues:
+
+**Bug Reports (Public):**
+- Use GitHub Issues for non-security bugs
+- Provide reproducible steps
+- Include environment details
+- Do not include sensitive information
+
+**Security Issues (Private):**
+- Email: nick@onehealthcto.com
+- See SECURITY.md for full process
+- Do NOT create public issues for security vulnerabilities
+
+## Questions?
+
+- **General Licensing:** nick@onehealthcto.com
+- **Security:** nick@onehealthcto.com
+- **Partnerships:** Via lighthousehlth.com contact form
+
+## Legal
+
+By contributing, you:
+- Acknowledge you've read and agree to the LICENSE terms
+- Agree to the Contributor License Agreement
+- Grant Indigo Labs LLC ownership of your contributions
+- Warrant that contributions don't violate third-party rights
+
+---
+
+**Thank you for your interest in Lighthouse HLTH.**
+
+If you're building healthcare sustainability solutions and want to collaborate,
+we'd love to hear from you at nick@onehealthcto.com.
+
+---
+
+© 2025 Indigo Labs LLC. All rights reserved.

@@ -47,6 +47,21 @@ npm run storybook    # View components at localhost:6006
 npm run build        # Build library
 ```
 
+## Live Component Catalog
+
+**Explore the live Storybook documentation:**
+https://1nd1g0labs.github.io/lighthouse-hlth-ui/
+
+The component catalog is automatically deployed on every push to `main`. View all components, variants, props, and interactive examples without running a local dev server.
+
+Features:
+- Interactive component playground
+- Complete props documentation
+- Accessibility annotations
+- Framer alignment details
+- Design token reference
+- Usage examples
+
 ## Production Components (v1.0.0)
 
 ### Tier 1: Core Interactive Components

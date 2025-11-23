@@ -1,0 +1,135 @@
+LIGHTHOUSE HLTH UI DESIGN SYSTEM
+NOTICE AND ATTRIBUTION
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+Copyright © 2025 Indigo Labs LLC
+All rights reserved.
+
+This software and associated documentation files (the "Software") are proprietary
+to Indigo Labs LLC and protected under applicable copyright and intellectual
+property laws.
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+DESIGN ATTRIBUTION AND PROVENANCE
+
+This design system is derived from and aligned with the Lighthouse HLTH marketing
+site created in Framer (lighthousehlth.com). The visual design, component patterns,
+brand identity, and design tokens are based on the original Framer project.
+
+Original Design:
+  Platform: Framer
+  Brand: Lighthouse HLTH
+  Owner: Indigo Labs LLC
+  Designer: [As credited in Framer project]
+
+This component library represents a technical implementation of the Lighthouse HLTH
+visual identity for use in React/Next.js applications, ensuring brand consistency
+across web, mobile, and application interfaces.
+
+Design Extraction & Implementation:
+  Method: Framer design token extraction and React component development
+  Alignment: Pixel-perfect match to Framer marketing components
+  Maintained by: Indigo Labs LLC engineering team
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+BRAND OWNERSHIP
+
+The following are trademarks and service marks of Indigo Labs LLC:
+  • Lighthouse HLTH™
+  • OneHealthCTO™
+  • All associated logos, brand marks, and visual identities
+
+Unauthorized use of these marks is prohibited.
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+THIRD-PARTY DEPENDENCIES
+
+This Software includes or depends upon the following open-source libraries, each
+subject to its own license terms:
+
+React (MIT License)
+  Copyright (c) Meta Platforms, Inc. and affiliates
+  https://github.com/facebook/react
+
+Framer Motion (MIT License)
+  Copyright (c) 2018 Framer B.V.
+  https://github.com/framer/motion
+
+Lucide React (ISC License)
+  Copyright (c) Lucide Contributors
+  https://github.com/lucide-icons/lucide
+
+Tailwind CSS (MIT License)
+  Copyright (c) Tailwind Labs, Inc.
+  https://github.com/tailwindlabs/tailwindcss
+
+Class Variance Authority (Apache-2.0 License)
+  Copyright (c) Joe Bell
+  https://github.com/joe-bell/cva
+
+clsx (MIT License)
+  Copyright (c) Luke Edwards
+  https://github.com/lukeed/clsx
+
+TypeScript (Apache-2.0 License)
+  Copyright (c) Microsoft Corporation
+  https://github.com/microsoft/TypeScript
+
+The full text of these licenses can be found in the node_modules directory of
+their respective packages.
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+CONTRIBUTION ATTRIBUTION
+
+This Software has been developed by:
+  • Indigo Labs LLC engineering team
+  • Contributors (as listed in Git commit history)
+
+All contributions to this repository become the property of Indigo Labs LLC upon
+acceptance and are subject to the terms of the LICENSE file.
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+HEALTHCARE MISSION ALIGNMENT
+
+This design system is purpose-built for healthcare sustainability applications,
+supporting the mission of:
+  • Operational excellence in healthcare facilities
+  • Environmental stewardship and carbon reduction
+  • Financial sustainability for mission-driven health systems
+  • Preferential option for the poor through margin expansion
+  • Creation care aligned with Laudato Si' principles
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+CONTACT INFORMATION
+
+For licensing inquiries:
+  Email: nick@onehealthcto.com
+  Website: https://onehealthcto.com
+
+For technical support:
+  GitHub Issues: https://github.com/1nd1g0labs/lighthouse-hlth-ui/issues
+
+For commercial partnerships:
+  Website: https://lighthousehlth.com
+  Contact: Via website contact form
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+PRIVACY & SECURITY
+
+For security vulnerabilities, please review SECURITY.md for responsible disclosure
+procedures. Do not create public GitHub issues for security concerns.
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+This notice must be included in all copies or substantial portions of the Software.
+
+Last Updated: November 2025
+Version: 1.0.0

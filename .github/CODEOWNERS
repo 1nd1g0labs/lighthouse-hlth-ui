@@ -1,0 +1,37 @@
+# Code Owners for Lighthouse HLTH UI
+#
+# This file defines individuals or teams responsible for code in this repository.
+# When someone opens a pull request that modifies code owned by an individual or team,
+# that individual or team will automatically be requested for review.
+#
+# More info: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything in the repo
+* @NMVW
+
+# Critical legal and configuration files
+# Only the repository owner should approve changes to these
+/LICENSE @NMVW
+/NOTICE @NMVW
+/CODE_OF_CONDUCT.md @NMVW
+/CONTRIBUTING.md @NMVW
+/SECURITY.md @NMVW
+/package.json @NMVW
+
+# Design tokens - require design lead approval
+/src/tokens/ @NMVW
+
+# Storybook configuration
+/.storybook/ @NMVW
+
+# Build and deployment configuration
+/tsup.config.ts @NMVW
+/.github/workflows/ @NMVW
+
+# Documentation
+/README.md @NMVW
+/REPOSITORY_SETUP.md @NMVW
+
+# Add additional team members as authorized:
+# /src/components/ @NMVW @design-team-member
+# /src/utils/ @NMVW @engineering-team-member

@@ -34,7 +34,9 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE",
+    "NOTICE"
   ],
   "scripts": {
     "dev": "tsup --watch",
@@ -44,7 +46,7 @@
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build && touch ./storybook-static/.nojekyll",
     "prepublishOnly": "npm run build:lib"
   },
   "keywords": [
@@ -57,8 +59,9 @@
     "sustainability",
     "lighthouse-health"
   ],
-  "author": "Lighthouse Health",
-  "license": "MIT",
+  "author": "Indigo Labs LLC",
+  "license": "UNLICENSED",
+  "private": false,
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

@@ -1,0 +1,151 @@
+LIGHTHOUSE HLTH UI DESIGN SYSTEM
+PROPRIETARY LICENSE AGREEMENT
+
+Copyright © 2025 Indigo Labs LLC. All rights reserved.
+
+IMPORTANT: READ CAREFULLY BEFORE USING THIS SOFTWARE
+
+This Lighthouse HLTH UI Design System ("Software") and associated documentation files
+are proprietary and confidential to Indigo Labs LLC ("Licensor"). By accessing or using
+this Software, you agree to be bound by the terms of this Agreement.
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+1. DEFINITIONS
+
+   "Lighthouse HLTH" means the healthcare sustainability platform and associated
+   services operated by Indigo Labs LLC.
+
+   "OneHealthCTO" means the healthcare technology consulting and advisory services
+   provided by Indigo Labs LLC.
+
+   "Competitive Use" means any use of the Software in products, services, or offerings
+   that directly compete with Lighthouse HLTH, OneHealthCTO, or other Indigo Labs LLC
+   products and services.
+
+   "Derivative Work" means any work based upon or derived from the Software, including
+   modifications, extensions, or adaptations.
+
+2. GRANT OF LIMITED LICENSE
+
+   Subject to the terms and conditions of this Agreement, Licensor hereby grants you
+   a limited, non-exclusive, non-transferable, revocable license to:
+
+   a) VIEW and REVIEW the source code for reference, learning, and evaluation purposes;
+   b) USE the Software solely in connection with the Lighthouse HLTH platform at
+      lighthousehlth.com and associated official Lighthouse HLTH applications;
+   c) CONTRIBUTE improvements back to this repository via pull requests, which shall
+      become property of Indigo Labs LLC upon acceptance.
+
+3. RESTRICTIONS
+
+   You SHALL NOT, without prior written consent from Indigo Labs LLC:
+
+   a) Use the Software for any Competitive Use;
+   b) Create, distribute, or sell Derivative Works;
+   c) Use the Software in any commercial product or service not explicitly authorized
+      by Indigo Labs LLC;
+   d) Remove, alter, or obscure any copyright, trademark, or proprietary notices;
+   e) Use the "Lighthouse HLTH" name, logo, or brand without authorization;
+   f) Reverse engineer, decompile, or disassemble the Software (except as source
+      code is provided for reference);
+   g) Sublicense, rent, lease, or transfer the Software to any third party;
+   h) Use the Software in healthcare products or services that compete with
+      sustainability, operations optimization, or carbon tracking solutions.
+
+4. INTELLECTUAL PROPERTY
+
+   a) Indigo Labs LLC retains all right, title, and interest in and to the Software,
+      including all intellectual property rights therein;
+   b) The Lighthouse HLTH brand, design system, and visual identity are trademarks
+      of Indigo Labs LLC;
+   c) Design elements derived from the Lighthouse HLTH Framer marketing site are
+      proprietary to Indigo Labs LLC and used under license;
+   d) Any contributions you make to this repository become the property of
+      Indigo Labs LLC.
+
+5. ATTRIBUTION REQUIREMENTS
+
+   If you reference or discuss this Software in publications, presentations, or
+   documentation, you must:
+
+   a) Clearly attribute it to Indigo Labs LLC and Lighthouse HLTH;
+   b) Include a link to the official repository;
+   c) Not imply endorsement or affiliation without written permission.
+
+6. PERMITTED USE EXAMPLES
+
+   ✓ Viewing code for educational purposes
+   ✓ Using in official Lighthouse HLTH applications
+   ✓ Contributing bug fixes or improvements via pull request
+   ✓ Academic research with proper attribution
+
+7. PROHIBITED USE EXAMPLES
+
+   ✗ Building competing healthcare sustainability platforms
+   ✗ Creating derivative design systems for commercial products
+   ✗ Using components in healthcare operations software without authorization
+   ✗ Rebranding or white-labeling for other organizations
+   ✗ Using in consulting engagements that compete with OneHealthCTO
+
+8. REQUEST FOR COMMERCIAL LICENSE
+
+   For commercial use, Derivative Works, or uses not covered by this license,
+   contact Indigo Labs LLC:
+
+   Email: nick@onehealthcto.com
+   Subject: Lighthouse HLTH UI - Commercial License Request
+
+   Include:
+   - Your intended use case
+   - Organization name and description
+   - Expected deployment scope
+   - Duration of intended use
+
+9. WARRANTY DISCLAIMER
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL
+   INDIGO LABS LLC BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING
+   FROM THE SOFTWARE.
+
+10. LIMITATION OF LIABILITY
+
+    IN NO EVENT SHALL INDIGO LABS LLC BE LIABLE FOR ANY SPECIAL, INCIDENTAL,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION,
+    DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS
+    INFORMATION, OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OF OR
+    INABILITY TO USE THIS SOFTWARE.
+
+11. TERMINATION
+
+    This license automatically terminates if you violate any of these restrictions.
+    Upon termination, you must cease all use of the Software and destroy all copies
+    in your possession.
+
+12. GOVERNING LAW
+
+    This Agreement shall be governed by the laws of the State of Colorado, United
+    States, without regard to its conflict of law provisions.
+
+13. ENTIRE AGREEMENT
+
+    This Agreement constitutes the entire agreement between you and Indigo Labs LLC
+    regarding the Software and supersedes all prior agreements and understandings.
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+For questions about this license, contact:
+
+Indigo Labs LLC
+nick@onehealthcto.com
+https://onehealthcto.com
+
+To request written consent for use cases not covered by this license, please submit
+a detailed request including your organization, intended use, and scope.
+
+═══════════════════════════════════════════════════════════════════════════════════
+
+ACKNOWLEDGMENT: By using this Software, you acknowledge that you have read this
+Agreement, understand it, and agree to be bound by its terms and conditions.
