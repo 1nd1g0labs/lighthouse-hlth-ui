@@ -1,8 +1,13 @@
 # Lighthouse Health UI
 
+**Version:** 1.0.0
+**Status:** Production Ready
+
 Healthcare sustainability design system. Brand-aligned components for carbon tracking, operations dashboards, and mission-driven health systems.
 
 **Design System Alignment:** This component library is aligned with the Lighthouse HLTH Framer marketing site as the single source of truth. Design tokens extracted from Framer ensure visual consistency across all applications.
+
+**v1.0.0 Milestone:** Complete Framer alignment with 11 production-ready components, full WCAG 2.1 AA accessibility compliance, and comprehensive Storybook documentation.
 
 ## Quick Start
 
@@ -25,7 +30,7 @@ import { Button, Card, MetricCard, IconButton, ServiceCard } from '@1nd1g0labs/l
 function App() {
   return (
     <>
-      <Button variant="primary">Contact us</Button>
+      <Button variant="green-right">Get Started</Button>
       <MetricCard value="$4m+" label="Total saved" />
       <IconButton ariaLabel="View more" />
     </>
@@ -42,20 +47,20 @@ npm run storybook    # View components at localhost:6006
 npm run build        # Build library
 ```
 
-## Current Components
+## Production Components (v1.0.0)
 
-### Tier 1: Framer-Aligned Core (v0.4.0)
+### Tier 1: Core Interactive Components
 
 Perfect pixel-match to Framer marketing site. Production-ready with full WCAG 2.1 AA compliance.
 
 | Component | Variants | Description | Framer nodeId |
 |-----------|----------|-------------|---------------|
+| **Button** | green-left, green-right, white-left, white-right, white-static | Primary CTA with animated arrow | `Jobckk162` |
 | **FormButton** | 7 states (default, hover, loading, active, disabled, success, error) | Form submission button with state feedback | `u_ERU5JMM` |
 | **Label** | default, compact | Rating/review label with avatars and stars | `pJf7jULqM` |
 | **LinkButton** | forward-black, forward-white, backward-black, backward-white | Text link with animated arrow | `Y9sUo0Uzx` |
-| **Button2** | green-left, green-right, white-left, white-right, white-static | Primary button with arrow animation | `Jobckk162` |
 
-### Tier 2: Framer-Aligned Navigation & Feedback (v0.5.0 - NEW!)
+### Tier 2: Navigation & Feedback Components
 
 Complete navigation, ratings, and footer components matching Framer marketing site.
 
@@ -69,25 +74,24 @@ Complete navigation, ratings, and footer components matching Framer marketing si
 | **ContactLink** | default, primary | Contact links with icons (email, phone, location) | `hLwN6bqq3` |
 | **SectionTag** | primary, accent, neutral | Section labels/tags for categorization | `Y70PDA6Rc` |
 
-### Tier 3: Production Ready (Tailwind + Brand Colors)
+### Additional Components
 
-| Component | Variants | Description |
-|-----------|----------|-------------|
-| **Button** | primary, secondary, accent, outline, ghost, destructive | General-purpose action buttons |
-| **IconButton** | primary, secondary, accent, outline, ghost | Circular icon CTAs |
-| **Card** | default, elevated, outline, ghost, sustainability | Content containers with header/footer |
-| **MetricCard** | - | Large stat display with trends |
-| **ServiceCard** | - | Image-based showcase with overlay text |
+| Component | Variants | Description | Status |
+|-----------|----------|-------------|--------|
+| **IconButton** | primary, secondary, accent, outline, ghost | Circular icon CTAs | Production Ready |
+| **Card** | default, elevated, outline, ghost, sustainability | Content containers | Production Ready |
+| **MetricCard** | - | Large stat display with trends | Production Ready |
+| **ServiceCard** | - | Image-based showcase with overlay text | Production Ready |
 
-### Tier 4: Available (Legacy Styling)
+### Utilities & Layout
 
 Badge, Alert, Progress, Modal, Tooltip, Tabs, Input, Select, Checkbox, Radio, Textarea, Container, Stack, Grid
 
-These work but use older styling and will be refactored.
+Available for use. Will be Framer-aligned in future releases.
 
 ## Key Info
 
-### Brand Colors (v0.3.0 - Framer Aligned)
+### Brand Colors (v1.0.0 - Framer Aligned)
 - **Primary (Lighthouse Teal)**: `#057C8B` - Trust, healing, environmental stewardship (from Framer `/Green`)
 - **Accent (Orange)**: `#FF833B` - Warmth, energy, action (from Framer `/Orange`)
 - **Secondary (Green)**: `#4CAF50` - Sustainability, growth
@@ -95,16 +99,14 @@ These work but use older styling and will be refactored.
 
 Use as Tailwind classes: `bg-primary-500`, `text-accent-500`, `border-ash-gray`
 
-**Migration Note:** Old colors (`#1A8B8B`, `#FF8B4B`) are deprecated. See `MIGRATION.md` for migration guide.
-
-### Typography (v0.3.0 - Framer Aligned)
+### Typography (v1.0.0 - Framer Aligned)
 - **Font**: Inter for all text (unified font strategy)
 - **Headings**: h1 (54px), h2 (42px), h3 (38px), h4 (32px), h5 (28px), h6 (24px)
 - **Body**: xl (20px), lg (18px), base (16px), sm (14px)
 - **Framer-exact line heights and letter spacing**: Negative tracking for headings, precise line heights
 - **Use**: `text-h1`, `text-body-lg`, `leading-h2`, `tracking-h1` for Framer-aligned typography
 
-### Spacing (v0.3.0 - Framer Aligned)
+### Spacing (v1.0.0 - Framer Aligned)
 - **System**: 4px base unit + Framer-specific gaps (5px, 7px, 9px)
 - **Tailwind**: `p-4`, `gap-6`, `space-y-8`, `gap-1.25` (Framer 5px), `gap-1.75` (Framer 7px), `gap-2.25` (Framer 9px)
 

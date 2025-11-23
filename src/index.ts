@@ -36,7 +36,6 @@ export * from './components/Grid';
 
 // Core Components
 export * from './components/Button';
-export * from './components/Button2';
 export * from './components/IconButton';
 export * from './components/Card';
 export * from './components/Badge';

@@ -33,18 +33,6 @@ export const colors = {
     900: '#012744',
   },
 
-  /**
-   * @deprecated Use primary.500 (#057C8B) instead. This will be removed in v1.0.0.
-   * Old primary color kept for migration path only.
-   *
-   * Migration:
-   * - TypeScript: colors.primaryOld → colors.primary[500]
-   * - Tailwind: bg-primary-old → bg-primary-500
-   *
-   * See MIGRATION.md for complete guide.
-   */
-  primaryOld: '#1A8B8B',
-
   // ============================================================================
   // ACCENT - Orange (from Framer /Orange)
   // ============================================================================
@@ -62,18 +50,6 @@ export const colors = {
     800: '#D15518',
     900: '#B94107',
   },
-
-  /**
-   * @deprecated Use accent.500 (#FF833B) instead. This will be removed in v1.0.0.
-   * Old accent color kept for migration path only.
-   *
-   * Migration:
-   * - TypeScript: colors.accentOld → colors.accent[500]
-   * - Tailwind: bg-accent-old → bg-accent-500
-   *
-   * See MIGRATION.md for complete guide.
-   */
-  accentOld: '#FF8B4B',
 
   // ============================================================================
   // SECONDARY - Sustainable Growth Green
@@ -195,17 +171,12 @@ export const colors = {
 export type Colors = typeof colors;
 
 /**
- * MIGRATION NOTES:
+ * DESIGN TOKENS - v1.0.0
  *
- * v0.3.0 introduces Framer-aligned colors:
- * - Primary teal: #1A8B8B → #057C8B
- * - Accent orange: #FF8B4B → #FF833B
- * - New neutral colors: black, ashGray, grey, white, whiteOff
+ * All colors are Framer-aligned:
+ * - Primary teal: #057C8B (Framer /Green)
+ * - Accent orange: #FF833B (Framer /Orange)
+ * - Neutral colors: black, ashGray, grey, white, whiteOff (Framer exact)
  *
- * Deprecated colors are kept for backward compatibility.
- * Update your components gradually:
- * - OLD: colors.primary[500] = '#1A8B8B'
- * - NEW: colors.primary[500] = '#057C8B'
- *
- * See MIGRATION.md for complete guide.
+ * For migration from v0.x, see CHANGELOG.md and MIGRATION.md.
  */

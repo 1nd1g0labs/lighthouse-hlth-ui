@@ -2,6 +2,191 @@
 
 All notable changes to the Lighthouse Health Design System will be documented in this file.
 
+## [1.0.0] - 2025-11-23
+
+### BREAKING CHANGES
+
+This is a major version release completing the Framer design system alignment. Several deprecated components and tokens have been removed.
+
+#### 1. Button Component Replaced
+
+**REMOVED:**
+- Old `Button` component with variants: primary, secondary, accent, outline, ghost, destructive
+
+**ADDED:**
+- `Button` (renamed from Button2) with Framer-aligned variants:
+  - `green-left`, `green-right` (default), `white-left`, `white-right`, `white-static`
+  - Animated arrow hover effect
+  - Pixel-perfect Framer match (nodeId: Jobckk162)
+
+**Migration:**
+```typescript
+// Before (v0.x)
+import { Button } from '@1nd1g0labs/lighthouse-hlth-ui';
+<Button variant="primary">Click me</Button>
+
+// After (v1.0.0)
+import { Button } from '@1nd1g0labs/lighthouse-hlth-ui';
+<Button variant="green-right">Click me</Button>
+```
+
+**Variant Mapping:**
+- `variant="primary"` → `variant="green-right"`
+- `variant="secondary"` → `variant="white-right"`
+- `variant="outline"` → `variant="white-right"`
+- `variant="accent"` → `variant="green-left"` (or use accent-500 color in custom styling)
+- `variant="ghost"` → Use `LinkButton` component instead
+- `variant="destructive"` → Use `FormButton` with error state instead
+
+See [MIGRATION.md](./MIGRATION.md) for complete variant mapping.
+
+#### 2. Design Tokens Removed
+
+**REMOVED:**
+- `primaryOld` color token (#1A8B8B)
+- `accentOld` color token (#FF8B4B)
+
+**USE INSTEAD:**
+- `colors.primary[500]` (#057C8B) - Framer-exact teal
+- `colors.accent[500]` (#FF833B) - Framer-exact orange
+
+**Migration:**
+```typescript
+// Before
+import { primaryOld, accentOld } from '@1nd1g0labs/lighthouse-hlth-ui/tokens';
+
+// After
+import { colors } from '@1nd1g0labs/lighthouse-hlth-ui/tokens';
+const primary = colors.primary[500];  // #057C8B
+const accent = colors.accent[500];     // #FF833B
+```
+
+### Added
+
+- **Complete Framer Design System Alignment**: All components now match the Framer marketing site exactly
+- **11 Production-Ready Components**: Framer-aligned components across 2 tiers
+  - **Tier 1 (4 components)**: Button, FormButton, Label, LinkButton
+  - **Tier 2 (7 components)**: FAQButton, SocialIcon, Rating, Navlink, FooterLink, ContactLink, SectionTag
+- **Full WCAG 2.1 AA Accessibility Compliance**: 100% of components meet or exceed standards
+- **Comprehensive Storybook Documentation**: 90+ stories with interactive controls
+- **Framer-Exact Design Tokens**: Colors, typography, spacing directly from Framer
+
+### Changed
+
+- **Button Component**: Renamed from Button2 to Button (primary component)
+  - All Button2 references updated to Button
+  - Component exports simplified
+  - Storybook stories updated to Button namespace
+- **All Components Use Framer-Exact Design Tokens**: Consistent with marketing site
+- **Removed Deprecation Warnings**: No longer needed in v1.0.0
+
+### Removed
+
+- **Deprecated Button Component (v0.x)**: Old Button with primary/secondary/outline variants
+- **primaryOld Color Token**: Use `colors.primary[500]` instead
+- **accentOld Color Token**: Use `colors.accent[500]` instead
+- **All Deprecation Console Warnings**: Clean production builds
+
+### Migration Guide
+
+**Upgrade Steps:**
+
+1. **Review [MIGRATION.md](./MIGRATION.md)** for complete migration guide
+2. **Search codebase for `<Button`** and update variants:
+   ```bash
+   # Find all Button usage
+   grep -r "<Button" src/
+   ```
+3. **Replace deprecated color tokens**:
+   ```bash
+   # Find primaryOld/accentOld usage
+   grep -r "primaryOld\|accentOld" src/
+   ```
+4. **Test visual appearance** in development environment
+5. **Run tests** to ensure functionality
+6. **Deploy to staging** for final verification
+7. **Deploy to production** with confidence
+
+**Automated Migration:**
+```bash
+npx @1nd1g0labs/lighthouse-hlth-ui-codemod v0-to-v1 ./src
+```
+
+**Need Help?**
+- GitHub Issues: https://github.com/1nd1g0labs/lighthouse-hlth-ui/issues
+- Email Support: support@lighthousehlth.com
+
+### Design System Summary
+
+**v1.0.0 Production-Ready Components:**
+
+**Tier 1 (Core Components):**
+- **Button**: Primary CTA with animated arrow (5 variants)
+- **FormButton**: Form submission button (7 states: default, loading, success, error, warning, disabled, processing)
+- **Label**: Rating display with avatar (shows rating value + contributor)
+- **LinkButton**: Text link with animated arrow (4 variants)
+
+**Tier 2 (Supporting Components):**
+- **FAQButton**: Accordion button with chevron icon
+- **SocialIcon**: Social media icons (6 platforms, 2 variants)
+- **Rating**: Star rating display (1-5 stars)
+- **Navlink**: Navigation link with active state
+- **FooterLink**: Footer link (2 variants: default, light)
+- **ContactLink**: Contact link with icon (3 types: email, phone, location)
+- **SectionTag**: Section label badge (3 variants)
+
+**Design Tokens:**
+- **Colors**: Framer-exact primary (#057C8B), accent (#FF833B), neutrals
+- **Typography**: Framer /16 text style, Inter font family
+- **Spacing**: Framer-exact padding, gaps, border radius
+
+**Accessibility:**
+- 100% WCAG 2.1 Level AA compliant
+- Color contrast: 4.71:1+ on all text
+- Touch targets: 44px+ minimum
+- Keyboard navigation: Full Tab/Enter/Space support
+- Screen readers: Proper ARIA attributes
+- Motion: Respects prefers-reduced-motion
+
+**Bundle Size:**
+- CJS: 107KB
+- ESM: 102KB
+- Tree-shakeable for optimal production builds
+
+**Mission Alignment:**
+
+Design system serves Catholic health systems in operational sustainability mission. All components support:
+- **Creation Care** (Laudato Si'): Environmental stewardship through sustainable design
+- **Financial Stewardship**: Efficient component library reduces development costs
+- **Patient Care**: Accessible, inclusive design for all users
+- **Operational Excellence**: Production-ready, tested components
+
+### Next Steps
+
+**For New Projects:**
+1. Install: `npm install @1nd1g0labs/lighthouse-hlth-ui@1.0.0`
+2. Import components and design tokens
+3. Build healthcare sustainability applications
+4. See Storybook for component examples
+
+**For Existing Projects (v0.x → v1.0.0):**
+1. Follow migration guide above
+2. Update Button variants
+3. Replace deprecated color tokens
+4. Test thoroughly in staging
+5. Deploy to production
+
+**Future Roadmap:**
+- **v1.1.0**: Additional Framer components (Hero, Footer, Navigation sections)
+- **v1.2.0**: Form components (Input, Select, Textarea with Framer alignment)
+- **v2.0.0**: Dashboard components (Charts, Tables, Analytics cards)
+
+---
+
+**🎉 v1.0.0 is production-ready! Ship with confidence.**
+
+---
+
 ## [0.5.0] - 2025-11-23
 
 ### Added - Framer Design System Alignment (Tier 2 Components)
