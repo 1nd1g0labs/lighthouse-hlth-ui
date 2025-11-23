@@ -2,6 +2,72 @@
 
 All notable changes to the Lighthouse Health Design System will be documented in this file.
 
+## [0.3.0] - 2025-11-22
+
+### Added - Framer Design System Alignment (Phase 1)
+
+This release aligns design tokens with the Lighthouse HLTH Framer marketing site as the single source of truth, ensuring visual consistency across all applications.
+
+#### Color Tokens
+- New primary color: `#057C8B` (Lighthouse teal from Framer `/Green`)
+- New accent color: `#FF833B` (Orange from Framer `/Orange`)
+- Framer-exact neutral colors: `black`, `ash-gray`, `grey`, `white`, `white-off`
+- Updated chart colors to use new Framer-aligned primary and accent
+- Deprecated old colors (`primaryOld: #1A8B8B`, `accentOld: #FF8B4B`) for migration path
+
+#### Typography Tokens
+- Framer-exact typography scale:
+  - Headings: h1 (54px), h2 (42px), h3 (38px), h4 (32px), h5 (28px), h6 (24px)
+  - Body text: xl (20px), lg (18px), base (16px), sm (14px)
+- Precise line heights from Framer: 1.2em, 1.25em, 1.3em, 1.35em, 1.4em, 1.5em, 1.55em, 1.6em, 1.65em
+- Exact letter spacing for headings: -0.045em, -0.04em, -0.03em, -0.025em, -0.02em, -0.015em
+- Unified font family: Inter for all text (Option B - font fallback strategy)
+- Complete text style mappings from Framer `/Heading` and `/Paragraph` styles
+
+#### Spacing Tokens
+- Framer-specific gap values: 5px (1.25), 7px (1.75), 9px (2.25)
+- All existing spacing values preserved for backward compatibility
+
+#### Border Radius Tokens
+- Updated `full: 999px` for Framer-style button pill shapes (was 9999px)
+
+#### Tailwind Configuration
+- Complete Tailwind config updated with all Framer design tokens
+- New utility classes: `text-h1` through `text-h6`, `text-body-xl` through `text-body-sm`
+- Framer-aligned line height utilities: `leading-h1`, `leading-body`, etc.
+- Framer-aligned letter spacing: `tracking-h1`, `tracking-h2`, etc.
+- Framer color utilities: `bg-ash-gray`, `text-grey`, `border-white-off`
+
+### Changed
+
+- Primary color: `#1A8B8B` → `#057C8B` (Framer alignment)
+- Accent color: `#FF8B4B` → `#FF833B` (Framer alignment)
+- Font family strategy: Now using Inter universally (was mixed Inter/JetBrains Mono)
+- Border radius `full`: 9999px → 999px (Framer button style)
+
+### Deprecated
+
+- `colors.primaryOld` - Use `colors.primary[500]` instead
+- `colors.accentOld` - Use `colors.accent[500]` instead
+- Old font configurations - Migrating to Inter-based system
+
+### Documentation
+
+- Added comprehensive Framer alignment notes to all token files
+- Documented Framer text style mappings in `typography.ts`
+- Created `MIGRATION.md` with complete migration guide
+- Updated `README.md` with Framer alignment information
+
+### Migration Notes
+
+This is a **MINOR** version bump with full backward compatibility. All changes are additive:
+- Old color values available as deprecated tokens
+- Standard Tailwind utilities unchanged
+- Existing spacing scale fully preserved
+- No breaking changes to component APIs
+
+See `MIGRATION.md` for detailed migration guide.
+
 ## [0.2.0] - 2025-11-14
 
 ### BREAKING CHANGES

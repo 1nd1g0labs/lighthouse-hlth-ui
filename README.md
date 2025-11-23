@@ -2,6 +2,8 @@
 
 Healthcare sustainability design system. Brand-aligned components for carbon tracking, operations dashboards, and mission-driven health systems.
 
+**Design System Alignment:** This component library is aligned with the Lighthouse HLTH Framer marketing site as the single source of truth. Design tokens extracted from Framer ensure visual consistency across all applications.
+
 ## Quick Start
 
 ### Install
@@ -58,21 +60,26 @@ These work but use older styling and will be refactored.
 
 ## Key Info
 
-### Brand Colors
-- **Primary (Teal)**: `#1A8B8B` - Trust, healing, environmental stewardship
+### Brand Colors (v0.3.0 - Framer Aligned)
+- **Primary (Lighthouse Teal)**: `#057C8B` - Trust, healing, environmental stewardship (from Framer `/Green`)
+- **Accent (Orange)**: `#FF833B` - Warmth, energy, action (from Framer `/Orange`)
 - **Secondary (Green)**: `#4CAF50` - Sustainability, growth
-- **Accent (Coral)**: `#FF8B4B` - Warmth, energy, action
+- **Neutrals**: `black`, `ash-gray`, `grey`, `white`, `white-off` (from Framer)
 
-Use as Tailwind classes: `bg-primary-500`, `text-secondary-600`, `border-accent-500`
+Use as Tailwind classes: `bg-primary-500`, `text-accent-500`, `border-ash-gray`
 
-### Typography
-- **Font**: Inter (loaded automatically)
-- **Scales**: 12px-72px
-- **Use**: `font-sans` for UI text, `font-mono` for data/code
+**Migration Note:** Old colors (`#1A8B8B`, `#FF8B4B`) are deprecated. See `MIGRATION.md` for migration guide.
 
-### Spacing
-- **System**: 4px base unit
-- **Tailwind**: `p-4`, `gap-6`, `space-y-8`
+### Typography (v0.3.0 - Framer Aligned)
+- **Font**: Inter for all text (unified font strategy)
+- **Headings**: h1 (54px), h2 (42px), h3 (38px), h4 (32px), h5 (28px), h6 (24px)
+- **Body**: xl (20px), lg (18px), base (16px), sm (14px)
+- **Framer-exact line heights and letter spacing**: Negative tracking for headings, precise line heights
+- **Use**: `text-h1`, `text-body-lg`, `leading-h2`, `tracking-h1` for Framer-aligned typography
+
+### Spacing (v0.3.0 - Framer Aligned)
+- **System**: 4px base unit + Framer-specific gaps (5px, 7px, 9px)
+- **Tailwind**: `p-4`, `gap-6`, `space-y-8`, `gap-1.25` (Framer 5px), `gap-1.75` (Framer 7px), `gap-2.25` (Framer 9px)
 
 ### Tech Requirements
 - **React**: 18+
@@ -143,16 +150,30 @@ Update package: `npm install @1nd1g0labs/lighthouse-hlth-ui@latest`
 **Tailwind v4 conflicts?**
 Styles are pre-compiled, no conflicts. Just import the CSS.
 
-## Design Tokens
+## Design Tokens (v0.3.0 - Framer Aligned)
 
 ```tsx
 import { colors, spacing, typography } from '@1nd1g0labs/lighthouse-hlth-ui/tokens';
 
-// Access brand values programmatically
-colors.primary[500]      // #1A8B8B
-spacing[4]               // 1rem (16px)
-typography.fonts.sans    // 'Inter', system fonts
+// Access Framer-aligned values programmatically
+colors.primary[500]            // #057C8B (Framer exact)
+colors.accent[500]             // #FF833B (Framer exact)
+colors.ashGray                 // #7F8082 (Framer /Ash Gray)
+spacing[1.25]                  // 0.3125rem (5px - Framer gap)
+typography.fontSize.h1         // '54px' (Framer /Heading xl)
+typography.textStyles.heading.h1  // Complete Framer text style
+typography.fonts.sans          // 'Inter', system fonts
+
+// Framer text style mappings
+typography.textStyles.heading.xl   // Framer /Heading xl (54px)
+typography.textStyles.body.base    // Framer /Paragraph m (16px)
 ```
+
+### Framer Text Style Reference
+- **Headings:** `/Heading xl` (h1), `/Heading l` (h2), `/Heading m` (h3), `/Heading s` (h4), `/Heading xs` (h5), `/Heading xxs` (h6)
+- **Paragraphs:** `/Paragraph xl` (20px), `/Paragraph l` (18px), `/Paragraph m` (16px), `/Paragraph s` (14px)
+
+See `src/tokens/` for complete Framer alignment documentation.
 
 ## Project Structure
 

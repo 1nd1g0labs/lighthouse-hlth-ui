@@ -1,10 +1,16 @@
 /**
  * Lighthouse Health Design System - Spacing Tokens
  *
+ * Version 0.3.0 - Framer Aligned
+ *
  * Design Philosophy:
  * - 4px base unit for mathematical consistency
  * - "Less is more" - generous whitespace for clarity
  * - Harmonious rhythm throughout the interface
+ *
+ * Framer Alignment:
+ * Added Framer-specific gap values (5px, 7px, 9px) while maintaining
+ * the standard 4px-based spacing scale for backward compatibility.
  */
 
 export const spacing = {
@@ -12,8 +18,11 @@ export const spacing = {
   0: '0',
   0.5: '0.125rem',   // 2px
   1: '0.25rem',      // 4px
+  1.25: '0.3125rem', // 5px - Framer gap
   1.5: '0.375rem',   // 6px
+  1.75: '0.4375rem', // 7px - Framer gap
   2: '0.5rem',       // 8px
+  2.25: '0.5625rem', // 9px - Framer gap
   2.5: '0.625rem',   // 10px
   3: '0.75rem',      // 12px
   3.5: '0.875rem',   // 14px
@@ -63,6 +72,11 @@ export const semanticSpacing = {
     md: spacing[4],      // 16px
     lg: spacing[6],      // 24px
     xl: spacing[8],      // 32px
+
+    // Framer-specific gaps
+    framer5: spacing[1.25],  // 5px - Framer gap
+    framer7: spacing[1.75],  // 7px - Framer gap
+    framer9: spacing[2.25],  // 9px - Framer gap
   },
 
   // Section spacing
@@ -86,3 +100,20 @@ export const semanticSpacing = {
 
 export type Spacing = typeof spacing;
 export type SemanticSpacing = typeof semanticSpacing;
+
+/**
+ * FRAMER ALIGNMENT NOTES:
+ *
+ * v0.3.0 adds Framer-specific spacing values:
+ * - spacing[1.25] = 5px (Framer gap)
+ * - spacing[1.75] = 7px (Framer gap)
+ * - spacing[2.25] = 9px (Framer gap)
+ *
+ * These are accessible in Tailwind via:
+ * - gap-1.25 (5px)
+ * - gap-1.75 (7px)
+ * - gap-2.25 (9px)
+ * - p-1.25, m-1.75, etc.
+ *
+ * All existing spacing values remain unchanged for backward compatibility.
+ */
