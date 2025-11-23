@@ -2,6 +2,118 @@
 
 All notable changes to the Lighthouse Health Design System will be documented in this file.
 
+## [0.4.0] - 2025-11-23
+
+### Added - Framer Design System Alignment (Phase 2)
+
+This release introduces 4 new Tier 1 components that perfectly match the Framer marketing site design, completing the Framer alignment initiative. All components are production-ready with full WCAG 2.1 AA accessibility compliance.
+
+#### New Components
+
+**FormButton** - Form submission button with comprehensive state management
+- 7 states: default, hover, loading, active, disabled, success, error
+- Framer nodeId: `u_ERU5JMM`
+- Background: `#057C8B` (primary-500) for default/success, `rgba(255, 34, 68, 0.15)` for error
+- Text: 18px Inter medium (Framer `/18` text style)
+- Border radius: `rounded-full` (1000px in Framer)
+- Loading state with animated spinner (Lucide `Loader2`)
+- Success state with checkmark icon (Lucide `Check`)
+- Error state with alert icon and custom error messages (Lucide `AlertCircle`)
+- ARIA attributes: `aria-busy`, `aria-disabled`, `aria-live="polite"`
+- Use cases: Patient registration, sustainability reporting, contact forms
+
+**Label** - Rating/review label with avatars and stars
+- Framer nodeId: `pJf7jULqM`
+- Displays 1-5 star ratings with customizable colors
+- Overlapping user avatars (32px circular, -20px margin stacking)
+- "+N" badge showing additional reviewer count (green background)
+- Star icons: 14px, `#FF833B` accent color (Framer exact)
+- Review text: 14px Inter (Framer `/14` text style)
+- ARIA labels for screen reader accessibility
+- Use cases: Social proof, testimonials, service ratings, review displays
+
+**LinkButton** - Text link with animated arrow
+- Framer nodeId: `Y9sUo0Uzx`
+- 4 variants: `forward-black`, `forward-white`, `backward-black`, `backward-white`
+- Text: 16px Inter (Framer `/16` text style)
+- Arrow: 15px icon, rotated -45deg for forward, 135deg for backward
+- Gap animation: 7px default → 12px on hover
+- Two-arrow swap animation using Framer Motion
+- Respects `prefers-reduced-motion` setting
+- Semantic `<a>` tag with proper href attribute
+- Use cases: "Learn more" links, "Read full story", navigation, secondary CTAs
+
+**Button2** - Framer-aligned button with animated arrow hover
+- Framer nodeId: `Jobckk162`
+- 5 variants:
+  - `green-left`: Green background, arrow from left
+  - `green-right`: Green background, arrow from right (default)
+  - `white-left`: White background with border, arrow from left
+  - `white-right`: White background with border, arrow from right
+  - `white-static`: White background, no animation
+- Text: 16px Inter medium
+- Border radius: `rounded-full` (999px)
+- Padding: 16px horizontal, 8px vertical
+- Gap animation: 9px default → 12px on hover
+- Dual-mode rendering: `<button>` (default) or `<a>` (when `href` provided)
+- Minimum 44px touch target (WCAG 2.1 AA)
+- Use cases: Primary CTAs, hero sections, form actions, pricing pages
+
+#### Storybook Stories
+
+Comprehensive Storybook documentation for all new components:
+- **FormButton**: 10 stories including state progression demo and accessibility features
+- **Label**: 13 stories including landing page hero, testimonials, and multiple ratings
+- **LinkButton**: 11 stories including card footers, hero CTAs, article lists
+- **Button2**: 13 stories including hero sections, pricing tiers, modal actions
+
+All stories include:
+- Interactive controls for all props
+- Use case demonstrations (landing pages, forms, testimonials, etc.)
+- Accessibility feature highlights
+- Mobile/desktop responsive examples
+
+#### Accessibility (WCAG 2.1 AA Compliance)
+
+All components achieve full WCAG 2.1 Level AA compliance:
+- **Color Contrast**: All exceed 4.5:1 minimum (primary-500 on white: 4.71:1)
+- **Touch Targets**: FormButton (48px), Button2 (44px) - exceed 44px minimum
+- **Focus Indicators**: 2px rings at 3:1+ contrast on all interactive elements
+- **Keyboard Navigation**: Full Tab/Enter/Space support on all components
+- **Screen Readers**: Proper ARIA attributes (`aria-busy`, `aria-disabled`, `aria-live`, `aria-label`)
+- **Motion Sensitivity**: LinkButton and Button2 respect `prefers-reduced-motion`
+- **Semantic HTML**: Proper `<button>`, `<a>`, and landmark elements
+
+Comprehensive accessibility audit included in `ACCESSIBILITY_AUDIT.md`
+
+### Changed
+
+No breaking changes. This is an **additive release** with full backward compatibility.
+
+### Documentation
+
+- Added `ACCESSIBILITY_AUDIT.md` with complete WCAG 2.1 AA audit results
+- Updated README.md with new component examples
+- Comprehensive Storybook stories with accessibility notes
+- Inline JSDoc comments on all component props
+
+### Migration Notes
+
+**Zero migration required** - all changes are additive:
+- New components do not replace existing components
+- Button2 complements existing Button component (does not replace it)
+- All existing components remain unchanged
+- No API changes to existing components
+
+**Component Selection Guide:**
+- **FormButton**: Use for form submissions requiring state feedback
+- **Label**: Use for social proof, reviews, ratings with avatars
+- **LinkButton**: Use for secondary CTAs, "Learn more" links, navigation
+- **Button2**: Use for primary CTAs matching Framer marketing site design
+- **Button**: Use for general-purpose buttons in dashboard/app contexts
+
+---
+
 ## [0.3.0] - 2025-11-22
 
 ### Added - Framer Design System Alignment (Phase 1)

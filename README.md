@@ -44,7 +44,19 @@ npm run build        # Build library
 
 ## Current Components
 
-### Production Ready (Tailwind + Brand Colors)
+### Tier 1: Framer-Aligned Components (v0.3.0-0.4.0)
+
+Perfect pixel-match to Framer marketing site. Production-ready with full WCAG 2.1 AA compliance.
+
+| Component | Variants | Description | Framer nodeId |
+|-----------|----------|-------------|---------------|
+| **FormButton** | 7 states (default, hover, loading, active, disabled, success, error) | Form submission button with state feedback | `u_ERU5JMM` |
+| **Label** | default, compact | Rating/review label with avatars and stars | `pJf7jULqM` |
+| **LinkButton** | forward-black, forward-white, backward-black, backward-white | Text link with animated arrow | `Y9sUo0Uzx` |
+| **Button2** | green-left, green-right, white-left, white-right, white-static | Primary button with arrow animation | `Jobckk162` |
+
+### Tier 2: Production Ready (Tailwind + Brand Colors)
+
 | Component | Variants | Description |
 |-----------|----------|-------------|
 | **Button** | primary, secondary, accent, outline, ghost, destructive | Action buttons with icons, loading states |
@@ -53,7 +65,8 @@ npm run build        # Build library
 | **MetricCard** | - | Large stat display with trends |
 | **ServiceCard** | - | Image-based showcase with overlay text |
 
-### Available (Legacy Styling)
+### Tier 3: Available (Legacy Styling)
+
 Badge, Alert, Progress, Modal, Tooltip, Tabs, Input, Select, Checkbox, Radio, Textarea, Container, Stack, Grid
 
 These work but use older styling and will be refactored.

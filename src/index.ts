@@ -36,13 +36,17 @@ export * from './components/Grid';
 
 // Core Components
 export * from './components/Button';
+export * from './components/Button2';
 export * from './components/IconButton';
 export * from './components/Card';
 export * from './components/Badge';
 export * from './components/MetricCard';
 export * from './components/ServiceCard';
+export * from './components/Label';
+export * from './components/LinkButton';
 
 // Form Components
+export * from './components/FormButton';
 export * from './components/Input';
 export * from './components/Textarea';
 export * from './components/Select';
