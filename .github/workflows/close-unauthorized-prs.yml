@@ -1,0 +1,50 @@
+name: Close Unauthorized PRs
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  check-authorization:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Check if authorized contributor
+        env:
+          # Add comma-separated GitHub usernames who are authorized to contribute
+          AUTHORIZED_USERS: "NMVW,nmvinson"
+        run: |
+          AUTHOR="${{ github.event.pull_request.user.login }}"
+
+          echo "PR opened by: $AUTHOR"
+          echo "Authorized users: $AUTHORIZED_USERS"
+
+          # Check if author is in authorized list
+          if echo "$AUTHORIZED_USERS" | grep -qw "$AUTHOR"; then
+            echo "✅ Authorized contributor - PR allowed"
+            exit 0
+          else
+            echo "❌ Unauthorized contributor - closing PR"
+
+            # Close the PR with explanation
+            gh pr close ${{ github.event.pull_request.number }} \
+              --repo ${{ github.repository }} \
+              --comment "Thank you for your interest in Lighthouse HLTH!
+
+This is proprietary software owned by Indigo Labs LLC. While we appreciate your enthusiasm, we cannot accept unsolicited contributions at this time.
+
+**For licensing inquiries or partnership opportunities, please contact:**
+nick@onehealthcto.com
+
+See our [CONTRIBUTING.md](https://github.com/${{ github.repository }}/blob/main/CONTRIBUTING.md) and [LICENSE](https://github.com/${{ github.repository }}/blob/main/LICENSE) for more information.
+
+---
+*This PR was automatically closed by our contribution policy.*"
+
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

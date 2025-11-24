@@ -267,7 +267,15 @@ Built for healthcare sustainability:
 
 ## License
 
-MIT
+PROPRIETARY - See [LICENSE](./LICENSE)
+
+This software is proprietary to Indigo Labs LLC. While this repository is public for transparency, use is restricted to authorized parties. See LICENSE file for complete terms.
+
+## Disclaimer
+
+**THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.** We are not responsible for any issues, damages, or consequences that may arise from using this repository. This code is provided for transparency and evaluation purposes only and does not indicate any ongoing support, maintenance, or commitment outside of our internal roadmap.
+
+Use at your own risk. See LICENSE for complete legal terms.
 
 ---
 

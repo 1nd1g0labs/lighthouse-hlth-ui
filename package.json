@@ -60,7 +60,7 @@
     "lighthouse-health"
   ],
   "author": "Indigo Labs LLC",
-  "license": "UNLICENSED",
+  "license": "SEE LICENSE IN LICENSE",
   "private": false,
   "peerDependencies": {
     "react": "^18.0.0",
