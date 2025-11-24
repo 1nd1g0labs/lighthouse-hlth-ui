@@ -17,6 +17,8 @@ Technical reference for design decisions and implementation patterns in the Ligh
 
 ## Color System
 
+> **Dark Mode Support**: For comprehensive dark mode color specifications, theming guidelines, and implementation details, see [DARK_MODE_SPECIFICATION.md](./DARK_MODE_SPECIFICATION.md).
+
 ### Primary Palette
 
 **Primary Teal** - `#1A8B8B`
@@ -242,6 +244,7 @@ const componentVariants = cva(
 - Skip keyboard navigation testing
 - Use animations excessively
 - Mix inconsistent spacing values
+- Use arbitrary Tailwind values (e.g., `bg-[#abc123]`) instead of design tokens
 
 ## Technical Implementation
 
@@ -260,6 +263,27 @@ const componentVariants = cva(
 - Pre-compiled CSS
 - Source maps
 
+## Theme Support
+
+### Light & Dark Mode
+
+Lighthouse HLTH supports both light and dark themes to accommodate healthcare professionals working in various lighting conditions.
+
+**Key Features**:
+- Three-state theme toggle (light/dark/auto)
+- Automatic system preference detection
+- Persistent user preference storage
+- SSR-safe theme initialization (no FOUC)
+- WCAG 2.1 AA contrast compliance in both modes
+
+**Implementation**:
+- Dark mode uses `class` strategy (`dark:` prefix in Tailwind)
+- Warm-tinted dark backgrounds (#0F1419, not pure black)
+- Elevated surface hierarchy for depth
+- Healthcare-optimized chart colors for both themes
+
+**Documentation**: See [DARK_MODE_SPECIFICATION.md](./DARK_MODE_SPECIFICATION.md) for complete dark mode guidelines.
+
 ---
 
-**Version 0.1.0** | Last Updated: January 2025
+**Version 1.0.0** | Last Updated: January 2025
