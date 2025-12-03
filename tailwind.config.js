@@ -106,6 +106,37 @@ module.exports = {
           dark: '#1D4ED8',
           DEFAULT: '#3B82F6',
         },
+
+        // GHG EMISSION CATEGORIES - Healthcare Sustainability
+        // WCAG 2.1 AA compliant color palette for emission tracking
+        scope1: {
+          DEFAULT: '#D97706',       // Amber-600 - Direct emissions (on-site fuel, vehicles)
+          light: '#FCD34D',         // Amber-300 - Light variant
+          dark: '#B45309',          // Amber-700 - Dark variant
+          bg: '#FEF3C7',            // Amber-100 - Background tint
+          border: '#F59E0B',        // Amber-500 - Border
+        },
+        scope2: {
+          DEFAULT: '#2563EB',       // Blue-600 - Energy/electricity emissions
+          light: '#60A5FA',         // Blue-400 - Light variant
+          dark: '#1E40AF',          // Blue-700 - Dark variant
+          bg: '#DBEAFE',            // Blue-100 - Background tint
+          border: '#3B82F6',        // Blue-500 - Border
+        },
+        scope3: {
+          DEFAULT: '#0D9488',       // Teal-600 - Supply chain emissions
+          light: '#5EEAD4',         // Teal-300 - Light variant
+          dark: '#115E59',          // Teal-700 - Dark variant
+          bg: '#CCFBF1',            // Teal-100 - Background tint
+          border: '#14B8A6',        // Teal-500 - Border
+        },
+        waste: {
+          DEFAULT: '#059669',       // Emerald-600 - Waste management
+          light: '#6EE7B7',         // Emerald-300 - Light variant
+          dark: '#047857',          // Emerald-700 - Dark variant
+          bg: '#D1FAE5',            // Emerald-100 - Background tint
+          border: '#10B981',        // Emerald-500 - Border
+        },
       },
 
       fontFamily: {

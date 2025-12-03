@@ -28,6 +28,7 @@ export * from './tokens';
 
 // Utilities
 export { cn } from './utils/cn';
+export * from './utils/ghg-colors';
 
 // Layout Components
 export * from './components/Container';
@@ -71,3 +72,14 @@ export * from './components/Rating';
 
 // Utility Components
 export * from './components/SectionTag';
+
+// Healthcare Sustainability Components
+export * from './components/GHGCategoryBadge';
+
+// KPI Components
+export * from './components/kpi';
+export * from './components/kpi/metrics';
+export * from './components/kpi/dashboards';
+
+// KPI Types
+export * from './types/kpi';

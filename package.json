@@ -1,6 +1,6 @@
 {
   "name": "@1nd1g0labs/lighthouse-hlth-ui",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Lighthouse Health Design System - A comprehensive branded UI component library for healthcare sustainability applications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
