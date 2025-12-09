@@ -1,289 +1,478 @@
-# Design System Specification
+# LighthouseHlth Design System
 
-Technical reference for design decisions and implementation patterns in the Lighthouse Health UI library.
+## Version 1.0.0 — "Luminous Climate Clinical"
 
-## Brand Values
+**Design Language for Climate-Resilient Healthcare Operations**
 
-- **Environmental Consciousness**: "Be green, feel green" - Sustainability-first color palette
-- **Minimalism**: "Less is more" - Clean, purposeful interfaces with generous whitespace
-- **Dual Sustainability**: "Sustainable footprint, sustainable financial health" - Supporting both environmental and financial metrics
+---
 
-## Design Principles
+## Brand Concept
 
-1. **Trust & Safety**: Healthcare-grade reliability, high contrast, professional palette
-2. **Clarity & Efficiency**: Data-focused, minimal cognitive load, clean typography
-3. **Accessibility First**: WCAG 2.1 AA compliance, keyboard navigation, semantic HTML
-4. **Responsive & Adaptive**: Mobile-first, 320px-1536px+ breakpoints, touch-friendly
+**Core Idea:** "Operational clarity for climate‑resilient healthcare."
+
+**Keywords:** luminous, precise, calm, intelligent, sustainable, clinical‑but‑warm
+
+### Brand Pillars
+
+| Pillar | Description |
+|--------|-------------|
+| **Guidance, not gadgets** | Lighthouse as metaphor: reduce operational fog |
+| **Environmental intelligence** | Connect ops metrics with sustainability impact |
+| **Clinical trust** | Healthcare tool aesthetic, not consumer wellness |
+| **Quiet confidence** | Understated, premium, zero cartoon vibes |
+
+---
 
 ## Color System
 
-> **Dark Mode Support**: For comprehensive dark mode color specifications, theming guidelines, and implementation details, see [DARK_MODE_SPECIFICATION.md](./DARK_MODE_SPECIFICATION.md).
+> **Dark Mode Support**: For comprehensive dark mode color specifications, see [DARK_MODE_SPECIFICATION.md](./DARK_MODE_SPECIFICATION.md).
 
 ### Primary Palette
 
-**Primary Teal** - `#1A8B8B`
-- Usage: Primary actions, navigation, key UI elements
-- Represents: Trust, healing, environmental stewardship
-- Tailwind: `bg-primary-500`, `text-primary-600`, etc.
-- Scale: 50-900 available
-
-**Secondary Green** - `#4CAF50`
-- Usage: Sustainability features, positive metrics, success states
-- Represents: Growth, environmental health
-- Tailwind: `bg-secondary-500`, etc.
-- Scale: 50-900 available
-
-**Accent Coral** - `#FF8B4B`
-- Usage: CTAs, highlights, energy metrics
-- Represents: Energy, warmth, action
-- Tailwind: `bg-accent-500`, etc.
-- Scale: 50-900 available
+| Color | Token | Hex | Usage |
+|-------|-------|-----|-------|
+| **Primary Deep Teal** | `primary-500` | `#066E76` | Main buttons, links, charts, primary actions |
+| **Primary Soft Teal** | `primary-soft-500` | `#0E9BA7` | Hovers, secondary emphasis, gradients |
+| **Sustainability Green** | `sustainability-500` | `#16A34A` | Positive metrics, success states, reduced emissions |
+| **Lighthouse Lime** | `lime-500` | `#A3E635` | Accent highlights, gradient terminus (use sparingly) |
 
 ### Semantic Colors
 
-- **Success**: `#10B981` - Positive feedback, low emissions
-- **Warning**: `#F59E0B` - Caution, medium emissions
-- **Error**: `#EF4444` - Errors, high emissions
-- **Info**: `#3B82F6` - Informational messages
+| Color | Token | Hex | Usage |
+|-------|-------|-----|-------|
+| **Warning Amber** | `amber-500` | `#F97316` | Attention needed, alerts |
+| **Critical Red** | `critical-600` | `#DC2626` | Errors, high emissions, critical alerts |
+| **Info Blue** | `info-500` | `#3B82F6` | Informational states |
 
-### Data Visualization
+### Surfaces & Backgrounds
 
-**Emissions Tracking**
-- High: `#DC2626` (red) - Above target
-- Medium: `#F59E0B` (amber) - On track
-- Low: `#10B981` (green) - Below target
-- Neutral: `#6B7280` (gray) - Baseline
+| Surface | Token | Hex | Usage |
+|---------|-------|-----|-------|
+| **Canvas** | `canvas` | `#F3F5F7` | Page backgrounds |
+| **Surface** | `surface` | `#FFFFFF` | Cards, panels, content areas |
+| **Surface Sunken** | `surface-sunken` | `#EDF2F7` | Inset areas, secondary backgrounds |
+| **Border Subtle** | `border-subtle` | `#E2E8F0` | Dividers, card borders |
 
-**Sustainability Ratings**
-- Excellent: `#047857` (dark green)
-- Good: `#10B981` (green)
-- Fair: `#F59E0B` (amber)
-- Poor: `#DC2626` (red)
+### Text Colors
 
-### Neutrals
+| Text | Token | Hex | Usage |
+|------|-------|-----|-------|
+| **Main** | `text-main` | `#0F172A` | Primary content, headings |
+| **Secondary** | `text-secondary` | `#475569` | Secondary content |
+| **Muted** | `text-muted` | `#64748B` | Tertiary content, labels |
+| **Disabled** | `text-disabled` | `#94A3B8` | Disabled states |
+| **Inverse** | `text-inverse` | `#FFFFFF` | Text on dark backgrounds |
 
-9-step gray scale from white to black for text, backgrounds, and borders.
+### GHG Emission Categories
+
+| Category | Token | Hex | Usage |
+|----------|-------|-----|-------|
+| **Scope 1 (Direct)** | `scope1` | `#D97706` | On-site combustion, fleet, fugitive emissions |
+| **Scope 2 (Energy)** | `scope2` | `#2563EB` | Purchased electricity, steam, chilled water |
+| **Scope 3 (Supply Chain)** | `scope3` | `#0D9488` | Goods, services, waste, travel |
+| **Waste** | `waste` | `#059669` | Waste management (Scope 3 subset) |
+
+### Gradients — "Lighthouse Beam"
+
+```css
+/* Primary CTA gradient (hero buttons, landing page) */
+--lh-gradient-lighthouse-beam: linear-gradient(135deg, #0E9BA7 0%, #16A34A 40%, #A3E635 100%);
+
+/* Secondary gradient */
+--lh-gradient-primary: linear-gradient(135deg, #066E76 0%, #0E9BA7 100%);
+
+/* Success state (app only) */
+--lh-gradient-success: linear-gradient(135deg, #16A34A 0%, #A3E635 100%);
+
+/* Canvas background */
+--lh-gradient-canvas: linear-gradient(180deg, #EDF2F7 0%, #F3F5F7 100%);
+```
+
+**Usage Rules:**
+- **Landing page:** Hero CTAs, header accents
+- **App:** Success states only (e.g., "Goal achieved!")
+- **Never:** Overuse—gradient fatigue dilutes brand
+
+---
 
 ## Typography
 
+### Dual Scale System
+
+LighthouseHlth uses two typography scales:
+
+1. **Marketing Scale** — Generous sizes for `lighthousehlth.com` storytelling
+2. **App Scale** — Dense typography for `app.lighthousehlth.com` dashboards
+
 ### Font Stack
 
-**Primary**: `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
-- Highly legible at small sizes
-- Excellent screen rendering
-- Professional, modern appearance
-- Loaded via Google Fonts automatically
-
-**Monospace**: `'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace`
-- Fixed-width for data alignment
-- Used for code and numeric displays
-
-### Type Scale (base 16px)
-
-- Display: 48-72px - Hero sections
-- Headings: 16-36px - Page titles, sections
-- Body: 14-20px - Paragraphs, UI text
-- Small: 12-14px - Labels, captions
-
-### Line Heights
-
-- Tight (1.25): Headlines, display text
-- Normal (1.5): Body text, UI elements
-- Relaxed (1.625): Long-form content
-
-## Spacing System
-
-**Base Unit**: 4px (0.25rem)
-
-All spacing follows 4px increments for mathematical consistency:
-- `4px` - Tight spacing
-- `8px` - Small spacing
-- `16px` - Base spacing
-- `24px` - Medium spacing
-- `32px` - Large spacing
-- `48px` - XL spacing
-- `64px` - XXL spacing
-
-**Semantic Spacing**
-- Component padding: 8-32px
-- Gap between elements: 8-32px
-- Section spacing: 32-128px
-- Container padding: 16-64px
-
-## Component Architecture
-
-### Structure Pattern
-
-All components follow:
-1. **Variants**: Different visual styles
-2. **Sizes**: Scale options (sm, md, lg, xl)
-3. **States**: Hover, focus, active, disabled
-4. **Accessibility**: ARIA attributes, keyboard support
-
-### Implementation Pattern
-
-```tsx
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '../../utils/cn';
-
-const componentVariants = cva(
-  'base-classes transition-colors', // Base classes
-  {
-    variants: {
-      variant: {
-        primary: 'bg-primary-500 hover:bg-primary-600',
-        secondary: 'bg-secondary-500 hover:bg-secondary-600',
-      },
-      size: {
-        sm: 'px-3 py-1.5 text-sm',
-        md: 'px-4 py-2 text-base',
-      },
-    },
-    defaultVariants: {
-      variant: 'primary',
-      size: 'md',
-    },
-  }
-);
+```css
+--lh-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+--lh-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 ```
 
-### Variant System
+### Marketing Scale (lighthousehlth.com)
 
-**Button Variants**
-- `primary`: Brand teal, primary actions
-- `secondary`: Green, secondary actions
-- `accent`: Coral, CTAs
-- `outline`: Bordered, subtle actions
-- `ghost`: No background, minimal
-- `destructive`: Red, delete actions
+| Style | Size | Line Height | Letter Spacing | Usage |
+|-------|------|-------------|----------------|-------|
+| `text-h1` | 54px | 1.2em | -0.045em | Hero headlines |
+| `text-h2` | 42px | 1.25em | -0.04em | Section titles |
+| `text-h3` | 38px | 1.25em | -0.03em | Subsections |
+| `text-h4` | 32px | 1.3em | -0.025em | Card headers |
+| `text-h5` | 28px | 1.35em | -0.02em | Secondary headers |
+| `text-h6` | 24px | 1.4em | -0.015em | Tertiary headers |
+| `text-body-xl` | 20px | 1.5em | 0em | Lead paragraphs |
+| `text-body-lg` | 18px | 1.55em | 0em | Large body text |
+| `text-body` | 16px | 1.6em | 0em | Standard body |
+| `text-body-sm` | 14px | 1.65em | 0em | Small body |
 
-**Card Variants**
-- `default`: Standard card
-- `elevated`: With shadow
-- `outline`: Bordered only
-- `ghost`: No border/shadow
-- `sustainability`: Green accent
+### App Scale (app.lighthousehlth.com)
+
+| Style | Size | Line Height | Usage |
+|-------|------|-------------|-------|
+| `text-app-page-title` | 32px | 1.2 | Dashboard, Reports page titles |
+| `text-app-panel-header` | 24px | 1.25 | Panel headers |
+| `text-app-card-title` | 20px | 1.3 | Card titles, section headers |
+| `text-app-section-header` | 18px | 1.35 | Subsection headers |
+| `text-app-widget-title` | 16px | 1.4 | Widget titles |
+| `text-app-body-lg` | 15px | 1.5 | Large body, descriptions |
+| `text-app-body` | 14px | 1.5 | **Primary body text for app** |
+| `text-app-body-sm` | 13px | 1.5 | Secondary text, metadata |
+| `text-app-body-xs` | 12px | 1.4 | Tertiary text, timestamps |
+| `text-app-metric-hero` | 36px | 1.1 | Hero KPI values |
+| `text-app-metric` | 28px | 1.1 | Standard KPI values |
+| `text-app-metric-sm` | 20px | 1.2 | Secondary metrics |
+| `text-app-table-header` | 12px | 1.4 | Table headers (uppercase) |
+| `text-app-table-cell` | 13px | 1.4 | Table cell content |
+| `text-app-label` | 12px | 1.4 | Labels |
+| `text-app-badge` | 11px | 1.2 | Badge/tag text |
+
+---
+
+## Shadow System — "Soft Layered Surfaces"
+
+### Philosophy
+
+"Grown-up neumorphism" — bi-directional shadows create premium depth without accessibility issues.
+
+### Soft Shadows (Cards, Panels)
+
+```css
+/* Standard soft surface */
+--lh-shadow-soft: 10px 10px 30px rgba(15, 23, 42, 0.12),
+                  -8px -8px 20px rgba(255, 255, 255, 0.9);
+
+/* Hover state */
+--lh-shadow-card-hover: 12px 12px 35px rgba(15, 23, 42, 0.14),
+                        -10px -10px 24px rgba(255, 255, 255, 0.92);
+```
+
+### Inset Shadows (Inputs, Controls)
+
+```css
+/* Input fields */
+--lh-shadow-input: inset 1px 1px 3px rgba(148, 163, 184, 0.4),
+                   inset -1px -1px 3px rgba(255, 255, 255, 0.9);
+```
+
+### Focus States
+
+```css
+/* Primary focus (sustainability green) */
+--lh-shadow-focus: 0 0 0 2px rgba(34, 197, 94, 0.6);
+
+/* With offset for dark backgrounds */
+--lh-shadow-focus-offset: 0 0 0 2px #FFFFFF, 0 0 0 4px rgba(34, 197, 94, 0.6);
+```
+
+### Workspace Shadows
+
+```css
+/* Left navigation */
+--lh-shadow-nav: 4px 0 12px rgba(15, 23, 42, 0.08);
+
+/* Right context panel */
+--lh-shadow-context-panel: -4px 0 12px rgba(15, 23, 42, 0.08);
+```
+
+---
+
+## Border Radius
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `rounded-sm` | 4px | Small elements |
+| `rounded` | 8px | Standard |
+| `rounded-lg` | 12px | Buttons (app) |
+| `rounded-xl` | 16px | Cards, panels |
+| `rounded-2xl` | 20px | Large cards |
+| `rounded-full` | 9999px | Pill buttons (CTAs) |
+
+**Button Philosophy:**
+- **Marketing CTAs:** `rounded-full` (pill)
+- **App buttons:** `rounded-lg` (12px) for density
+
+---
+
+## Layout Architecture
+
+### Workspace Model
+
+LighthouseHlth uses a "workshop" workspace model instead of modal-heavy patterns:
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  APP LAYOUT                                                       │
+│  ┌──────────┐  ┌────────────────────────┐  ┌──────────────────┐  │
+│  │ LEFT     │  │ CENTER                 │  │ RIGHT            │  │
+│  │ Nav      │  │ Primary Workspace      │  │ Context Panel    │  │
+│  │          │  │                        │  │                  │  │
+│  │ shadow-  │  │ • Data tables          │  │ shadow-context-  │  │
+│  │ nav      │  │ • KPI cards            │  │ panel            │  │
+│  │          │  │ • Charts               │  │                  │  │
+│  │ Facility │  │ • Form sections        │  │ Shifts based on  │  │
+│  │ hierarchy│  │                        │  │ center selection │  │
+│  │ nav      │  │                        │  │                  │  │
+│  └──────────┘  └────────────────────────┘  └──────────────────┘  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+### Key Principles
+
+1. **No modals for primary workflows** — everything lives in panels
+2. **Context panel (right)** shifts based on center selection
+3. **Left nav** provides hierarchy: Facility → Region → Enterprise
+4. **Dense but scannable** — healthcare professionals need info at a glance
+
+---
+
+## User Workflows
+
+### Facility Director
+
+Primary workspace: **Energy footprint tracking & grooming**
+
+```
+1. Connect energy provider APIs
+2. Groom backlog of line items (daily/weekly)
+3. Set alerts for anomalous consumption
+4. Quarterly: Action Planning dashboard with leadership
+```
+
+**Key UI needs:**
+- Data tables: `text-app-table-cell` (13px)
+- Alert items: `text-app-body-sm` (13px)
+- Metric cards: `text-app-metric` + `text-app-metric-unit`
+
+### CFO / CSO
+
+Primary workspace: **Action Planning hub**
+
+```
+1. Review organizational KPIs (quarterly roll-up)
+2. Scenario modeling for vendor/action selection
+3. Sensitivity analysis and projection
+4. Budget/resource allocation discussions
+5. Commit to action plans with Facility Directors
+```
+
+**Key UI needs:**
+- Scenario cards: `text-app-card-title` (20px)
+- Comparison values: `text-app-metric-sm` (20px)
+- Budget figures: `text-app-metric` with mono font
+
+---
+
+## Component Patterns
+
+### Card Treatment
+
+```jsx
+// Tailwind classes
+<div className="bg-surface rounded-xl border border-border-subtle shadow-card hover:shadow-card-hover transition-shadow">
+  {/* content */}
+</div>
+
+// CSS utility class
+<div className="lh-card">
+  {/* content */}
+</div>
+```
+
+### Input Treatment
+
+```jsx
+// Tailwind classes
+<input className="bg-canvas rounded-lg border border-border-subtle shadow-input focus:shadow-input-focus" />
+
+// CSS utility class
+<input className="lh-input" />
+```
+
+### Primary Button (Marketing)
+
+```jsx
+// Gradient CTA for landing page
+<button className="bg-lighthouse-beam text-text-inverse rounded-full shadow-button hover:shadow-button-hover font-semibold px-8 py-3 hover:scale-[1.01] transition-all">
+  Get Started
+</button>
+
+// CSS utility class
+<button className="lh-btn-primary px-8 py-3">
+  Get Started
+</button>
+```
+
+### Primary Button (App)
+
+```jsx
+// Solid button for in-app actions
+<button className="bg-primary text-text-inverse rounded-lg shadow-button hover:bg-primary-soft font-semibold px-6 py-2 transition-all">
+  Save Changes
+</button>
+
+// CSS utility class
+<button className="lh-btn-solid px-6 py-2">
+  Save Changes
+</button>
+```
+
+### KPI Card
+
+```jsx
+<div className="lh-kpi-card p-6">
+  <p className="text-app-label text-text-muted uppercase">Energy Consumption</p>
+  <p className="text-app-metric font-bold text-text-main">1,234</p>
+  <p className="text-app-metric-unit text-text-secondary">kWh</p>
+</div>
+```
+
+---
+
+## Data Visualization
+
+### Chart Colors
+
+Use 1-2 primary colors for most charts. Reserve red for alerts only.
+
+```typescript
+const chartPalette = [
+  '#066E76',  // Primary deep teal (primary series)
+  '#16A34A',  // Sustainability green (secondary)
+  '#0E9BA7',  // Soft teal (tertiary)
+  '#F97316',  // Amber (attention)
+  '#3B82F6',  // Info blue
+];
+```
+
+### Emission Severity
+
+```typescript
+const emissionSeverity = {
+  high: '#DC2626',    // Critical red
+  medium: '#F97316',  // Warning amber
+  low: '#16A34A',     // Sustainability green
+  neutral: '#64748B', // Muted gray
+};
+```
+
+---
+
+## Accessibility Guidelines
+
+### WCAG 2.1 AA Compliance
+
+- Color contrast ratios ≥ 4.5:1 for text
+- Focus indicators visible (sustainability green glow)
+- All components keyboard navigable
+- Screen reader tested
+
+### Focus States
+
+Focus rings use sustainability green for brand consistency while meeting 3:1 contrast requirements:
+
+```css
+*:focus-visible {
+  outline: 2px solid rgba(34, 197, 94, 0.6);
+  outline-offset: 2px;
+}
+```
+
+### Touch Targets
+
+- Minimum 44x44px for mobile
+- Adequate spacing between targets
+- Clear active/pressed states
+
+---
 
 ## Animation Philosophy
 
 ### Timing
-- Fast (150ms): Hover states, simple transitions
-- Normal (250ms): Most UI transitions
-- Slow (350-500ms): Modals, page transitions
-
-### Easing
-- `ease-out`: Objects entering view
-- `ease-in`: Objects leaving
-- `ease-in-out`: State changes, transforms
-
-### Custom Animations (Tailwind)
-- `animate-fade-in`: Opacity 0 to 1
-- `animate-slide-in-bottom`: Slide up with fade
-- `animate-slide-in-top`: Slide down with fade
+- **Fast (150ms)**: Hover states, simple transitions
+- **Normal (250ms)**: Most UI transitions
+- **Slow (350ms)**: Modals, page transitions
 
 ### Motion Principles
-1. Purposeful - Motion communicates, not decorates
-2. Performant - Use transform/opacity for 60fps
-3. Respectful - Honor `prefers-reduced-motion`
-4. Subtle - Professional, non-distracting
-
-## Accessibility Guidelines
-
-### Color Contrast
-- Normal text: Minimum 4.5:1
-- Large text: Minimum 3:1
-- UI components: Minimum 3:1 against adjacent colors
-
-### Keyboard Navigation
-- All interactive elements keyboard accessible
-- Visible focus indicators (2px ring, primary color)
-- Logical tab order
-- Escape key closes modals/dropdowns
-
-### Screen Readers
-- Semantic HTML5 elements
-- ARIA labels where needed
-- Role attributes for complex widgets
-- Live regions for dynamic content
-
-### Touch Targets
-- Minimum 44x44px (mobile)
-- Adequate spacing between targets
-- Clear active/pressed states
-
-## Responsive Design
-
-### Breakpoints
-- xs: 320px - Mobile small
-- sm: 640px - Mobile
-- md: 768px - Tablet
-- lg: 1024px - Laptop
-- xl: 1280px - Desktop
-- 2xl: 1536px - Large desktop
-
-### Mobile-First Approach
-- Stack layouts on mobile
-- Grid layouts on desktop
-- Collapsible navigation
-- Touch-friendly interactions
-
-## Best Practices
-
-### Do's
-- Use semantic color variants
-- Maintain consistent spacing
-- Follow accessibility guidelines
-- Use proper component variants
-- Test on multiple devices
-- Honor user preferences (dark mode, reduced motion)
-
-### Don'ts
-- Override accessibility features
-- Use custom colors outside the palette
-- Ignore responsive breakpoints
-- Skip keyboard navigation testing
-- Use animations excessively
-- Mix inconsistent spacing values
-- Use arbitrary Tailwind values (e.g., `bg-[#abc123]`) instead of design tokens
-
-## Technical Implementation
-
-### Stack
-- React 18+ with TypeScript
-- Tailwind CSS 3.4.0 (pre-compiled)
-- Storybook 8.6.14
-- tsup bundler
-- Framer Motion for animations
-- Class Variance Authority for variants
-
-### Build Output
-- ESM and CJS bundles
-- Full TypeScript definitions
-- Tree-shakeable exports
-- Pre-compiled CSS
-- Source maps
-
-## Theme Support
-
-### Light & Dark Mode
-
-Lighthouse HLTH supports both light and dark themes to accommodate healthcare professionals working in various lighting conditions.
-
-**Key Features**:
-- Three-state theme toggle (light/dark/auto)
-- Automatic system preference detection
-- Persistent user preference storage
-- SSR-safe theme initialization (no FOUC)
-- WCAG 2.1 AA contrast compliance in both modes
-
-**Implementation**:
-- Dark mode uses `class` strategy (`dark:` prefix in Tailwind)
-- Warm-tinted dark backgrounds (#0F1419, not pure black)
-- Elevated surface hierarchy for depth
-- Healthcare-optimized chart colors for both themes
-
-**Documentation**: See [DARK_MODE_SPECIFICATION.md](./DARK_MODE_SPECIFICATION.md) for complete dark mode guidelines.
+1. **Purposeful** - Motion communicates, not decorates
+2. **Performant** - Use transform/opacity for 60fps
+3. **Respectful** - Honor `prefers-reduced-motion`
+4. **Subtle** - Professional, non-distracting
 
 ---
 
-**Version 1.0.0** | Last Updated: January 2025
+## Migration from v0.x
+
+### Color Changes
+
+| Old Token | New Token |
+|-----------|-----------|
+| `primary-500: #057C8B` | `primary-500: #066E76` |
+| `accent-500: #FF833B` (orange) | `amber-500: #F97316` |
+| `success-main: #10B981` | `sustainability-500: #16A34A` |
+
+### New Tokens
+
+- `primary-soft-*` — Soft teal scale
+- `lime-*` — Lighthouse beam accent
+- `shadow-soft`, `shadow-card`, `shadow-inset` — Soft layered surfaces
+- `text-app-*` — Dense app typography scale
+
+---
+
+## Technical Stack
+
+- **React 18+** with TypeScript (strict mode)
+- **Tailwind CSS 3.4** (pre-compiled)
+- **Class Variance Authority** for variants
+- **Framer Motion** for animations
+- **tsup** bundler
+- **Storybook 8.6** for documentation
+
+---
+
+## File Structure
+
+```
+src/
+├── tokens/
+│   ├── colors.ts       # Luminous Climate Clinical palette
+│   ├── typography.ts   # Dual-scale type system
+│   ├── shadows.ts      # Soft layered surfaces
+│   ├── spacing.ts      # 4px base unit
+│   ├── radii.ts        # Border radius tokens
+│   ├── animation.ts    # Motion tokens
+│   └── index.ts        # Barrel export
+├── styles.css          # CSS variables + Tailwind
+└── components/         # React components
+```
+
+---
+
+**Version:** 1.0.0 — "Luminous Climate Clinical"
+**Updated:** December 2024
+
+---
+
+*Proprietary and Confidential*
+*© 2025 Indigo Labs LLC. All rights reserved.*

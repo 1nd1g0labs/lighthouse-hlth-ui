@@ -1,24 +1,355 @@
+/**
+ * Lighthouse Health Design System - Styles
+ *
+ * Version 1.0.0 - Luminous Climate Clinical
+ *
+ * This file provides:
+ * 1. CSS Custom Properties for cross-platform use
+ * 2. Tailwind directives
+ * 3. Base layer styles
+ * 4. Component utilities
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================================================
+ * CSS CUSTOM PROPERTIES - "Luminous Climate Clinical"
+ * ============================================================================
+ * Use these variables for cross-platform consistency (React Native, Framer, etc.)
+ * Convention: --lh-[category]-[name]
+ */
+
+:root {
+  /* --------------------------------------------------------------------
+   * COLORS - Primary Palette
+   * -------------------------------------------------------------------- */
+  --lh-color-primary: #066E76;
+  --lh-color-primary-50: #E6F4F5;
+  --lh-color-primary-100: #CCE8EB;
+  --lh-color-primary-200: #99D1D6;
+  --lh-color-primary-300: #66BAC2;
+  --lh-color-primary-400: #33A3AD;
+  --lh-color-primary-500: #066E76;
+  --lh-color-primary-600: #055B62;
+  --lh-color-primary-700: #04494E;
+  --lh-color-primary-800: #03363A;
+  --lh-color-primary-900: #022427;
+
+  --lh-color-primary-soft: #0E9BA7;
+  --lh-color-primary-soft-50: #E7F6F8;
+  --lh-color-primary-soft-500: #0E9BA7;
+  --lh-color-primary-soft-700: #09636B;
+
+  /* --------------------------------------------------------------------
+   * COLORS - Sustainability Green (Success/Positive)
+   * -------------------------------------------------------------------- */
+  --lh-color-sustainability: #16A34A;
+  --lh-color-sustainability-50: #E8F9EE;
+  --lh-color-sustainability-100: #D1F3DD;
+  --lh-color-sustainability-500: #16A34A;
+  --lh-color-sustainability-700: #0E6930;
+  --lh-color-sustainability-900: #062F16;
+
+  /* --------------------------------------------------------------------
+   * COLORS - Lighthouse Beam Lime (Accent Highlight)
+   * -------------------------------------------------------------------- */
+  --lh-color-lime: #A3E635;
+  --lh-color-lime-500: #A3E635;
+
+  /* --------------------------------------------------------------------
+   * COLORS - Amber (Warning)
+   * -------------------------------------------------------------------- */
+  --lh-color-amber: #F97316;
+  --lh-color-amber-50: #FFF8EB;
+  --lh-color-amber-500: #F97316;
+  --lh-color-amber-700: #C85912;
+
+  /* --------------------------------------------------------------------
+   * COLORS - Critical Red (Error)
+   * -------------------------------------------------------------------- */
+  --lh-color-critical: #DC2626;
+  --lh-color-critical-50: #FEF2F2;
+  --lh-color-critical-500: #EF4444;
+  --lh-color-critical-600: #DC2626;
+  --lh-color-critical-700: #B91C1C;
+
+  /* --------------------------------------------------------------------
+   * COLORS - Surfaces
+   * -------------------------------------------------------------------- */
+  --lh-color-canvas: #F3F5F7;
+  --lh-color-surface: #FFFFFF;
+  --lh-color-surface-elevated: #FFFFFF;
+  --lh-color-surface-sunken: #EDF2F7;
+
+  /* --------------------------------------------------------------------
+   * COLORS - Borders
+   * -------------------------------------------------------------------- */
+  --lh-color-border: #E2E8F0;
+  --lh-color-border-subtle: #E2E8F0;
+  --lh-color-border-muted: #CBD5E1;
+  --lh-color-border-strong: #94A3B8;
+
+  /* --------------------------------------------------------------------
+   * COLORS - Text
+   * -------------------------------------------------------------------- */
+  --lh-color-text-main: #0F172A;
+  --lh-color-text-secondary: #475569;
+  --lh-color-text-muted: #64748B;
+  --lh-color-text-disabled: #94A3B8;
+  --lh-color-text-inverse: #FFFFFF;
+
+  /* --------------------------------------------------------------------
+   * COLORS - GHG Categories
+   * -------------------------------------------------------------------- */
+  --lh-color-scope1: #D97706;
+  --lh-color-scope1-bg: #FEF3C7;
+  --lh-color-scope2: #2563EB;
+  --lh-color-scope2-bg: #DBEAFE;
+  --lh-color-scope3: #0D9488;
+  --lh-color-scope3-bg: #CCFBF1;
+  --lh-color-waste: #059669;
+  --lh-color-waste-bg: #D1FAE5;
+
+  /* --------------------------------------------------------------------
+   * GRADIENTS
+   * -------------------------------------------------------------------- */
+  --lh-gradient-lighthouse-beam: linear-gradient(135deg, #0E9BA7 0%, #16A34A 40%, #A3E635 100%);
+  --lh-gradient-primary: linear-gradient(135deg, #066E76 0%, #0E9BA7 100%);
+  --lh-gradient-sustainability: linear-gradient(135deg, #066E76 0%, #16A34A 100%);
+  --lh-gradient-success: linear-gradient(135deg, #16A34A 0%, #A3E635 100%);
+  --lh-gradient-canvas: linear-gradient(180deg, #EDF2F7 0%, #F3F5F7 100%);
+
+  /* --------------------------------------------------------------------
+   * SHADOWS - Soft Layered Surfaces
+   * -------------------------------------------------------------------- */
+  --lh-shadow-soft: 10px 10px 30px rgba(15, 23, 42, 0.12), -8px -8px 20px rgba(255, 255, 255, 0.9);
+  --lh-shadow-soft-sm: 6px 6px 16px rgba(15, 23, 42, 0.08), -4px -4px 12px rgba(255, 255, 255, 0.9);
+  --lh-shadow-soft-lg: 14px 14px 40px rgba(15, 23, 42, 0.15), -10px -10px 28px rgba(255, 255, 255, 0.9);
+
+  --lh-shadow-inset: inset 1px 1px 3px rgba(148, 163, 184, 0.4), inset -1px -1px 3px rgba(255, 255, 255, 0.9);
+  --lh-shadow-inset-deep: inset 2px 2px 5px rgba(148, 163, 184, 0.5), inset -2px -2px 5px rgba(255, 255, 255, 0.95);
+
+  --lh-shadow-card: 10px 10px 30px rgba(15, 23, 42, 0.12), -8px -8px 20px rgba(255, 255, 255, 0.9);
+  --lh-shadow-card-hover: 12px 12px 35px rgba(15, 23, 42, 0.14), -10px -10px 24px rgba(255, 255, 255, 0.92);
+  --lh-shadow-button: 4px 4px 12px rgba(15, 23, 42, 0.15), -2px -2px 8px rgba(255, 255, 255, 0.8);
+  --lh-shadow-button-hover: 6px 6px 16px rgba(15, 23, 42, 0.18), -3px -3px 10px rgba(255, 255, 255, 0.85);
+  --lh-shadow-input: inset 1px 1px 3px rgba(148, 163, 184, 0.4), inset -1px -1px 3px rgba(255, 255, 255, 0.9);
+  --lh-shadow-nav: 4px 0 12px rgba(15, 23, 42, 0.08);
+  --lh-shadow-context-panel: -4px 0 12px rgba(15, 23, 42, 0.08);
+  --lh-shadow-dropdown: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.1);
+  --lh-shadow-modal: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+
+  --lh-shadow-focus: 0 0 0 2px rgba(34, 197, 94, 0.6);
+  --lh-shadow-focus-offset: 0 0 0 2px #FFFFFF, 0 0 0 4px rgba(34, 197, 94, 0.6);
+  --lh-shadow-focus-error: 0 0 0 2px rgba(220, 38, 38, 0.5);
+
+  /* --------------------------------------------------------------------
+   * BORDER RADIUS
+   * -------------------------------------------------------------------- */
+  --lh-radius-sm: 4px;
+  --lh-radius-md: 8px;
+  --lh-radius-lg: 12px;
+  --lh-radius-xl: 16px;
+  --lh-radius-2xl: 20px;
+  --lh-radius-full: 9999px;
+
+  /* --------------------------------------------------------------------
+   * TYPOGRAPHY - Font Family
+   * -------------------------------------------------------------------- */
+  --lh-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --lh-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, 'Courier New', monospace;
+
+  /* --------------------------------------------------------------------
+   * TYPOGRAPHY - Marketing Scale
+   * -------------------------------------------------------------------- */
+  --lh-text-h1: 54px;
+  --lh-text-h2: 42px;
+  --lh-text-h3: 38px;
+  --lh-text-h4: 32px;
+  --lh-text-h5: 28px;
+  --lh-text-h6: 24px;
+  --lh-text-body-xl: 20px;
+  --lh-text-body-lg: 18px;
+  --lh-text-body: 16px;
+  --lh-text-body-sm: 14px;
+
+  /* --------------------------------------------------------------------
+   * TYPOGRAPHY - App Scale (Dense)
+   * -------------------------------------------------------------------- */
+  --lh-app-text-page-title: 32px;
+  --lh-app-text-panel-header: 24px;
+  --lh-app-text-card-title: 20px;
+  --lh-app-text-section-header: 18px;
+  --lh-app-text-widget-title: 16px;
+  --lh-app-text-body-lg: 15px;
+  --lh-app-text-body: 14px;
+  --lh-app-text-body-sm: 13px;
+  --lh-app-text-body-xs: 12px;
+  --lh-app-text-metric-hero: 36px;
+  --lh-app-text-metric: 28px;
+  --lh-app-text-metric-sm: 20px;
+  --lh-app-text-table-cell: 13px;
+  --lh-app-text-label: 12px;
+  --lh-app-text-badge: 11px;
+
+  /* --------------------------------------------------------------------
+   * SPACING
+   * -------------------------------------------------------------------- */
+  --lh-space-1: 4px;
+  --lh-space-2: 8px;
+  --lh-space-3: 12px;
+  --lh-space-4: 16px;
+  --lh-space-5: 20px;
+  --lh-space-6: 24px;
+  --lh-space-8: 32px;
+  --lh-space-10: 40px;
+  --lh-space-12: 48px;
+  --lh-space-16: 64px;
+
+  /* --------------------------------------------------------------------
+   * Z-INDEX
+   * -------------------------------------------------------------------- */
+  --lh-z-dropdown: 1000;
+  --lh-z-sticky: 1100;
+  --lh-z-fixed: 1200;
+  --lh-z-modal-backdrop: 1300;
+  --lh-z-modal: 1400;
+  --lh-z-popover: 1500;
+  --lh-z-tooltip: 1600;
+  --lh-z-toast: 1700;
+
+  /* --------------------------------------------------------------------
+   * TRANSITIONS
+   * -------------------------------------------------------------------- */
+  --lh-transition-fast: 150ms;
+  --lh-transition-normal: 250ms;
+  --lh-transition-slow: 350ms;
+  --lh-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --lh-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================================
+ * BASE LAYER
+ * ============================================================================ */
 
 @layer base {
   /* Inter font family */
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+  html {
+    font-family: var(--lh-font-sans);
+    color: var(--lh-color-text-main);
+    background-color: var(--lh-color-canvas);
+  }
+
   body {
     @apply font-sans antialiased;
   }
 
-  /* Improved focus styles */
+  /* Focus styles using sustainability green */
   *:focus-visible {
-    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+    outline: 2px solid rgba(34, 197, 94, 0.6);
+    outline-offset: 2px;
+  }
+
+  /* Alternative ring styles via Tailwind */
+  .focus-ring:focus-visible {
+    @apply outline-none ring-2 ring-sustainability-500 ring-offset-2;
   }
 }
 
+/* ============================================================================
+ * COMPONENT UTILITIES
+ * ============================================================================ */
+
 @layer components {
-  /* Custom component utilities can go here if needed */
+  /* Soft surface card treatment */
+  .lh-card {
+    background: var(--lh-color-surface);
+    border-radius: var(--lh-radius-xl);
+    border: 1px solid var(--lh-color-border-subtle);
+    box-shadow: var(--lh-shadow-card);
+    transition: box-shadow var(--lh-transition-normal) var(--lh-ease-out);
+  }
+
+  .lh-card:hover {
+    box-shadow: var(--lh-shadow-card-hover);
+  }
+
+  /* Inset input treatment */
+  .lh-input {
+    background: var(--lh-color-canvas);
+    border-radius: var(--lh-radius-lg);
+    border: 1px solid var(--lh-color-border-subtle);
+    box-shadow: var(--lh-shadow-input);
+    transition: box-shadow var(--lh-transition-fast) var(--lh-ease-out);
+  }
+
+  .lh-input:focus {
+    box-shadow: var(--lh-shadow-input), var(--lh-shadow-focus);
+  }
+
+  /* Primary button with lighthouse beam gradient */
+  .lh-btn-primary {
+    background: var(--lh-gradient-lighthouse-beam);
+    color: var(--lh-color-text-inverse);
+    border-radius: var(--lh-radius-full);
+    box-shadow: var(--lh-shadow-button);
+    font-weight: 600;
+    transition: box-shadow var(--lh-transition-fast) var(--lh-ease-out),
+                transform var(--lh-transition-fast) var(--lh-ease-out);
+  }
+
+  .lh-btn-primary:hover {
+    box-shadow: var(--lh-shadow-button-hover);
+    transform: scale(1.01);
+  }
+
+  .lh-btn-primary:active {
+    box-shadow: inset 2px 2px 4px rgba(15, 23, 42, 0.15), inset -1px -1px 3px rgba(255, 255, 255, 0.5);
+    transform: scale(0.99);
+  }
+
+  /* Solid primary button (app) */
+  .lh-btn-solid {
+    background: var(--lh-color-primary);
+    color: var(--lh-color-text-inverse);
+    border-radius: var(--lh-radius-lg);
+    box-shadow: var(--lh-shadow-button);
+    font-weight: 600;
+    transition: background var(--lh-transition-fast) var(--lh-ease-out),
+                box-shadow var(--lh-transition-fast) var(--lh-ease-out);
+  }
+
+  .lh-btn-solid:hover {
+    background: var(--lh-color-primary-soft);
+    box-shadow: var(--lh-shadow-button-hover);
+  }
+
+  /* Navigation panel shadow */
+  .lh-nav {
+    box-shadow: var(--lh-shadow-nav);
+  }
+
+  /* Context panel shadow (right side) */
+  .lh-context-panel {
+    box-shadow: var(--lh-shadow-context-panel);
+  }
+
+  /* KPI metric card */
+  .lh-kpi-card {
+    background: var(--lh-color-surface);
+    border-radius: var(--lh-radius-xl);
+    border: 1px solid var(--lh-color-border-subtle);
+    box-shadow: 8px 8px 24px rgba(15, 23, 42, 0.1), -6px -6px 18px rgba(255, 255, 255, 0.9);
+  }
 }
+
+/* ============================================================================
+ * UTILITY CLASSES
+ * ============================================================================ */
 
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -28,7 +359,25 @@
 
   /* Hide scrollbar for IE, Edge and Firefox */
   .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Lighthouse beam gradient background */
+  .bg-lighthouse-beam {
+    background: var(--lh-gradient-lighthouse-beam);
+  }
+
+  /* Success gradient (app success states) */
+  .bg-gradient-success {
+    background: var(--lh-gradient-success);
+  }
+
+  /* Text gradient */
+  .text-gradient-beam {
+    background: var(--lh-gradient-lighthouse-beam);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
