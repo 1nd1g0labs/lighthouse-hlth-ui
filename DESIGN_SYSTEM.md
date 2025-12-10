@@ -111,6 +111,18 @@ LighthouseHlth uses two typography scales:
 --lh-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 ```
 
+### Font Pairing Strategy
+
+**"Technical Precision" Approach:**
+
+| Element | Font | Rationale |
+|---------|------|-----------|
+| **Body, Labels, UI** | Inter | Excellent readability, humanist warmth |
+| **Metric Values** | JetBrains Mono | Technical precision, visual "pop" for KPIs |
+| **Units** | Inter | Pairs with metrics, maintains readability |
+
+JetBrains Mono is used sparingly for numeric metrics to create visual distinction and convey data precision—critical for an operations platform dealing with exact measurements.
+
 ### Marketing Scale (lighthousehlth.com)
 
 | Style | Size | Line Height | Letter Spacing | Usage |
@@ -288,63 +300,107 @@ Primary workspace: **Action Planning hub**
 ### Card Treatment
 
 ```jsx
-// Tailwind classes
-<div className="bg-surface rounded-xl border border-border-subtle shadow-card hover:shadow-card-hover transition-shadow">
-  {/* content */}
+// CSS utility class (includes padding)
+<div className="lh-card">
+  {/* content — padding: 24px */}
 </div>
 
-// CSS utility class
-<div className="lh-card">
-  {/* content */}
-</div>
+// Size variants
+<div className="lh-card lh-card-sm">{/* padding: 16px */}</div>
+<div className="lh-card lh-card-lg">{/* padding: 32px */}</div>
 ```
 
 ### Input Treatment
 
 ```jsx
-// Tailwind classes
-<input className="bg-canvas rounded-lg border border-border-subtle shadow-input focus:shadow-input-focus" />
+// CSS utility class (includes padding)
+<input className="lh-input" placeholder="Enter value..." />
 
-// CSS utility class
-<input className="lh-input" />
+// Size variants
+<input className="lh-input lh-input-sm" />
+<input className="lh-input lh-input-lg" />
 ```
 
-### Primary Button (Marketing)
+### Button System
+
+**Marketing CTAs (Pill + Gradient):**
 
 ```jsx
-// Gradient CTA for landing page
-<button className="bg-lighthouse-beam text-text-inverse rounded-full shadow-button hover:shadow-button-hover font-semibold px-8 py-3 hover:scale-[1.01] transition-all">
-  Get Started
-</button>
+// Primary CTA with lighthouse beam gradient
+<button className="lh-btn-primary">Get Started</button>
 
-// CSS utility class
-<button className="lh-btn-primary px-8 py-3">
-  Get Started
-</button>
+// Size variants
+<button className="lh-btn-primary lh-btn-primary-sm">Learn More</button>
+<button className="lh-btn-primary lh-btn-primary-lg">Book a Demo</button>
 ```
 
-### Primary Button (App)
+**App Buttons (Solid, Outline, Ghost):**
 
 ```jsx
-// Solid button for in-app actions
-<button className="bg-primary text-text-inverse rounded-lg shadow-button hover:bg-primary-soft font-semibold px-6 py-2 transition-all">
-  Save Changes
-</button>
+// Solid primary
+<button className="lh-btn-solid">Save Changes</button>
 
-// CSS utility class
-<button className="lh-btn-solid px-6 py-2">
-  Save Changes
-</button>
+// Secondary (outline)
+<button className="lh-btn-secondary">Cancel</button>
+
+// Ghost (subtle)
+<button className="lh-btn-ghost">Skip</button>
+
+// Success
+<button className="lh-btn-success">Commit Plan</button>
+
+// Danger
+<button className="lh-btn-danger">Delete</button>
 ```
 
-### KPI Card
+### KPI Card with Monospace Metrics
 
 ```jsx
-<div className="lh-kpi-card p-6">
-  <p className="text-app-label text-text-muted uppercase">Energy Consumption</p>
-  <p className="text-app-metric font-bold text-text-main">1,234</p>
-  <p className="text-app-metric-unit text-text-secondary">kWh</p>
+// KPI card (includes padding: 24px)
+<div className="lh-kpi-card">
+  <p className="lh-metric-label">Energy Consumption</p>
+  <p className="lh-metric">1,234</p>
+  <p className="lh-metric-unit">kWh / month</p>
 </div>
+
+// Size variants
+<div className="lh-kpi-card lh-kpi-card-sm">{/* padding: 16px */}</div>
+<div className="lh-kpi-card lh-kpi-card-lg">{/* padding: 32px */}</div>
+```
+
+### Metric Typography Classes
+
+```jsx
+// Hero metric (36px JetBrains Mono)
+<span className="lh-metric-hero">18.4%</span>
+
+// Standard metric (28px JetBrains Mono)
+<span className="lh-metric">1,234</span>
+
+// Small metric (20px JetBrains Mono)
+<span className="lh-metric-sm">847</span>
+
+// Unit (14px Inter)
+<span className="lh-metric-unit">kWh</span>
+
+// Label (12px Inter, uppercase)
+<span className="lh-metric-label">Energy Consumption</span>
+```
+
+### Badge Components
+
+```jsx
+// Status badges
+<span className="lh-badge lh-badge-success">On Track</span>
+<span className="lh-badge lh-badge-warning">Attention</span>
+<span className="lh-badge lh-badge-error">Critical</span>
+<span className="lh-badge lh-badge-info">Info</span>
+<span className="lh-badge lh-badge-neutral">Pending</span>
+
+// GHG Scope badges
+<span className="lh-badge lh-badge-scope1">Scope 1</span>
+<span className="lh-badge lh-badge-scope2">Scope 2</span>
+<span className="lh-badge lh-badge-scope3">Scope 3</span>
 ```
 
 ---

@@ -387,33 +387,34 @@ export const typography = {
       },
 
       // Metrics and KPIs (prominent numbers)
+      // Using JetBrains Mono for technical precision and visual "pop"
       metricHero: {
         fontSize: '36px',
-        fontWeight: 700,
+        fontWeight: 600,
         lineHeight: '1.1',
-        letterSpacing: '-0.03em',
-        fontFamily: 'Inter',
+        letterSpacing: '-0.02em',
+        fontFamily: 'JetBrains Mono',
       },
       metric: {
         fontSize: '28px',
-        fontWeight: 700,
+        fontWeight: 600,
         lineHeight: '1.1',
-        letterSpacing: '-0.02em',
-        fontFamily: 'Inter',
+        letterSpacing: '-0.01em',
+        fontFamily: 'JetBrains Mono',
       },
       metricSm: {
         fontSize: '20px',
-        fontWeight: 600,
+        fontWeight: 500,
         lineHeight: '1.2',
-        letterSpacing: '-0.015em',
-        fontFamily: 'Inter',
+        letterSpacing: '0em',
+        fontFamily: 'JetBrains Mono',
       },
       metricUnit: {
         fontSize: '14px',
         fontWeight: 500,
         lineHeight: '1.2',
-        letterSpacing: '0em',
-        fontFamily: 'Inter',
+        letterSpacing: '0.01em',
+        fontFamily: 'Inter',  // Units stay in Inter for readability
       },
 
       // Data display (tables, lists)
