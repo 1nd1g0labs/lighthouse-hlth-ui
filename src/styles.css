@@ -235,8 +235,9 @@
  * ============================================================================ */
 
 @layer base {
-  /* Inter font family */
+  /* Font families */
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
   html {
     font-family: var(--lh-font-sans);
@@ -265,12 +266,17 @@
  * ============================================================================ */
 
 @layer components {
+  /* ============================================================================
+   * CARD COMPONENTS
+   * ============================================================================ */
+
   /* Soft surface card treatment */
   .lh-card {
     background: var(--lh-color-surface);
     border-radius: var(--lh-radius-xl);
     border: 1px solid var(--lh-color-border-subtle);
     box-shadow: var(--lh-shadow-card);
+    padding: var(--lh-space-6);
     transition: box-shadow var(--lh-transition-normal) var(--lh-ease-out);
   }
 
@@ -278,55 +284,245 @@
     box-shadow: var(--lh-shadow-card-hover);
   }
 
+  .lh-card-sm {
+    padding: var(--lh-space-4);
+  }
+
+  .lh-card-lg {
+    padding: var(--lh-space-8);
+  }
+
+  /* KPI metric card - consolidated with padding */
+  .lh-kpi-card {
+    background: var(--lh-color-surface);
+    border-radius: var(--lh-radius-xl);
+    border: 1px solid var(--lh-color-border-subtle);
+    box-shadow: 8px 8px 24px rgba(15, 23, 42, 0.1), -6px -6px 18px rgba(255, 255, 255, 0.9);
+    padding: var(--lh-space-6);
+  }
+
+  .lh-kpi-card-sm {
+    padding: var(--lh-space-4);
+  }
+
+  .lh-kpi-card-lg {
+    padding: var(--lh-space-8);
+  }
+
+  /* ============================================================================
+   * INPUT COMPONENTS
+   * ============================================================================ */
+
   /* Inset input treatment */
   .lh-input {
     background: var(--lh-color-canvas);
     border-radius: var(--lh-radius-lg);
     border: 1px solid var(--lh-color-border-subtle);
     box-shadow: var(--lh-shadow-input);
-    transition: box-shadow var(--lh-transition-fast) var(--lh-ease-out);
+    padding: var(--lh-space-3) var(--lh-space-4);
+    font-size: 14px;
+    line-height: 1.5;
+    transition: box-shadow var(--lh-transition-fast) var(--lh-ease-out),
+                border-color var(--lh-transition-fast) var(--lh-ease-out);
   }
 
   .lh-input:focus {
     box-shadow: var(--lh-shadow-input), var(--lh-shadow-focus);
+    border-color: var(--lh-color-sustainability);
+    outline: none;
   }
 
-  /* Primary button with lighthouse beam gradient */
+  .lh-input-sm {
+    padding: var(--lh-space-2) var(--lh-space-3);
+    font-size: 13px;
+  }
+
+  .lh-input-lg {
+    padding: var(--lh-space-4) var(--lh-space-5);
+    font-size: 16px;
+  }
+
+  /* ============================================================================
+   * BUTTON COMPONENTS
+   * ============================================================================ */
+
+  /* Base button styles (shared) */
+  .lh-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--lh-space-2);
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all var(--lh-transition-fast) var(--lh-ease-out);
+  }
+
+  .lh-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--lh-shadow-focus-offset);
+  }
+
+  .lh-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Primary button with lighthouse beam gradient (Marketing CTAs) */
   .lh-btn-primary {
     background: var(--lh-gradient-lighthouse-beam);
     color: var(--lh-color-text-inverse);
     border-radius: var(--lh-radius-full);
     box-shadow: var(--lh-shadow-button);
     font-weight: 600;
+    padding: var(--lh-space-3) var(--lh-space-8);
+    font-size: 16px;
     transition: box-shadow var(--lh-transition-fast) var(--lh-ease-out),
                 transform var(--lh-transition-fast) var(--lh-ease-out);
   }
 
-  .lh-btn-primary:hover {
+  .lh-btn-primary:hover:not(:disabled) {
     box-shadow: var(--lh-shadow-button-hover);
     transform: scale(1.01);
   }
 
-  .lh-btn-primary:active {
+  .lh-btn-primary:active:not(:disabled) {
     box-shadow: inset 2px 2px 4px rgba(15, 23, 42, 0.15), inset -1px -1px 3px rgba(255, 255, 255, 0.5);
     transform: scale(0.99);
   }
 
-  /* Solid primary button (app) */
+  .lh-btn-primary-sm {
+    padding: var(--lh-space-2) var(--lh-space-6);
+    font-size: 14px;
+  }
+
+  .lh-btn-primary-lg {
+    padding: var(--lh-space-4) var(--lh-space-10);
+    font-size: 18px;
+  }
+
+  /* Solid primary button (App actions) */
   .lh-btn-solid {
     background: var(--lh-color-primary);
     color: var(--lh-color-text-inverse);
     border-radius: var(--lh-radius-lg);
     box-shadow: var(--lh-shadow-button);
     font-weight: 600;
+    padding: var(--lh-space-2) var(--lh-space-6);
+    font-size: 14px;
     transition: background var(--lh-transition-fast) var(--lh-ease-out),
                 box-shadow var(--lh-transition-fast) var(--lh-ease-out);
   }
 
-  .lh-btn-solid:hover {
+  .lh-btn-solid:hover:not(:disabled) {
     background: var(--lh-color-primary-soft);
     box-shadow: var(--lh-shadow-button-hover);
   }
+
+  .lh-btn-solid:active:not(:disabled) {
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .lh-btn-solid-sm {
+    padding: var(--lh-space-1) var(--lh-space-4);
+    font-size: 13px;
+  }
+
+  .lh-btn-solid-lg {
+    padding: var(--lh-space-3) var(--lh-space-8);
+    font-size: 16px;
+  }
+
+  /* Secondary button (outline) */
+  .lh-btn-secondary {
+    background: transparent;
+    color: var(--lh-color-primary);
+    border: 1.5px solid var(--lh-color-primary);
+    border-radius: var(--lh-radius-lg);
+    font-weight: 600;
+    padding: var(--lh-space-2) var(--lh-space-6);
+    font-size: 14px;
+    transition: all var(--lh-transition-fast) var(--lh-ease-out);
+  }
+
+  .lh-btn-secondary:hover:not(:disabled) {
+    background: var(--lh-color-primary);
+    color: var(--lh-color-text-inverse);
+  }
+
+  .lh-btn-secondary:active:not(:disabled) {
+    background: var(--lh-color-primary-700, #04494E);
+    border-color: var(--lh-color-primary-700, #04494E);
+  }
+
+  .lh-btn-secondary-sm {
+    padding: var(--lh-space-1) var(--lh-space-4);
+    font-size: 13px;
+  }
+
+  .lh-btn-secondary-lg {
+    padding: var(--lh-space-3) var(--lh-space-8);
+    font-size: 16px;
+  }
+
+  /* Ghost button (subtle) */
+  .lh-btn-ghost {
+    background: transparent;
+    color: var(--lh-color-text-secondary);
+    border: none;
+    border-radius: var(--lh-radius-lg);
+    font-weight: 500;
+    padding: var(--lh-space-2) var(--lh-space-4);
+    font-size: 14px;
+    transition: all var(--lh-transition-fast) var(--lh-ease-out);
+  }
+
+  .lh-btn-ghost:hover:not(:disabled) {
+    background: var(--lh-color-surface-sunken);
+    color: var(--lh-color-text-main);
+  }
+
+  .lh-btn-ghost:active:not(:disabled) {
+    background: var(--lh-color-border-subtle);
+  }
+
+  /* Success button */
+  .lh-btn-success {
+    background: var(--lh-color-sustainability);
+    color: var(--lh-color-text-inverse);
+    border-radius: var(--lh-radius-lg);
+    box-shadow: var(--lh-shadow-button);
+    font-weight: 600;
+    padding: var(--lh-space-2) var(--lh-space-6);
+    font-size: 14px;
+    transition: all var(--lh-transition-fast) var(--lh-ease-out);
+  }
+
+  .lh-btn-success:hover:not(:disabled) {
+    background: var(--lh-color-sustainability-700, #0E6930);
+    box-shadow: var(--lh-shadow-button-hover);
+  }
+
+  /* Danger button */
+  .lh-btn-danger {
+    background: var(--lh-color-critical);
+    color: var(--lh-color-text-inverse);
+    border-radius: var(--lh-radius-lg);
+    box-shadow: var(--lh-shadow-button);
+    font-weight: 600;
+    padding: var(--lh-space-2) var(--lh-space-6);
+    font-size: 14px;
+    transition: all var(--lh-transition-fast) var(--lh-ease-out);
+  }
+
+  .lh-btn-danger:hover:not(:disabled) {
+    background: var(--lh-color-critical-700, #B91C1C);
+    box-shadow: var(--lh-shadow-button-hover);
+  }
+
+  /* ============================================================================
+   * LAYOUT COMPONENTS
+   * ============================================================================ */
 
   /* Navigation panel shadow */
   .lh-nav {
@@ -338,12 +534,117 @@
     box-shadow: var(--lh-shadow-context-panel);
   }
 
-  /* KPI metric card */
-  .lh-kpi-card {
-    background: var(--lh-color-surface);
-    border-radius: var(--lh-radius-xl);
-    border: 1px solid var(--lh-color-border-subtle);
-    box-shadow: 8px 8px 24px rgba(15, 23, 42, 0.1), -6px -6px 18px rgba(255, 255, 255, 0.9);
+  /* ============================================================================
+   * METRIC TYPOGRAPHY
+   * ============================================================================ */
+
+  /* Metric values with monospace font for precision */
+  .lh-metric {
+    font-family: var(--lh-font-mono);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--lh-color-text-main);
+  }
+
+  .lh-metric-hero {
+    font-family: var(--lh-font-mono);
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--lh-color-text-main);
+  }
+
+  .lh-metric-sm {
+    font-family: var(--lh-font-mono);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0em;
+    color: var(--lh-color-text-main);
+  }
+
+  .lh-metric-unit {
+    font-family: var(--lh-font-sans);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    color: var(--lh-color-text-secondary);
+  }
+
+  .lh-metric-label {
+    font-family: var(--lh-font-sans);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--lh-color-text-muted);
+  }
+
+  /* ============================================================================
+   * BADGE COMPONENTS
+   * ============================================================================ */
+
+  .lh-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--lh-space-1) var(--lh-space-2);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    border-radius: var(--lh-radius-sm);
+    text-transform: uppercase;
+  }
+
+  .lh-badge-success {
+    background: var(--lh-color-sustainability-50);
+    color: var(--lh-color-sustainability-700, #0E6930);
+  }
+
+  .lh-badge-warning {
+    background: var(--lh-color-amber-50);
+    color: var(--lh-color-amber-700);
+  }
+
+  .lh-badge-error {
+    background: var(--lh-color-critical-50);
+    color: var(--lh-color-critical-700);
+  }
+
+  .lh-badge-info {
+    background: #DBEAFE;
+    color: #1E40AF;
+  }
+
+  .lh-badge-neutral {
+    background: var(--lh-color-surface-sunken);
+    color: var(--lh-color-text-secondary);
+  }
+
+  /* GHG Scope badges */
+  .lh-badge-scope1 {
+    background: var(--lh-color-scope1-bg);
+    color: var(--lh-color-scope1);
+  }
+
+  .lh-badge-scope2 {
+    background: var(--lh-color-scope2-bg);
+    color: var(--lh-color-scope2);
+  }
+
+  .lh-badge-scope3 {
+    background: var(--lh-color-scope3-bg);
+    color: var(--lh-color-scope3);
+  }
+
+  .lh-badge-waste {
+    background: var(--lh-color-waste-bg);
+    color: var(--lh-color-waste);
   }
 }
 

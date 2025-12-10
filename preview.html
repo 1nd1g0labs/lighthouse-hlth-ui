@@ -5,22 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LighthouseHlth Design System Preview</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       /* Colors */
       --lh-color-primary: #066E76;
       --lh-color-primary-soft: #0E9BA7;
+      --lh-color-primary-700: #04494E;
       --lh-color-sustainability: #16A34A;
+      --lh-color-sustainability-50: #E8F9EE;
+      --lh-color-sustainability-700: #0E6930;
       --lh-color-lime: #A3E635;
       --lh-color-amber: #F97316;
+      --lh-color-amber-50: #FFF8EB;
+      --lh-color-amber-700: #C85912;
       --lh-color-critical: #DC2626;
+      --lh-color-critical-50: #FEF2F2;
+      --lh-color-critical-700: #B91C1C;
       --lh-color-canvas: #F3F5F7;
       --lh-color-surface: #FFFFFF;
+      --lh-color-surface-sunken: #EDF2F7;
       --lh-color-border-subtle: #E2E8F0;
       --lh-color-text-main: #0F172A;
       --lh-color-text-secondary: #475569;
       --lh-color-text-muted: #64748B;
       --lh-color-text-inverse: #FFFFFF;
+
+      /* GHG Scope Colors */
+      --lh-color-scope1: #D97706;
+      --lh-color-scope1-bg: #FEF3C7;
+      --lh-color-scope2: #2563EB;
+      --lh-color-scope2-bg: #DBEAFE;
+      --lh-color-scope3: #0D9488;
+      --lh-color-scope3-bg: #CCFBF1;
 
       /* Gradients */
       --lh-gradient-lighthouse-beam: linear-gradient(135deg, #0E9BA7 0%, #16A34A 40%, #A3E635 100%);
@@ -32,9 +49,35 @@
       --lh-shadow-button: 4px 4px 12px rgba(15, 23, 42, 0.15), -2px -2px 8px rgba(255, 255, 255, 0.8);
       --lh-shadow-button-hover: 6px 6px 16px rgba(15, 23, 42, 0.18), -3px -3px 10px rgba(255, 255, 255, 0.85);
       --lh-shadow-kpi: 8px 8px 24px rgba(15, 23, 42, 0.1), -6px -6px 18px rgba(255, 255, 255, 0.9);
+      --lh-shadow-input: inset 1px 1px 3px rgba(148, 163, 184, 0.4), inset -1px -1px 3px rgba(255, 255, 255, 0.9);
+      --lh-shadow-focus: 0 0 0 2px rgba(34, 197, 94, 0.6);
+      --lh-shadow-focus-offset: 0 0 0 2px #FFFFFF, 0 0 0 4px rgba(34, 197, 94, 0.6);
 
       /* Typography */
       --lh-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --lh-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+      /* Spacing */
+      --lh-space-1: 4px;
+      --lh-space-2: 8px;
+      --lh-space-3: 12px;
+      --lh-space-4: 16px;
+      --lh-space-5: 20px;
+      --lh-space-6: 24px;
+      --lh-space-8: 32px;
+      --lh-space-10: 40px;
+
+      /* Border Radius */
+      --lh-radius-sm: 4px;
+      --lh-radius-md: 8px;
+      --lh-radius-lg: 12px;
+      --lh-radius-xl: 16px;
+      --lh-radius-full: 9999px;
+
+      /* Transitions */
+      --lh-transition-fast: 150ms;
+      --lh-transition-normal: 250ms;
+      --lh-ease-out: cubic-bezier(0, 0, 0.2, 1);
     }
 
     * {
@@ -94,9 +137,9 @@
 
     .component-card {
       background: var(--lh-color-surface);
-      border-radius: 16px;
+      border-radius: var(--lh-radius-xl);
       border: 1px solid var(--lh-color-border-subtle);
-      padding: 32px;
+      padding: var(--lh-space-6);
       box-shadow: var(--lh-shadow-soft);
     }
 
@@ -109,39 +152,50 @@
     }
 
     /* ================================================================
-       1. LANDING PAGE BUTTON (Pill with Gradient)
+       BUTTON COMPONENTS
        ================================================================ */
-    .btn-landing {
+
+    /* Primary CTA (Marketing - Pill with Gradient) */
+    .lh-btn-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: var(--lh-gradient-lighthouse-beam);
       color: var(--lh-color-text-inverse);
       font-family: var(--lh-font-sans);
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 600;
-      padding: 16px 40px;
+      padding: var(--lh-space-3) var(--lh-space-8);
       border: none;
-      border-radius: 9999px;
+      border-radius: var(--lh-radius-full);
       cursor: pointer;
       box-shadow: var(--lh-shadow-button);
-      transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+      transition: box-shadow var(--lh-transition-fast) var(--lh-ease-out),
+                  transform var(--lh-transition-fast) var(--lh-ease-out);
     }
 
-    .btn-landing:hover {
+    .lh-btn-primary:hover {
       box-shadow: var(--lh-shadow-button-hover);
       transform: scale(1.01);
     }
 
-    .btn-landing:active {
+    .lh-btn-primary:active {
       box-shadow: inset 2px 2px 4px rgba(15, 23, 42, 0.15), inset -1px -1px 3px rgba(255, 255, 255, 0.5);
       transform: scale(0.99);
     }
 
-    /* ================================================================
-       2. APP BUTTON (Compact, Solid)
-       ================================================================ */
-    .btn-app {
+    .lh-btn-primary-sm {
+      padding: var(--lh-space-2) var(--lh-space-6);
+      font-size: 14px;
+    }
+
+    .lh-btn-primary-lg {
+      padding: var(--lh-space-4) var(--lh-space-10);
+      font-size: 18px;
+    }
+
+    /* Solid Primary (App) */
+    .lh-btn-solid {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -150,59 +204,165 @@
       font-family: var(--lh-font-sans);
       font-size: 14px;
       font-weight: 600;
-      padding: 10px 20px;
+      padding: var(--lh-space-2) var(--lh-space-6);
       border: none;
-      border-radius: 12px;
+      border-radius: var(--lh-radius-lg);
       cursor: pointer;
       box-shadow: var(--lh-shadow-button);
-      transition: background 0.15s ease-out, box-shadow 0.15s ease-out;
+      transition: background var(--lh-transition-fast) var(--lh-ease-out),
+                  box-shadow var(--lh-transition-fast) var(--lh-ease-out);
     }
 
-    .btn-app:hover {
+    .lh-btn-solid:hover {
       background: var(--lh-color-primary-soft);
       box-shadow: var(--lh-shadow-button-hover);
     }
 
-    .btn-app-secondary {
+    .lh-btn-solid-sm {
+      padding: var(--lh-space-1) var(--lh-space-4);
+      font-size: 13px;
+    }
+
+    /* Secondary (Outline) */
+    .lh-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: transparent;
       color: var(--lh-color-primary);
-      border: 1px solid var(--lh-color-border-subtle);
-      box-shadow: none;
+      font-family: var(--lh-font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      padding: var(--lh-space-2) var(--lh-space-6);
+      border: 1.5px solid var(--lh-color-primary);
+      border-radius: var(--lh-radius-lg);
+      cursor: pointer;
+      transition: all var(--lh-transition-fast) var(--lh-ease-out);
     }
 
-    .btn-app-secondary:hover {
+    .lh-btn-secondary:hover {
       background: var(--lh-color-primary);
       color: var(--lh-color-text-inverse);
-      border-color: var(--lh-color-primary);
     }
 
-    .btn-app-success {
-      background: var(--lh-gradient-success);
+    /* Ghost */
+    .lh-btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--lh-color-text-secondary);
+      font-family: var(--lh-font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: var(--lh-space-2) var(--lh-space-4);
+      border: none;
+      border-radius: var(--lh-radius-lg);
+      cursor: pointer;
+      transition: all var(--lh-transition-fast) var(--lh-ease-out);
     }
 
-    .btn-app-success:hover {
-      background: var(--lh-gradient-success);
-      filter: brightness(1.05);
+    .lh-btn-ghost:hover {
+      background: var(--lh-color-surface-sunken);
+      color: var(--lh-color-text-main);
+    }
+
+    /* Success */
+    .lh-btn-success {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--lh-color-sustainability);
+      color: var(--lh-color-text-inverse);
+      font-family: var(--lh-font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      padding: var(--lh-space-2) var(--lh-space-6);
+      border: none;
+      border-radius: var(--lh-radius-lg);
+      cursor: pointer;
+      box-shadow: var(--lh-shadow-button);
+      transition: all var(--lh-transition-fast) var(--lh-ease-out);
+    }
+
+    .lh-btn-success:hover {
+      background: var(--lh-color-sustainability-700);
+      box-shadow: var(--lh-shadow-button-hover);
+    }
+
+    /* Danger */
+    .lh-btn-danger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--lh-color-critical);
+      color: var(--lh-color-text-inverse);
+      font-family: var(--lh-font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      padding: var(--lh-space-2) var(--lh-space-6);
+      border: none;
+      border-radius: var(--lh-radius-lg);
+      cursor: pointer;
+      box-shadow: var(--lh-shadow-button);
+      transition: all var(--lh-transition-fast) var(--lh-ease-out);
+    }
+
+    .lh-btn-danger:hover {
+      background: var(--lh-color-critical-700);
+      box-shadow: var(--lh-shadow-button-hover);
     }
 
     /* ================================================================
-       3. KPI CARD
+       INPUT COMPONENTS
        ================================================================ */
-    .kpi-card {
-      background: var(--lh-color-surface);
-      border-radius: 16px;
+
+    .lh-input {
+      display: block;
+      width: 100%;
+      background: var(--lh-color-canvas);
+      border-radius: var(--lh-radius-lg);
       border: 1px solid var(--lh-color-border-subtle);
-      padding: 24px;
-      box-shadow: var(--lh-shadow-kpi);
-      min-width: 200px;
-      transition: box-shadow 0.25s ease-out;
+      box-shadow: var(--lh-shadow-input);
+      padding: var(--lh-space-3) var(--lh-space-4);
+      font-family: var(--lh-font-sans);
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--lh-color-text-main);
+      transition: box-shadow var(--lh-transition-fast) var(--lh-ease-out),
+                  border-color var(--lh-transition-fast) var(--lh-ease-out);
     }
 
-    .kpi-card:hover {
+    .lh-input:focus {
+      box-shadow: var(--lh-shadow-input), var(--lh-shadow-focus);
+      border-color: var(--lh-color-sustainability);
+      outline: none;
+    }
+
+    .lh-input::placeholder {
+      color: var(--lh-color-text-muted);
+    }
+
+    /* ================================================================
+       KPI CARD COMPONENTS
+       ================================================================ */
+
+    .lh-kpi-card {
+      background: var(--lh-color-surface);
+      border-radius: var(--lh-radius-xl);
+      border: 1px solid var(--lh-color-border-subtle);
+      padding: var(--lh-space-6);
+      box-shadow: var(--lh-shadow-kpi);
+      min-width: 200px;
+      transition: box-shadow var(--lh-transition-normal) var(--lh-ease-out);
+    }
+
+    .lh-kpi-card:hover {
       box-shadow: var(--lh-shadow-card-hover);
     }
 
-    .kpi-label {
+    .lh-metric-label {
+      font-family: var(--lh-font-sans);
       font-size: 12px;
       font-weight: 500;
       letter-spacing: 0.02em;
@@ -211,25 +371,48 @@
       margin-bottom: 8px;
     }
 
-    .kpi-value {
+    /* METRIC VALUES - JetBrains Mono for Technical Precision */
+    .lh-metric {
+      font-family: var(--lh-font-mono);
       font-size: 28px;
-      font-weight: 700;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--lh-color-text-main);
+    }
+
+    .lh-metric-hero {
+      font-family: var(--lh-font-mono);
+      font-size: 36px;
+      font-weight: 600;
       letter-spacing: -0.02em;
       line-height: 1.1;
       color: var(--lh-color-text-main);
     }
 
-    .kpi-unit {
+    .lh-metric-sm {
+      font-family: var(--lh-font-mono);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0em;
+      line-height: 1.2;
+      color: var(--lh-color-text-main);
+    }
+
+    .lh-metric-unit {
+      font-family: var(--lh-font-sans);
       font-size: 14px;
       font-weight: 500;
+      letter-spacing: 0.01em;
       color: var(--lh-color-text-secondary);
       margin-top: 4px;
     }
 
-    .kpi-trend {
+    .lh-kpi-trend {
       display: flex;
       align-items: center;
       gap: 4px;
+      font-family: var(--lh-font-sans);
       font-size: 13px;
       font-weight: 500;
       margin-top: 12px;
@@ -237,43 +420,89 @@
       border-top: 1px solid var(--lh-color-border-subtle);
     }
 
-    .kpi-trend.positive {
-      color: var(--lh-color-sustainability);
-    }
-
-    .kpi-trend.negative {
-      color: var(--lh-color-critical);
-    }
-
-    .kpi-trend.warning {
-      color: var(--lh-color-amber);
-    }
+    .lh-kpi-trend.positive { color: var(--lh-color-sustainability); }
+    .lh-kpi-trend.negative { color: var(--lh-color-critical); }
+    .lh-kpi-trend.warning { color: var(--lh-color-amber); }
 
     /* Hero KPI variant */
-    .kpi-card.hero {
+    .lh-kpi-card.hero {
       background: var(--lh-gradient-lighthouse-beam);
       border: none;
     }
 
-    .kpi-card.hero .kpi-label,
-    .kpi-card.hero .kpi-value,
-    .kpi-card.hero .kpi-unit,
-    .kpi-card.hero .kpi-trend {
+    .lh-kpi-card.hero .lh-metric-label,
+    .lh-kpi-card.hero .lh-metric,
+    .lh-kpi-card.hero .lh-metric-hero,
+    .lh-kpi-card.hero .lh-metric-unit,
+    .lh-kpi-card.hero .lh-kpi-trend {
       color: var(--lh-color-text-inverse);
     }
 
-    .kpi-card.hero .kpi-value {
-      font-size: 36px;
-    }
-
-    .kpi-card.hero .kpi-trend {
+    .lh-kpi-card.hero .lh-kpi-trend {
       border-top-color: rgba(255, 255, 255, 0.2);
     }
 
     /* Scope-colored KPI cards */
-    .kpi-card.scope1 { border-left: 4px solid #D97706; }
-    .kpi-card.scope2 { border-left: 4px solid #2563EB; }
-    .kpi-card.scope3 { border-left: 4px solid #0D9488; }
+    .lh-kpi-card.scope1 { border-left: 4px solid var(--lh-color-scope1); }
+    .lh-kpi-card.scope2 { border-left: 4px solid var(--lh-color-scope2); }
+    .lh-kpi-card.scope3 { border-left: 4px solid var(--lh-color-scope3); }
+
+    /* ================================================================
+       BADGE COMPONENTS
+       ================================================================ */
+
+    .lh-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--lh-space-1) var(--lh-space-2);
+      font-family: var(--lh-font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.03em;
+      border-radius: var(--lh-radius-sm);
+      text-transform: uppercase;
+    }
+
+    .lh-badge-success {
+      background: var(--lh-color-sustainability-50);
+      color: var(--lh-color-sustainability-700);
+    }
+
+    .lh-badge-warning {
+      background: var(--lh-color-amber-50);
+      color: var(--lh-color-amber-700);
+    }
+
+    .lh-badge-error {
+      background: var(--lh-color-critical-50);
+      color: var(--lh-color-critical-700);
+    }
+
+    .lh-badge-info {
+      background: #DBEAFE;
+      color: #1E40AF;
+    }
+
+    .lh-badge-neutral {
+      background: var(--lh-color-surface-sunken);
+      color: var(--lh-color-text-secondary);
+    }
+
+    .lh-badge-scope1 {
+      background: var(--lh-color-scope1-bg);
+      color: var(--lh-color-scope1);
+    }
+
+    .lh-badge-scope2 {
+      background: var(--lh-color-scope2-bg);
+      color: var(--lh-color-scope2);
+    }
+
+    .lh-badge-scope3 {
+      background: var(--lh-color-scope3-bg);
+      color: var(--lh-color-scope3);
+    }
 
     /* ================================================================
        COLOR PALETTE DISPLAY
@@ -306,8 +535,42 @@
 
     .color-hex {
       font-size: 11px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--lh-font-mono);
       color: var(--lh-color-text-muted);
+    }
+
+    /* ================================================================
+       TYPOGRAPHY COMPARISON
+       ================================================================ */
+    .type-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .type-sample {
+      background: var(--lh-color-surface);
+      border-radius: var(--lh-radius-xl);
+      border: 1px solid var(--lh-color-border-subtle);
+      padding: var(--lh-space-6);
+      box-shadow: var(--lh-shadow-soft);
+    }
+
+    .type-sample-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--lh-color-text-muted);
+      margin-bottom: 16px;
+    }
+
+    .type-inter {
+      font-family: var(--lh-font-sans);
+    }
+
+    .type-mono {
+      font-family: var(--lh-font-mono);
     }
 
     /* ================================================================
@@ -386,7 +649,7 @@
 <body>
   <div class="preview-container">
     <h1 class="preview-title">LighthouseHlth Design System</h1>
-    <p class="preview-subtitle">Version 1.0.0 — "Luminous Climate Clinical"</p>
+    <p class="preview-subtitle">Version 1.0.0 — "Luminous Climate Clinical" — Technical Precision Typography</p>
 
     <!-- Color Palette -->
     <div class="section">
@@ -430,76 +693,140 @@
       </div>
     </div>
 
-    <!-- 1. Landing Page Button -->
+    <!-- Typography Comparison -->
     <div class="section">
-      <h2 class="section-title">1. Landing Page Button (Pill + Gradient)</h2>
-      <div class="component-row">
-        <div class="component-card">
-          <div class="component-label">Primary CTA — Hero Section</div>
-          <button class="btn-landing">Book a Demo</button>
+      <h2 class="section-title">Typography: Inter vs JetBrains Mono</h2>
+      <div class="type-comparison">
+        <div class="type-sample">
+          <div class="type-sample-label">Inter (Body & Labels)</div>
+          <p class="type-inter" style="font-size: 14px; color: var(--lh-color-text-main); margin-bottom: 12px;">
+            Inter is used for all body text, labels, and UI elements. It provides excellent readability at small sizes.
+          </p>
+          <p class="type-inter" style="font-size: 12px; color: var(--lh-color-text-muted); text-transform: uppercase; letter-spacing: 0.02em;">
+            Energy Consumption Label
+          </p>
         </div>
-        <div class="component-card">
-          <div class="component-label">Secondary CTA</div>
-          <button class="btn-landing" style="background: var(--lh-color-primary);">Get Started Free</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. App Buttons -->
-    <div class="section">
-      <h2 class="section-title">2. App Buttons (Compact, 12px Radius)</h2>
-      <div class="component-row">
-        <div class="component-card">
-          <div class="component-label">Primary Action</div>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <button class="btn-app">Save Changes</button>
-            <button class="btn-app btn-app-secondary">Cancel</button>
+        <div class="type-sample">
+          <div class="type-sample-label">JetBrains Mono (Metrics)</div>
+          <div style="margin-bottom: 16px;">
+            <span class="type-mono" style="font-size: 36px; font-weight: 600; letter-spacing: -0.02em;">1,234.56</span>
+            <span class="type-inter" style="font-size: 14px; color: var(--lh-color-text-secondary); margin-left: 8px;">kWh</span>
+          </div>
+          <div style="display: flex; gap: 24px;">
+            <div>
+              <span class="type-mono" style="font-size: 28px; font-weight: 600;">847</span>
+              <span class="type-inter" style="font-size: 12px; color: var(--lh-color-text-muted); display: block;">tCO₂e</span>
+            </div>
+            <div>
+              <span class="type-mono" style="font-size: 28px; font-weight: 600; color: var(--lh-color-sustainability);">-12.4%</span>
+              <span class="type-inter" style="font-size: 12px; color: var(--lh-color-text-muted); display: block;">vs baseline</span>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Button Components -->
+    <div class="section">
+      <h2 class="section-title">Button Components</h2>
+      <div class="component-row">
         <div class="component-card">
-          <div class="component-label">Success Action (App Gradient)</div>
-          <button class="btn-app btn-app-success">Commit Action Plan</button>
+          <div class="component-label">Marketing CTA (Pill + Gradient)</div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <button class="lh-btn-primary lh-btn-primary-lg">Book a Demo</button>
+            <button class="lh-btn-primary">Get Started</button>
+            <button class="lh-btn-primary lh-btn-primary-sm">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <div class="component-row" style="margin-top: 24px;">
+        <div class="component-card">
+          <div class="component-label">App Buttons (Solid, Outline, Ghost)</div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+            <button class="lh-btn-solid">Save Changes</button>
+            <button class="lh-btn-secondary">Cancel</button>
+            <button class="lh-btn-ghost">Skip</button>
+            <button class="lh-btn-success">Commit Plan</button>
+            <button class="lh-btn-danger">Delete</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- 3. KPI Cards -->
+    <!-- Input Components -->
     <div class="section">
-      <h2 class="section-title">3. KPI Cards</h2>
+      <h2 class="section-title">Input Components</h2>
       <div class="component-row">
-        <div class="kpi-card">
-          <div class="kpi-label">Energy Consumption</div>
-          <div class="kpi-value">1,234</div>
-          <div class="kpi-unit">kWh / month</div>
-          <div class="kpi-trend positive">
+        <div class="component-card" style="min-width: 300px;">
+          <div class="component-label">Text Input with Inset Shadow</div>
+          <input type="text" class="lh-input" placeholder="Enter facility name..." style="margin-bottom: 12px;">
+          <input type="text" class="lh-input" value="CommonSpirit Health - Denver Campus">
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="section">
+      <h2 class="section-title">KPI Cards (JetBrains Mono Metrics)</h2>
+      <div class="component-row">
+        <div class="lh-kpi-card">
+          <div class="lh-metric-label">Energy Consumption</div>
+          <div class="lh-metric">1,234</div>
+          <div class="lh-metric-unit">kWh / month</div>
+          <div class="lh-kpi-trend positive">
             <span>↓</span> 12% vs. last month
           </div>
         </div>
 
-        <div class="kpi-card scope1">
-          <div class="kpi-label">Scope 1 Emissions</div>
-          <div class="kpi-value">847</div>
-          <div class="kpi-unit">tCO₂e</div>
-          <div class="kpi-trend warning">
+        <div class="lh-kpi-card scope1">
+          <div class="lh-metric-label">Scope 1 Emissions</div>
+          <div class="lh-metric">847</div>
+          <div class="lh-metric-unit">tCO₂e</div>
+          <div class="lh-kpi-trend warning">
             <span>↑</span> 3% vs. baseline
           </div>
         </div>
 
-        <div class="kpi-card scope2">
-          <div class="kpi-label">Scope 2 Emissions</div>
-          <div class="kpi-value">2,156</div>
-          <div class="kpi-unit">tCO₂e</div>
-          <div class="kpi-trend positive">
+        <div class="lh-kpi-card scope2">
+          <div class="lh-metric-label">Scope 2 Emissions</div>
+          <div class="lh-metric">2,156</div>
+          <div class="lh-metric-unit">tCO₂e</div>
+          <div class="lh-kpi-trend positive">
             <span>↓</span> 8% vs. baseline
           </div>
         </div>
 
-        <div class="kpi-card hero">
-          <div class="kpi-label">Total Reduction</div>
-          <div class="kpi-value">18.4%</div>
-          <div class="kpi-unit">Year-over-Year</div>
-          <div class="kpi-trend">
+        <div class="lh-kpi-card hero">
+          <div class="lh-metric-label">Total Reduction</div>
+          <div class="lh-metric-hero">18.4%</div>
+          <div class="lh-metric-unit">Year-over-Year</div>
+          <div class="lh-kpi-trend">
             <span>★</span> Exceeding target
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badge Components -->
+    <div class="section">
+      <h2 class="section-title">Badge Components</h2>
+      <div class="component-row">
+        <div class="component-card">
+          <div class="component-label">Status Badges</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="lh-badge lh-badge-success">On Track</span>
+            <span class="lh-badge lh-badge-warning">Attention</span>
+            <span class="lh-badge lh-badge-error">Critical</span>
+            <span class="lh-badge lh-badge-info">Info</span>
+            <span class="lh-badge lh-badge-neutral">Pending</span>
+          </div>
+        </div>
+        <div class="component-card">
+          <div class="component-label">GHG Scope Badges</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="lh-badge lh-badge-scope1">Scope 1</span>
+            <span class="lh-badge lh-badge-scope2">Scope 2</span>
+            <span class="lh-badge lh-badge-scope3">Scope 3</span>
           </div>
         </div>
       </div>
@@ -526,15 +853,15 @@
           <div style="display: flex; gap: 12px;">
             <div class="mini-card" style="flex: 1;">
               <div class="mini-card-title">Scope 1</div>
-              <div style="font-size: 20px; font-weight: 700;">847 tCO₂e</div>
+              <div class="type-mono" style="font-size: 20px; font-weight: 600;">847 <span class="type-inter" style="font-size: 12px; font-weight: 400; color: var(--lh-color-text-muted);">tCO₂e</span></div>
             </div>
             <div class="mini-card" style="flex: 1;">
               <div class="mini-card-title">Scope 2</div>
-              <div style="font-size: 20px; font-weight: 700;">2,156 tCO₂e</div>
+              <div class="type-mono" style="font-size: 20px; font-weight: 600;">2,156 <span class="type-inter" style="font-size: 12px; font-weight: 400; color: var(--lh-color-text-muted);">tCO₂e</span></div>
             </div>
             <div class="mini-card" style="flex: 1;">
               <div class="mini-card-title">Scope 3</div>
-              <div style="font-size: 20px; font-weight: 700;">4,892 tCO₂e</div>
+              <div class="type-mono" style="font-size: 20px; font-weight: 600;">4,892 <span class="type-inter" style="font-size: 12px; font-weight: 400; color: var(--lh-color-text-muted);">tCO₂e</span></div>
             </div>
           </div>
         </div>
