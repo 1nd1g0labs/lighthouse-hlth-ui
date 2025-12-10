@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LighthouseHlth Design System Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Colors */
+      --lh-color-primary: #066E76;
+      --lh-color-primary-soft: #0E9BA7;
+      --lh-color-sustainability: #16A34A;
+      --lh-color-lime: #A3E635;
+      --lh-color-amber: #F97316;
+      --lh-color-critical: #DC2626;
+      --lh-color-canvas: #F3F5F7;
+      --lh-color-surface: #FFFFFF;
+      --lh-color-border-subtle: #E2E8F0;
+      --lh-color-text-main: #0F172A;
+      --lh-color-text-secondary: #475569;
+      --lh-color-text-muted: #64748B;
+      --lh-color-text-inverse: #FFFFFF;
+
+      /* Gradients */
+      --lh-gradient-lighthouse-beam: linear-gradient(135deg, #0E9BA7 0%, #16A34A 40%, #A3E635 100%);
+      --lh-gradient-success: linear-gradient(135deg, #16A34A 0%, #A3E635 100%);
+
+      /* Shadows */
+      --lh-shadow-soft: 10px 10px 30px rgba(15, 23, 42, 0.12), -8px -8px 20px rgba(255, 255, 255, 0.9);
+      --lh-shadow-card-hover: 12px 12px 35px rgba(15, 23, 42, 0.14), -10px -10px 24px rgba(255, 255, 255, 0.92);
+      --lh-shadow-button: 4px 4px 12px rgba(15, 23, 42, 0.15), -2px -2px 8px rgba(255, 255, 255, 0.8);
+      --lh-shadow-button-hover: 6px 6px 16px rgba(15, 23, 42, 0.18), -3px -3px 10px rgba(255, 255, 255, 0.85);
+      --lh-shadow-kpi: 8px 8px 24px rgba(15, 23, 42, 0.1), -6px -6px 18px rgba(255, 255, 255, 0.9);
+
+      /* Typography */
+      --lh-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--lh-font-sans);
+      background: var(--lh-color-canvas);
+      color: var(--lh-color-text-main);
+      min-height: 100vh;
+      padding: 48px;
+    }
+
+    .preview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .preview-title {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      color: var(--lh-color-text-main);
+    }
+
+    .preview-subtitle {
+      font-size: 16px;
+      color: var(--lh-color-text-muted);
+      margin-bottom: 48px;
+    }
+
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--lh-color-text-muted);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--lh-color-border-subtle);
+    }
+
+    .component-row {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .component-card {
+      background: var(--lh-color-surface);
+      border-radius: 16px;
+      border: 1px solid var(--lh-color-border-subtle);
+      padding: 32px;
+      box-shadow: var(--lh-shadow-soft);
+    }
+
+    .component-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--lh-color-text-muted);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ================================================================
+       1. LANDING PAGE BUTTON (Pill with Gradient)
+       ================================================================ */
+    .btn-landing {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--lh-gradient-lighthouse-beam);
+      color: var(--lh-color-text-inverse);
+      font-family: var(--lh-font-sans);
+      font-size: 18px;
+      font-weight: 600;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: var(--lh-shadow-button);
+      transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+    }
+
+    .btn-landing:hover {
+      box-shadow: var(--lh-shadow-button-hover);
+      transform: scale(1.01);
+    }
+
+    .btn-landing:active {
+      box-shadow: inset 2px 2px 4px rgba(15, 23, 42, 0.15), inset -1px -1px 3px rgba(255, 255, 255, 0.5);
+      transform: scale(0.99);
+    }
+
+    /* ================================================================
+       2. APP BUTTON (Compact, Solid)
+       ================================================================ */
+    .btn-app {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--lh-color-primary);
+      color: var(--lh-color-text-inverse);
+      font-family: var(--lh-font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: var(--lh-shadow-button);
+      transition: background 0.15s ease-out, box-shadow 0.15s ease-out;
+    }
+
+    .btn-app:hover {
+      background: var(--lh-color-primary-soft);
+      box-shadow: var(--lh-shadow-button-hover);
+    }
+
+    .btn-app-secondary {
+      background: transparent;
+      color: var(--lh-color-primary);
+      border: 1px solid var(--lh-color-border-subtle);
+      box-shadow: none;
+    }
+
+    .btn-app-secondary:hover {
+      background: var(--lh-color-primary);
+      color: var(--lh-color-text-inverse);
+      border-color: var(--lh-color-primary);
+    }
+
+    .btn-app-success {
+      background: var(--lh-gradient-success);
+    }
+
+    .btn-app-success:hover {
+      background: var(--lh-gradient-success);
+      filter: brightness(1.05);
+    }
+
+    /* ================================================================
+       3. KPI CARD
+       ================================================================ */
+    .kpi-card {
+      background: var(--lh-color-surface);
+      border-radius: 16px;
+      border: 1px solid var(--lh-color-border-subtle);
+      padding: 24px;
+      box-shadow: var(--lh-shadow-kpi);
+      min-width: 200px;
+      transition: box-shadow 0.25s ease-out;
+    }
+
+    .kpi-card:hover {
+      box-shadow: var(--lh-shadow-card-hover);
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--lh-color-text-muted);
+      margin-bottom: 8px;
+    }
+
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--lh-color-text-main);
+    }
+
+    .kpi-unit {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--lh-color-text-secondary);
+      margin-top: 4px;
+    }
+
+    .kpi-trend {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--lh-color-border-subtle);
+    }
+
+    .kpi-trend.positive {
+      color: var(--lh-color-sustainability);
+    }
+
+    .kpi-trend.negative {
+      color: var(--lh-color-critical);
+    }
+
+    .kpi-trend.warning {
+      color: var(--lh-color-amber);
+    }
+
+    /* Hero KPI variant */
+    .kpi-card.hero {
+      background: var(--lh-gradient-lighthouse-beam);
+      border: none;
+    }
+
+    .kpi-card.hero .kpi-label,
+    .kpi-card.hero .kpi-value,
+    .kpi-card.hero .kpi-unit,
+    .kpi-card.hero .kpi-trend {
+      color: var(--lh-color-text-inverse);
+    }
+
+    .kpi-card.hero .kpi-value {
+      font-size: 36px;
+    }
+
+    .kpi-card.hero .kpi-trend {
+      border-top-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Scope-colored KPI cards */
+    .kpi-card.scope1 { border-left: 4px solid #D97706; }
+    .kpi-card.scope2 { border-left: 4px solid #2563EB; }
+    .kpi-card.scope3 { border-left: 4px solid #0D9488; }
+
+    /* ================================================================
+       COLOR PALETTE DISPLAY
+       ================================================================ */
+    .color-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .color-box {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      box-shadow: var(--lh-shadow-soft);
+    }
+
+    .color-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--lh-color-text-main);
+    }
+
+    .color-hex {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--lh-color-text-muted);
+    }
+
+    /* ================================================================
+       WORKSPACE LAYOUT DEMO
+       ================================================================ */
+    .workspace-demo {
+      display: grid;
+      grid-template-columns: 200px 1fr 280px;
+      gap: 16px;
+      height: 400px;
+      background: var(--lh-color-canvas);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--lh-color-border-subtle);
+    }
+
+    .workspace-nav {
+      background: var(--lh-color-surface);
+      padding: 16px;
+      box-shadow: 4px 0 12px rgba(15, 23, 42, 0.08);
+    }
+
+    .workspace-center {
+      background: var(--lh-color-canvas);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .workspace-context {
+      background: var(--lh-color-surface);
+      padding: 16px;
+      box-shadow: -4px 0 12px rgba(15, 23, 42, 0.08);
+    }
+
+    .nav-item {
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--lh-color-text-secondary);
+      cursor: pointer;
+      transition: background 0.15s ease-out;
+    }
+
+    .nav-item:hover {
+      background: var(--lh-color-canvas);
+    }
+
+    .nav-item.active {
+      background: var(--lh-color-primary);
+      color: var(--lh-color-text-inverse);
+    }
+
+    .mini-card {
+      background: var(--lh-color-surface);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid var(--lh-color-border-subtle);
+      box-shadow: var(--lh-shadow-soft);
+    }
+
+    .mini-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .mini-card-content {
+      font-size: 12px;
+      color: var(--lh-color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <h1 class="preview-title">LighthouseHlth Design System</h1>
+    <p class="preview-subtitle">Version 1.0.0 — "Luminous Climate Clinical"</p>
+
+    <!-- Color Palette -->
+    <div class="section">
+      <h2 class="section-title">Color Palette</h2>
+      <div class="color-row">
+        <div class="color-swatch">
+          <div class="color-box" style="background: #066E76;"></div>
+          <span class="color-name">Primary Deep</span>
+          <span class="color-hex">#066E76</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: #0E9BA7;"></div>
+          <span class="color-name">Primary Soft</span>
+          <span class="color-hex">#0E9BA7</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: #16A34A;"></div>
+          <span class="color-name">Sustainability</span>
+          <span class="color-hex">#16A34A</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: #A3E635;"></div>
+          <span class="color-name">Lime Accent</span>
+          <span class="color-hex">#A3E635</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: #F97316;"></div>
+          <span class="color-name">Warning</span>
+          <span class="color-hex">#F97316</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: #DC2626;"></div>
+          <span class="color-name">Critical</span>
+          <span class="color-hex">#DC2626</span>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: linear-gradient(135deg, #0E9BA7 0%, #16A34A 40%, #A3E635 100%);"></div>
+          <span class="color-name">Lighthouse Beam</span>
+          <span class="color-hex">Gradient</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. Landing Page Button -->
+    <div class="section">
+      <h2 class="section-title">1. Landing Page Button (Pill + Gradient)</h2>
+      <div class="component-row">
+        <div class="component-card">
+          <div class="component-label">Primary CTA — Hero Section</div>
+          <button class="btn-landing">Book a Demo</button>
+        </div>
+        <div class="component-card">
+          <div class="component-label">Secondary CTA</div>
+          <button class="btn-landing" style="background: var(--lh-color-primary);">Get Started Free</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. App Buttons -->
+    <div class="section">
+      <h2 class="section-title">2. App Buttons (Compact, 12px Radius)</h2>
+      <div class="component-row">
+        <div class="component-card">
+          <div class="component-label">Primary Action</div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn-app">Save Changes</button>
+            <button class="btn-app btn-app-secondary">Cancel</button>
+          </div>
+        </div>
+        <div class="component-card">
+          <div class="component-label">Success Action (App Gradient)</div>
+          <button class="btn-app btn-app-success">Commit Action Plan</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. KPI Cards -->
+    <div class="section">
+      <h2 class="section-title">3. KPI Cards</h2>
+      <div class="component-row">
+        <div class="kpi-card">
+          <div class="kpi-label">Energy Consumption</div>
+          <div class="kpi-value">1,234</div>
+          <div class="kpi-unit">kWh / month</div>
+          <div class="kpi-trend positive">
+            <span>↓</span> 12% vs. last month
+          </div>
+        </div>
+
+        <div class="kpi-card scope1">
+          <div class="kpi-label">Scope 1 Emissions</div>
+          <div class="kpi-value">847</div>
+          <div class="kpi-unit">tCO₂e</div>
+          <div class="kpi-trend warning">
+            <span>↑</span> 3% vs. baseline
+          </div>
+        </div>
+
+        <div class="kpi-card scope2">
+          <div class="kpi-label">Scope 2 Emissions</div>
+          <div class="kpi-value">2,156</div>
+          <div class="kpi-unit">tCO₂e</div>
+          <div class="kpi-trend positive">
+            <span>↓</span> 8% vs. baseline
+          </div>
+        </div>
+
+        <div class="kpi-card hero">
+          <div class="kpi-label">Total Reduction</div>
+          <div class="kpi-value">18.4%</div>
+          <div class="kpi-unit">Year-over-Year</div>
+          <div class="kpi-trend">
+            <span>★</span> Exceeding target
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workspace Layout -->
+    <div class="section">
+      <h2 class="section-title">App Workspace Layout (3-Panel)</h2>
+      <div class="workspace-demo">
+        <div class="workspace-nav">
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 16px; color: var(--lh-color-primary);">LighthouseHlth</div>
+          <div class="nav-item active">Dashboard</div>
+          <div class="nav-item">Facilities</div>
+          <div class="nav-item">Energy Data</div>
+          <div class="nav-item">Alerts</div>
+          <div class="nav-item">Action Plans</div>
+          <div class="nav-item">Reports</div>
+        </div>
+        <div class="workspace-center">
+          <div class="mini-card" style="flex: 1;">
+            <div class="mini-card-title">Energy Footprint Overview</div>
+            <div class="mini-card-content">Central workspace for data tables, charts, and KPI grids</div>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <div class="mini-card" style="flex: 1;">
+              <div class="mini-card-title">Scope 1</div>
+              <div style="font-size: 20px; font-weight: 700;">847 tCO₂e</div>
+            </div>
+            <div class="mini-card" style="flex: 1;">
+              <div class="mini-card-title">Scope 2</div>
+              <div style="font-size: 20px; font-weight: 700;">2,156 tCO₂e</div>
+            </div>
+            <div class="mini-card" style="flex: 1;">
+              <div class="mini-card-title">Scope 3</div>
+              <div style="font-size: 20px; font-weight: 700;">4,892 tCO₂e</div>
+            </div>
+          </div>
+        </div>
+        <div class="workspace-context">
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 12px;">Context Panel</div>
+          <div class="mini-card" style="margin-bottom: 12px;">
+            <div class="mini-card-title">Alerts</div>
+            <div class="mini-card-content">2 anomalies detected</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-card-title">Quick Actions</div>
+            <div class="mini-card-content">Set alert rule, Export data</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
