@@ -48,7 +48,23 @@ testing: Vitest + React Testing Library
 accessibility: axe-core, jest-axe
 storybook: 7.x
 build: Vite
-package_manager: npm
+package_manager: npm (JavaScript), uv (Python)
+```
+
+### Python Package Management
+**CRITICAL: Always use `uv` for Python packages, NEVER use pip or conda**
+```bash
+# Install Python packages
+uv pip install package-name
+
+# Create virtual environment
+uv venv
+
+# Run Python scripts
+uv run python script.py
+
+# Install from requirements
+uv pip install -r requirements.txt
 ```
 
 ### Component Structure
