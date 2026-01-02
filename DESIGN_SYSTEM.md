@@ -31,7 +31,7 @@
 
 | Color | Token | Hex | Usage |
 |-------|-------|-----|-------|
-| **Primary Deep Teal** | `primary-500` | `#066E76` | Main buttons, links, charts, primary actions |
+| **Primary Deep Teal** | `primary-500` | `#057C8B` | Main buttons, links, charts, primary actions |
 | **Primary Soft Teal** | `primary-soft-500` | `#0E9BA7` | Hovers, secondary emphasis, gradients |
 | **Sustainability Green** | `sustainability-500` | `#16A34A` | Positive metrics, success states, reduced emissions |
 | **Lighthouse Lime** | `lime-500` | `#A3E635` | Accent highlights, gradient terminus (use sparingly) |
@@ -79,7 +79,7 @@
 --lh-gradient-lighthouse-beam: linear-gradient(135deg, #0E9BA7 0%, #16A34A 40%, #A3E635 100%);
 
 /* Secondary gradient */
---lh-gradient-primary: linear-gradient(135deg, #066E76 0%, #0E9BA7 100%);
+--lh-gradient-primary: linear-gradient(135deg, #057C8B 0%, #0E9BA7 100%);
 
 /* Success state (app only) */
 --lh-gradient-success: linear-gradient(135deg, #16A34A 0%, #A3E635 100%);
