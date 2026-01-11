@@ -83,3 +83,6 @@ export * from './components/kpi/dashboards';
 
 // KPI Types
 export * from './types/kpi';
+
+// Operator Workflow Components
+export * from './components/operator';
