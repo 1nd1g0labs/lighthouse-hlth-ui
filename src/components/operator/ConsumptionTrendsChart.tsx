@@ -178,6 +178,13 @@ export interface ConsumptionTrendsChartProps
    * @default 'lg'
    */
   size?: 'sm' | 'md' | 'lg' | 'xl';
+
+  /**
+   * Show time range and normalization controls in the chart header
+   * Set to false when controls are managed at the page level
+   * @default true
+   */
+  showControls?: boolean;
 }
 
 export const ConsumptionTrendsChart: React.FC<ConsumptionTrendsChartProps> = ({
@@ -196,6 +203,7 @@ export const ConsumptionTrendsChart: React.FC<ConsumptionTrendsChartProps> = ({
   isLoading = false,
   className,
   size = 'lg',
+  showControls = true,
 }) => {
   const [selectedTimeRange, setSelectedTimeRange] = useState<TimeRange>(defaultTimeRange);
   const [selectedNormalization, setSelectedNormalization] =
@@ -262,64 +270,66 @@ export const ConsumptionTrendsChart: React.FC<ConsumptionTrendsChartProps> = ({
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
-          {/* Time Range Selector */}
-          <div className="flex items-center gap-1 p-1 bg-neutral-100 rounded-lg">
-            {timeRanges.map((range) => (
-              <button
-                key={range}
-                onClick={() => handleTimeRangeChange(range)}
-                className={cn(
-                  'px-3 py-1.5 text-app-body-xs font-medium rounded-md transition-all',
-                  'focus:outline-none focus:ring-2 focus:ring-primary-500',
-                  selectedTimeRange === range
-                    ? 'bg-white text-primary-500 shadow-sm'
-                    : 'text-text-secondary hover:text-text-main'
-                )}
-                aria-pressed={selectedTimeRange === range}
-              >
-                {range}
-              </button>
-            ))}
-          </div>
+        {showControls && (
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Time Range Selector */}
+            <div className="flex items-center gap-1 p-1 bg-neutral-100 rounded-lg">
+              {timeRanges.map((range) => (
+                <button
+                  key={range}
+                  onClick={() => handleTimeRangeChange(range)}
+                  className={cn(
+                    'px-3 py-1.5 text-app-body-xs font-medium rounded-md transition-all',
+                    'focus:outline-none focus:ring-2 focus:ring-primary-500',
+                    selectedTimeRange === range
+                      ? 'bg-white text-primary-500 shadow-sm'
+                      : 'text-text-secondary hover:text-text-main'
+                  )}
+                  aria-pressed={selectedTimeRange === range}
+                >
+                  {range}
+                </button>
+              ))}
+            </div>
 
-          {/* Normalization Selector */}
-          <select
-            value={selectedNormalization}
-            onChange={(e) => handleNormalizationChange(e.target.value as NormalizationMode)}
-            className={cn(
-              'px-3 py-1.5 text-app-body-xs font-medium',
-              'bg-white border border-border-subtle rounded-lg',
-              'text-text-main',
-              'focus:outline-none focus:ring-2 focus:ring-primary-500',
-              'transition-all'
-            )}
-            aria-label="Normalization mode"
-          >
-            <option value="total">Total</option>
-            <option value="per_apd">Per APD</option>
-            <option value="per_sqft">Per sqft</option>
-          </select>
-
-          {/* Export Button */}
-          {onExport && (
-            <button
-              onClick={handleExport}
+            {/* Normalization Selector */}
+            <select
+              value={selectedNormalization}
+              onChange={(e) => handleNormalizationChange(e.target.value as NormalizationMode)}
               className={cn(
-                'inline-flex items-center gap-1.5 px-3 py-1.5',
-                'text-app-body-xs font-medium',
-                'text-primary-500 hover:text-primary-600',
-                'border border-primary-500 hover:bg-primary-50',
-                'rounded-lg transition-all',
-                'focus:outline-none focus:ring-2 focus:ring-primary-500'
+                'px-3 py-1.5 text-app-body-xs font-medium',
+                'bg-white border border-border-subtle rounded-lg',
+                'text-text-main',
+                'focus:outline-none focus:ring-2 focus:ring-primary-500',
+                'transition-all'
               )}
-              aria-label="Export data to CSV"
+              aria-label="Normalization mode"
             >
-              <Download size={14} />
-              Export
-            </button>
-          )}
-        </div>
+              <option value="total">Total</option>
+              <option value="per_apd">Per APD</option>
+              <option value="per_sqft">Per sqft</option>
+            </select>
+
+            {/* Export Button */}
+            {onExport && (
+              <button
+                onClick={handleExport}
+                className={cn(
+                  'inline-flex items-center gap-1.5 px-3 py-1.5',
+                  'text-app-body-xs font-medium',
+                  'text-primary-500 hover:text-primary-600',
+                  'border border-primary-500 hover:bg-primary-50',
+                  'rounded-lg transition-all',
+                  'focus:outline-none focus:ring-2 focus:ring-primary-500'
+                )}
+                aria-label="Export data to CSV"
+              >
+                <Download size={14} />
+                Export
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Chart */}
