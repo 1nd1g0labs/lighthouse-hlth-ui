@@ -48,6 +48,7 @@ export const Neutral: Story = {
 };
 
 export const AllVariants: Story = {
+  args: { children: 'Tag' },
   render: () => (
     <div className="flex items-center gap-3">
       <SectionTag variant="primary">Sustainability</SectionTag>
@@ -65,6 +66,7 @@ export const AllVariants: Story = {
 };
 
 export const SustainabilityCategories: Story = {
+  args: { children: 'Tag' },
   render: () => (
     <div className="flex flex-wrap gap-2">
       <SectionTag variant="primary">Energy</SectionTag>
@@ -85,6 +87,7 @@ export const SustainabilityCategories: Story = {
 };
 
 export const BlogPost: Story = {
+  args: { children: 'Tag' },
   render: () => (
     <article className="bg-white p-6 rounded-lg border border-gray-200 max-w-2xl">
       <div className="flex items-center gap-2 mb-3">
@@ -115,6 +118,7 @@ export const BlogPost: Story = {
 };
 
 export const FeatureCard: Story = {
+  args: { children: 'Tag' },
   render: () => (
     <div className="bg-white p-6 rounded-lg border border-gray-200 max-w-sm">
       <SectionTag variant="accent" className="mb-3">
@@ -142,6 +146,7 @@ export const FeatureCard: Story = {
 };
 
 export const InitiativeList: Story = {
+  args: { children: 'Tag' },
   render: () => (
     <div className="space-y-4 max-w-2xl">
       <div className="flex items-start gap-4 p-4 bg-white rounded-lg border border-gray-200">
@@ -189,6 +194,7 @@ export const InitiativeList: Story = {
 };
 
 export const DashboardMetrics: Story = {
+  args: { children: 'Tag' },
   render: () => (
     <div className="grid grid-cols-3 gap-4">
       <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -224,6 +230,7 @@ export const DashboardMetrics: Story = {
 };
 
 export const StatusTags: Story = {
+  args: { children: 'Tag' },
   render: () => (
     <div className="space-y-3">
       <div className="flex items-center gap-2">
@@ -254,6 +261,7 @@ export const StatusTags: Story = {
 };
 
 export const MultiTagging: Story = {
+  args: { children: 'Tag' },
   render: () => (
     <div className="bg-white p-6 rounded-lg border border-gray-200 max-w-xl">
       <div className="flex flex-wrap gap-2 mb-4">

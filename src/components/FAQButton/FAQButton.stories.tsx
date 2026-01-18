@@ -45,6 +45,9 @@ export const Active: Story = {
 };
 
 export const Interactive: Story = {
+  args: {
+    children: 'FAQ Question',
+  },
   render: () => {
     const FAQInteractive = () => {
       const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -85,6 +88,9 @@ export const Interactive: Story = {
 };
 
 export const PatientEducation: Story = {
+  args: {
+    children: 'FAQ Question',
+  },
   render: () => {
     const PatientFAQ = () => {
       const [open1, setOpen1] = useState(false);

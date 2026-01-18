@@ -163,6 +163,7 @@ export const NoPadding: Story = {
 };
 
 export const Dashboard: Story = {
+  args: {},
   render: () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8 max-w-7xl">
       <Card variant="sustainability">

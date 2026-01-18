@@ -75,6 +75,7 @@ export const FilledVariant: Story = {
 };
 
 export const AllPlatforms: Story = {
+  args: { platform: 'linkedin', href: '#' },
   render: () => (
     <div className="flex gap-3">
       <SocialIcon platform="facebook" href="#" variant="default" />
@@ -95,6 +96,7 @@ export const AllPlatforms: Story = {
 };
 
 export const AllPlatformsFilled: Story = {
+  args: { platform: 'linkedin', href: '#' },
   render: () => (
     <div className="flex gap-3">
       <SocialIcon platform="facebook" href="#" variant="filled" />
@@ -115,6 +117,7 @@ export const AllPlatformsFilled: Story = {
 };
 
 export const FooterSocialLinks: Story = {
+  args: { platform: 'linkedin', href: '#' },
   render: () => (
     <div className="bg-gray-50 p-8 rounded-lg">
       <div className="text-center mb-4">
@@ -154,6 +157,7 @@ export const FooterSocialLinks: Story = {
 };
 
 export const DarkBackground: Story = {
+  args: { platform: 'linkedin', href: '#' },
   render: () => (
     <div className="bg-gray-900 p-8 rounded-lg">
       <div className="flex justify-center gap-3">

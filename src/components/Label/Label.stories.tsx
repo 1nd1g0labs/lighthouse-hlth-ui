@@ -246,6 +246,9 @@ export const Playground: Story = {
  * Shows how Label is used for social proof on landing pages
  */
 export const LandingPageHero: Story = {
+  args: {
+    rating: 5,
+  },
   render: () => (
     <div className="max-w-md p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-h5 font-semibold mb-4">
@@ -277,6 +280,9 @@ export const LandingPageHero: Story = {
  * Shows Label with testimonial content
  */
 export const TestimonialSection: Story = {
+  args: {
+    rating: 5,
+  },
   render: () => (
     <div className="max-w-2xl p-8 bg-neutral-50 rounded-lg">
       <blockquote className="text-body-lg text-neutral-800 mb-6 italic">
@@ -318,6 +324,9 @@ export const TestimonialSection: Story = {
  * Shows different rating levels side by side
  */
 export const MultipleRatingsDisplay: Story = {
+  args: {
+    rating: 5,
+  },
   render: () => (
     <div className="flex flex-col gap-6 p-6 bg-white rounded-lg shadow-md max-w-md">
       <h3 className="text-h6 font-semibold">Service Ratings</h3>
@@ -357,6 +366,9 @@ export const MultipleRatingsDisplay: Story = {
  * Highlights accessibility features
  */
 export const AccessibilityDemo: Story = {
+  args: {
+    rating: 5,
+  },
   render: () => (
     <div className="flex flex-col gap-6 max-w-2xl">
       <div>

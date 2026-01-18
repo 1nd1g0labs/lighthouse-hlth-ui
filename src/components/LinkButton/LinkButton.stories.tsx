@@ -174,6 +174,10 @@ export const Playground: Story = {
  * Common pattern with multiple link buttons
  */
 export const CardFooterLinks: Story = {
+  args: {
+    href: '#',
+    children: 'Learn more',
+  },
   render: () => (
     <div className="max-w-md p-6 bg-white rounded-lg shadow-md">
       <h3 className="text-h6 font-semibold mb-2">
@@ -207,6 +211,10 @@ export const CardFooterLinks: Story = {
  * Secondary CTA below primary button
  */
 export const HeroSectionCTA: Story = {
+  args: {
+    href: '#',
+    children: 'Learn more',
+  },
   render: () => (
     <div className="max-w-2xl p-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white">
       <h1 className="text-h3 font-bold mb-4">
@@ -240,6 +248,10 @@ export const HeroSectionCTA: Story = {
  * Links to full articles or blog posts
  */
 export const ArticleList: Story = {
+  args: {
+    href: '#',
+    children: 'Read article',
+  },
   render: () => (
     <div className="max-w-2xl space-y-6">
       <article className="p-6 bg-white rounded-lg border border-neutral-200">
@@ -283,6 +295,10 @@ export const ArticleList: Story = {
  * Back navigation in multi-step flows
  */
 export const BreadcrumbNavigation: Story = {
+  args: {
+    href: '#',
+    children: 'Back to Dashboard',
+  },
   render: () => (
     <div className="max-w-2xl">
       <div className="mb-6">
@@ -315,6 +331,10 @@ export const BreadcrumbNavigation: Story = {
  * Multiple service cards with "Learn more" links
  */
 export const ServiceCardsGrid: Story = {
+  args: {
+    href: '#',
+    children: 'Learn more',
+  },
   render: () => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl">
       {[
@@ -360,6 +380,10 @@ export const ServiceCardsGrid: Story = {
  * Highlights accessibility features
  */
 export const AccessibilityDemo: Story = {
+  args: {
+    href: '#',
+    children: 'Learn more',
+  },
   render: () => (
     <div className="flex flex-col gap-6 max-w-2xl">
       <div>

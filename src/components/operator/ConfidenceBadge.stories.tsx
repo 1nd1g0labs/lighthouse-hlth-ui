@@ -135,6 +135,9 @@ export const LabelOnly: Story = {
  * All confidence levels comparison
  */
 export const AllLevels: Story = {
+  args: {
+    score: 85,
+  },
   render: () => (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-4">
@@ -169,6 +172,9 @@ export const AllLevels: Story = {
  * All sizes comparison
  */
 export const AllSizes: Story = {
+  args: {
+    score: 85,
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <div className="flex flex-col items-center gap-2">

@@ -46,6 +46,10 @@ export const Active: Story = {
 };
 
 export const NavigationMenu: Story = {
+  args: {
+    href: '#',
+    children: 'Link',
+  },
   render: () => (
     <nav className="flex items-center gap-1 border-b border-gray-200 pb-px">
       <Navlink href="/dashboard" isActive>
@@ -75,6 +79,10 @@ export const NavigationMenu: Story = {
 };
 
 export const HealthcareNav: Story = {
+  args: {
+    href: '#',
+    children: 'Link',
+  },
   render: () => (
     <div className="bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4">
@@ -108,6 +116,10 @@ export const HealthcareNav: Story = {
 };
 
 export const VerticalNav: Story = {
+  args: {
+    href: '#',
+    children: 'Link',
+  },
   render: () => (
     <nav className="flex flex-col items-start gap-1 w-64 border-r border-gray-200 pr-4">
       <Navlink href="/home" isActive>
@@ -137,6 +149,10 @@ export const VerticalNav: Story = {
 };
 
 export const MobileNav: Story = {
+  args: {
+    href: '#',
+    children: 'Link',
+  },
   render: () => (
     <nav className="flex flex-col items-stretch gap-2 w-full bg-white rounded-lg p-4 shadow-lg">
       <Navlink href="/dashboard" isActive className="justify-start">
@@ -163,6 +179,10 @@ export const MobileNav: Story = {
 };
 
 export const WithIconNav: Story = {
+  args: {
+    href: '#',
+    children: 'Link',
+  },
   render: () => (
     <nav className="flex items-center gap-1 border-b border-gray-200 pb-px">
       <Navlink href="/home" isActive>

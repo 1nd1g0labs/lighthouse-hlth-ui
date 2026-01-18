@@ -55,6 +55,10 @@ export const LightVariant: Story = {
 };
 
 export const FooterNavigation: Story = {
+  args: {
+    href: '#',
+    children: 'Link',
+  },
   render: () => (
     <footer className="bg-gray-50 p-8 rounded-lg">
       <div className="flex flex-col gap-6">
@@ -124,6 +128,10 @@ export const FooterNavigation: Story = {
 };
 
 export const DarkFooter: Story = {
+  args: {
+    href: '#',
+    children: 'Link',
+  },
   render: () => (
     <footer className="bg-gray-900 p-8 rounded-lg">
       <div className="flex flex-col gap-6">
@@ -232,6 +240,10 @@ export const DarkFooter: Story = {
 };
 
 export const SimpleFooter: Story = {
+  args: {
+    href: '#',
+    children: 'Link',
+  },
   render: () => (
     <footer className="bg-white p-6 border-t border-gray-200">
       <div className="flex items-center justify-between">
@@ -256,6 +268,10 @@ export const SimpleFooter: Story = {
 };
 
 export const MobileFooter: Story = {
+  args: {
+    href: '#',
+    children: 'Link',
+  },
   render: () => (
     <footer className="bg-gray-50 p-6 rounded-lg max-w-sm">
       <div className="flex flex-col gap-4">

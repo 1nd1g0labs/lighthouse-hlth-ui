@@ -226,6 +226,7 @@ export const Playground: Story = {
  * Shows all 5 variants side by side
  */
 export const VariantComparison: Story = {
+  args: { children: 'Button' },
   render: () => (
     <div className="flex flex-col gap-4">
       <Button variant="green-right">Green Right (default)</Button>
@@ -249,6 +250,7 @@ export const VariantComparison: Story = {
  * Primary and secondary CTAs in hero
  */
 export const HeroSection: Story = {
+  args: { children: 'Button' },
   render: () => (
     <div className="max-w-4xl p-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg text-white">
       <h1 className="text-h2 font-bold mb-4">
@@ -278,6 +280,7 @@ export const HeroSection: Story = {
  * Buttons in feature card grid
  */
 export const FeatureCards: Story = {
+  args: { children: 'Button' },
   render: () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
       {[
@@ -316,6 +319,7 @@ export const FeatureCards: Story = {
  * Primary and secondary actions in forms
  */
 export const FormActions: Story = {
+  args: { children: 'Button' },
   render: () => (
     <div className="max-w-md p-8 bg-white rounded-lg shadow-lg">
       <h2 className="text-h5 font-semibold mb-6">Request a Demo</h2>
@@ -365,6 +369,7 @@ export const FormActions: Story = {
  * CTA buttons in pricing cards
  */
 export const PricingTiers: Story = {
+  args: { children: 'Button' },
   render: () => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl">
       {[
@@ -437,6 +442,7 @@ export const PricingTiers: Story = {
  * Buttons in confirmation modal
  */
 export const ModalActions: Story = {
+  args: { children: 'Button' },
   render: () => (
     <div className="max-w-md p-6 bg-white rounded-lg shadow-xl">
       <h3 className="text-h6 font-semibold mb-2">Confirm Deletion</h3>
@@ -464,6 +470,7 @@ export const ModalActions: Story = {
  * Highlights accessibility features
  */
 export const AccessibilityDemo: Story = {
+  args: { children: 'Button' },
   render: () => (
     <div className="flex flex-col gap-6 max-w-2xl">
       <div>

@@ -79,6 +79,11 @@ export const PrimaryVariant: Story = {
 };
 
 export const ContactSection: Story = {
+  args: {
+    icon: 'email',
+    href: 'mailto:hello@lighthousehlth.com',
+    children: 'hello@lighthousehlth.com',
+  },
   render: () => (
     <div className="bg-white p-8 rounded-lg border border-gray-200 max-w-md">
       <h3 className="text-20 font-semibold text-gray-900 mb-6">
@@ -110,6 +115,11 @@ export const ContactSection: Story = {
 };
 
 export const HospitalContact: Story = {
+  args: {
+    icon: 'email',
+    href: 'mailto:hello@lighthousehlth.com',
+    children: 'hello@lighthousehlth.com',
+  },
   render: () => (
     <div className="bg-gray-50 p-8 rounded-lg max-w-lg">
       <h2 className="text-24 font-semibold text-gray-900 mb-2">
@@ -173,6 +183,11 @@ export const HospitalContact: Story = {
 };
 
 export const FooterContact: Story = {
+  args: {
+    icon: 'email',
+    href: 'mailto:hello@lighthousehlth.com',
+    children: 'hello@lighthousehlth.com',
+  },
   render: () => (
     <footer className="bg-gray-900 p-8 rounded-lg">
       <div className="grid grid-cols-2 gap-8">
@@ -224,6 +239,11 @@ export const FooterContact: Story = {
 };
 
 export const CompactList: Story = {
+  args: {
+    icon: 'email',
+    href: 'mailto:info@hospital.org',
+    children: 'info@hospital.org',
+  },
   render: () => (
     <div className="space-y-2">
       <ContactLink icon="email" href="mailto:info@hospital.org" variant="primary">
@@ -251,6 +271,11 @@ export const CompactList: Story = {
 };
 
 export const SupportContact: Story = {
+  args: {
+    icon: 'email',
+    href: 'mailto:support@lighthousehlth.com',
+    children: 'support@lighthousehlth.com',
+  },
   render: () => (
     <div className="bg-primary-50 border border-primary-200 p-6 rounded-lg max-w-md">
       <h3 className="text-18 font-semibold text-gray-900 mb-2">

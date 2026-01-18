@@ -124,6 +124,7 @@ export const CustomColors: Story = {
 };
 
 export const AllRatings: Story = {
+  args: { rating: 5 },
   render: () => (
     <div className="space-y-3">
       <div className="flex items-center gap-4">
@@ -158,6 +159,7 @@ export const AllRatings: Story = {
 };
 
 export const PatientSatisfaction: Story = {
+  args: { rating: 5 },
   render: () => (
     <div className="bg-white p-6 rounded-lg border border-gray-200 max-w-md">
       <h3 className="text-18 font-semibold text-gray-900 mb-4">
@@ -201,6 +203,7 @@ export const PatientSatisfaction: Story = {
 };
 
 export const SustainabilityProgram: Story = {
+  args: { rating: 5 },
   render: () => (
     <div className="bg-gray-50 p-6 rounded-lg max-w-md">
       <h3 className="text-18 font-semibold text-gray-900 mb-2">

@@ -105,6 +105,11 @@ export const WithoutActions: Story = {
 };
 
 export const MultipleAlerts: Story = {
+  args: {
+    severity: 'critical',
+    title: 'Multiple Alerts',
+    message: 'Example alert',
+  },
   render: () => (
     <div className="w-full max-w-2xl">
       <AlertList
